@@ -1,0 +1,30 @@
+.container {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+.CFRMenu{
+    li{
+        padding-bottom: 7px;
+        .menu-item{
+            padding: 15px 15px;
+                border-radius: 8px;
+                hr{
+                    color: #73779133;
+                }
+        }
+    }
+    .menu-item-text{    
+        color: #737791;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .menu-item-active{
+        .menu-item-icon-active{
+            color: #fff;
+        }
+        .menu-item-text{
+            color: #fff;
+        }
+        background-color: #5D5FEF;
+    }
+}

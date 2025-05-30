@@ -1,0 +1,40 @@
+.resetcode-container {
+    input {
+        border: 1px solid rgba(115, 119, 145, 0.2509803922);
+        border-radius: 8px;
+        width: 91px;
+        height: 72px;
+        font-size: 20px;
+        padding: 5px 35px;
+    }
+
+    .verificationDigits {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    label {
+        text-align: left;
+        font-size: 12px;
+        margin-bottom: 8px;
+        display: flex;
+        color: #737791;
+        padding-left: 98px;
+    }
+
+    button {
+        margin: 0px auto;
+        width: 78%;
+        background-color: #5D5FEF;
+        padding: 17px 0px;
+    }
+
+    p {
+        font-size: 16px;
+        color: #8E8E9C;
+    }
+
+}
