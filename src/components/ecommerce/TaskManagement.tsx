@@ -1,6 +1,7 @@
-import React from 'react';
-import { MoreVertical, Check, Plus } from 'react-feather';
-import "./TargetRow.scss"
+import React from "react";
+import { MoreVertical, Check, Plus } from "react-feather";
+import "./TargetRow.scss";
+import HeadingTwo from "../ui/heading/HeadingTwo";
 
 type Task = {
   id: string;
@@ -10,7 +11,7 @@ type Task = {
   description: string;
   deadline?: string;
   assignedDate: string;
-  status: 'active' | 'completed';
+  status: "active" | "completed";
 };
 
 type TaskListProps = {
@@ -21,37 +22,54 @@ type TaskListProps = {
 
 const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
   return (
-    <div className="taskManagement">
-    <div className="task-management-container">
+    <div className="taskManagement bg-white rounded-lg p-6 flex flex-col">
       <div className="task-header">
-        <h2>Tasks</h2>
-        <div className="task-actions">
-          <span className="more-count">+15 more</span>
-          <div className="status-filter">
-            <span className="active">Active</span>
+        <div className="flex items-center justify-between mb-3">
+          {/* Left: Heading */}
+          <HeadingTwo
+            text="Tasks"
+            className="text-[20px] font-bold tracking-tight"
+          />
+
+          {/* Right: Buttons */}
+          <div className="flex items-center gap-2">
+           
+            <button
+              className="create-task flex items-center gap-1"
+              onClick={onAddTask}
+            >
+              <Plus size={16} />
+              <span>Create Task</span>
+            </button>
+            
           </div>
-          <button className="icon-button">
-            <MoreVertical size={18} />
-          </button>
         </div>
       </div>
 
-      <div className="task-list">
-        {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))}
-      </div>
-
       <div className="task-footer">
-        <button className="create-task" onClick={onAddTask}>
-          <Plus size={16} />
-          <span>Create Task</span>
-        </button>
-        <button className="view-all" onClick={onViewAll}>
-          View All
-        </button>
+          <div className="task-actions">
+            <span className="more-count">+15 more</span>
+            <div className="status-filter">
+              <span className="active">Active</span>
+            </div>
+            <button className="icon-button">
+              <MoreVertical size={18} />
+            </button>
+             <button className="view-all" onClick={onViewAll}>
+              View All
+            </button>
+          </div>
+        </div>
+
+      <div className="task-management-container bg-white h-[340px] rounded-lg p-6 sm:p-6 flex flex-col dark:text-white dark:bg-[#0D0D0D] overflow-y-auto">
+        
+
+        <div className="task-list">
+          {tasks.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
@@ -60,9 +78,7 @@ const TaskCard = ({ task }: { task: Task }) => {
   return (
     <div className={`task-card ${task.status}`}>
       <div className="task-user">
-        <div className="user-avatar">
-          {task.userName.charAt(0)}
-        </div>
+        <div className="user-avatar">{task.userName.charAt(0)}</div>
         <div className="user-info">
           <span className="user-name">{task.userName}</span>
           <span className="user-role">{task.userRole}</span>
@@ -73,19 +89,17 @@ const TaskCard = ({ task }: { task: Task }) => {
         <h3 className="task-title">{task.title}</h3>
         <p className="task-description">{task.description}</p>
         {task.deadline && (
-          <div className="task-deadline">
-            Deadline: {task.deadline}
-          </div>
+          <div className="task-deadline">Deadline: {task.deadline}</div>
         )}
       </div>
 
       <div className="task-meta">
-        <span className="assigned-date">
-          Assigned on: {task.assignedDate}
-        </span>
+        <span className="assigned-date">Assigned on: {task.assignedDate}</span>
         <div className={`status-badge ${task.status}`}>
-          {task.status === 'completed' && <Check size={14} />}
-          <span>{task.status.charAt(0).toUpperCase() + task.status.slice(1)}</span>
+          {task.status === "completed" && <Check size={14} />}
+          <span>
+            {task.status.charAt(0).toUpperCase() + task.status.slice(1)}
+          </span>
         </div>
       </div>
     </div>

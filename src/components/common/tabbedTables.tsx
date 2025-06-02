@@ -23,7 +23,7 @@ const Tabs = () => {
         "Optimize your warehouse layout to improve order fulfillment time.",
     },
     {
-      type: "Marketing Campaign",
+      type: "Sales Campaign",
       message: "Launch a flash sale campaign to reduce overstock items.",
     },
     {
@@ -31,7 +31,7 @@ const Tabs = () => {
       message: "Analyze your sales data to forecast upcoming stock needs.",
     },
     {
-      type: "Marketing Campaign",
+      type: "Reports Campaign",
       message: "Introduce referral rewards to expand customer base.",
     },
   ];

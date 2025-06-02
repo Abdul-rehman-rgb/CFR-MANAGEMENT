@@ -10,7 +10,7 @@ const SalesTrendChart = ({
   showLegend = true,
   lineColor = '#4A90E2',
   circleColor = '#4A90E2',
-  height = 300,
+  height = "100%",
   width = '100%'
 }) => {
   // Sample monthly data - in a real app, this would come from props

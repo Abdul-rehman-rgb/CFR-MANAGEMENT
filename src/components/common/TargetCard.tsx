@@ -1,11 +1,11 @@
-import React from 'react';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import OutlineBtn from '../ui/button/OutLine';
-import { FiPlus } from 'react-icons/fi';
-import HeadingTwo from '../ui/heading/HeadingTwo';
-import HeadingOne from '../ui/heading/HeadinhOne';
-import SubHeading from '../ui/heading/SubHeading';
+import React from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import OutlineBtn from "../ui/button/OutLine";
+import { FiPlus } from "react-icons/fi";
+import HeadingTwo from "../ui/heading/HeadingTwo";
+import HeadingOne from "../ui/heading/HeadinhOne";
+import SubHeading from "../ui/heading/SubHeading";
 
 type TargetCardProps = {
   achieved: number;
@@ -23,20 +23,20 @@ const TargetCard: React.FC<TargetCardProps> = ({
   const percentage = Math.round((achieved / target) * 100);
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 w-full">
+    <div className="bg-white dark:bg-gray-900 rounded-xl pl-2 w-full py-1">
       {/* Header */}
-      <div className="flex flex-row md:flex-row max-sm:flex-row sm:flex-row justify-between items-start sm:items-center mb-6 gap-2 sm:gap-0 lg:flex-row">
+      <div className="flex flex-row md:flex-row max-sm:flex-row sm:flex-row justify-between items-start sm:items-center mb-1 gap-2 sm:gap-0 lg:flex-row">
         <HeadingTwo text="Target" />
         <div className="flex flex-col items-start sm:items-end space-y-1">
           <OutlineBtn
             BtnName="Create Target"
             icon={FiPlus}
             onClick={onCreateClick}
-            className="rounded-[6px] text-[10px]"
+            className="rounded-[6px] text-[9px]"
           />
           <button
             onClick={onReportClick}
-            className="text-[10px] text-[#5D5FEF] underline"
+            className="text-[9px] text-[#5D5FEF] underline"
           >
             View target report
           </button>
@@ -44,17 +44,17 @@ const TargetCard: React.FC<TargetCardProps> = ({
       </div>
 
       {/* Progress */}
-      <div className="flex justify-center items-center mb-6">
+      <div className="flex justify-center items-center mb-1">
         <div className="w-20 h-20 max-sm:w-28 max-sm:h-28">
           <CircularProgressbar
             value={percentage}
             text={`${percentage}%`}
             styles={buildStyles({
-              textColor: '#22c55e',
-              pathColor: '#6366f1',
-              trailColor: '#e5e7eb',
-              textSize: '16px',
-              strokeLinecap: 'round',
+              textColor: "#22c55e",
+              pathColor: "#6366f1",
+              trailColor: "#e5e7eb",
+              textSize: "26px",
+              strokeLinecap: "round",
             })}
           />
           {/* <div className="text-center mt-1 text-gray-500 text-xs sm:text-sm">Achieved</div> */}

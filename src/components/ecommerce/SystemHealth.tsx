@@ -15,8 +15,13 @@ type SystemHealthGaugeChart = {
 
 const SystemHealthGauge = ({ overall, shopify, amazon, ebay, changeText, changeColor } : SystemHealthGaugeChart) => {
   return (
-    <div className="p-6 rounded-xl bg-white shadow-md w-full max-w-md">
+    
+    // <div className="p-6 rounded-xl bg-white shadow-md max-w-md bg-white h-[450px] rounded-lg p-6 sm:p-6 flex flex-col dark:text-white dark:bg-[#0D0D0D]">
+       <div className="w-full p-6 rounded-xl bg-white shadow-md h-[550px] flex flex-col dark:text-white dark:bg-[#0D0D0D]">
+ 
+    
       <div className="flex justify-between items-center mb-4">
+          <h2 className="mb-3 text-2xl font-bold">System Health</h2>
         {/* <h2 className="text-2xl font-bold text-slate-800">System Health</h2> */}
         <div className="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white text-sm">
           This Year ▼
@@ -41,17 +46,17 @@ const SystemHealthGauge = ({ overall, shopify, amazon, ebay, changeText, changeC
       <div className="text-center mt-[-20px] text-3xl font-bold text-green-600">{overall}%</div>
       <p className="text-center text-gray-500 text-sm">Overall Health</p>
 
-      <div className="flex justify-between mt-4 text-sm">
+      <div className="flex justify-between mt-4 text-sm px-7">
         <div className="text-center">
-          <div className="font-bold text-green-600">{shopify}%</div>
+          <div className="font-bold text-green-600 text-2xl">{shopify}%</div>
           <div className="text-gray-500">Shopify</div>
         </div>
         <div className="text-center">
-          <div className="font-bold text-yellow-500">{amazon}%</div>
+          <div className="font-bold text-yellow-500 text-2xl">{amazon}%</div>
           <div className="text-gray-500">Amazon</div>
         </div>
         <div className="text-center">
-          <div className="font-bold text-red-500">{ebay}%</div>
+          <div className="font-bold text-red-500 text-2xl">{ebay}%</div>
           <div className="text-gray-500">eBay</div>
         </div>
       </div>

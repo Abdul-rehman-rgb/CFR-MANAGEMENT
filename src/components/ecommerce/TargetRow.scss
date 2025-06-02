@@ -14,14 +14,15 @@
   .task-management-container {
     background: white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 0px 15px 15px 0px;
+    
 }
 
 .task-header {
-  display: flex;
+  // display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .task-header h2 {
@@ -168,16 +169,18 @@
 .task-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid #eee;
+  // margin-top: 20px;
+  // padding-top: 16px;
+  // border-top: 1px solid #eee;
 }
 
 .create-task {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #4CAF50;
+  // background: #4CAF50;
+  background: #5D5FEF;
+
   color: white;
   border: none;
   padding: 8px 16px;

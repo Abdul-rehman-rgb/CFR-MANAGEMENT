@@ -16,7 +16,7 @@ export default function TargetRow() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col md:flex-col lg:flex-row gap-4 sm:gap-6 w-full h-full">
+      <div className="flex flex-col md:flex-col lg:flex-row gap-3 sm:gap-3 w-full h-full">
         {/* Target Card */}
         <div className="flex-1 h-full rounded-2xl dark:border-gray-800 dark:bg-white/[0.03]">
           <TargetCard

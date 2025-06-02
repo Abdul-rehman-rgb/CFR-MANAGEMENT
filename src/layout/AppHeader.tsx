@@ -120,7 +120,7 @@ const AppHeader: React.FC = () => {
 
           <div className="hidden lg:block">
              <div>
-            <h2 className="m-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Good Morning, John!</h2>
+            <h2 className="m-1 text-lg font-bold tracking-tight text-gray-900 dark:text-white">Good Morning, John!</h2>
           </div>
             
           </div>
