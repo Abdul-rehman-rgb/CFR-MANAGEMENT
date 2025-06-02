@@ -5,47 +5,40 @@ import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { MoreDotIcon } from "../../icons";
 import { useState } from "react";
 
-export default function MonthlySalesChart() {
+export default function SalesTrendsChart() {
+  const salesData = [40, 65, 70, 80, 56, 55, 40, 60, 75, 70, 65, 60];
+  const maxValue = Math.max(...salesData);
+
   const options: ApexOptions = {
-    colors: ["#465fff"],
     chart: {
-      fontFamily: "Outfit, sans-serif",
-      type: "bar",
-      height: 180,
+      type: "line",
+      height: 300,
       toolbar: {
         show: false,
       },
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: "39%",
-        borderRadius: 5,
-        borderRadiusApplication: "end",
+      sparkline: {
+        enabled: false,
       },
     },
-    dataLabels: {
-      enabled: false,
-    },
     stroke: {
-      show: true,
-      width: 4,
-      colors: ["transparent"],
+      width: 2,
+      curve: "straight",
+      colors: ["#4A90E2"], // Line color
+    },
+    markers: {
+      size: 6,
+      colors: ["#4A90E2"], // Dot color
+      strokeColors: "#fff", // White border around dots
+      strokeWidth: 2,
+      hover: {
+        size: 8,
+      },
+      shape: "circle",
     },
     xaxis: {
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
       ],
       axisBorder: {
         show: false,
@@ -53,88 +46,87 @@ export default function MonthlySalesChart() {
       axisTicks: {
         show: false,
       },
-    },
-    legend: {
-      show: true,
-      position: "top",
-      horizontalAlign: "left",
-      fontFamily: "Outfit",
-    },
-    yaxis: {
-      title: {
-        text: undefined,
-      },
-    },
-    grid: {
-      yaxis: {
-        lines: {
-          show: true,
+      labels: {
+        style: {
+          colors: "#666",
+          fontSize: "10px",
         },
       },
     },
-    fill: {
-      opacity: 1,
+    yaxis: {
+      show: false,
+      min: 0,
+      max: maxValue * 1.1, // Add padding at top
     },
-
+    grid: {
+      show: false,
+    },
     tooltip: {
-      x: {
+      enabled: true,
+      y: {
+        formatter: (val: number) => `${val}%`,
+      },
+      marker: {
         show: false,
       },
-      y: {
-        formatter: (val: number) => `${val}`,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        type: "vertical",
+        gradientToColors: ["rgba(255,255,255,0)"],
+        stops: [0, 100],
+        opacityFrom: 0.4,
+        opacityTo: 0,
       },
     },
   };
-  const series = [
-    {
-      name: "Sales",
-      data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
-    },
-  ];
+
   const [isOpen, setIsOpen] = useState(false);
-
-  function toggleDropdown() {
-    setIsOpen(!isOpen);
-  }
-
-  function closeDropdown() {
-    setIsOpen(false);
-  }
+  
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
+    <div className="rounded-2xl border border-gray-200 bg-white px-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-          Monthly Sales
+          Sales Trends
         </h3>
         <div className="relative inline-block">
-          <button className="dropdown-toggle" onClick={toggleDropdown}>
+          <button className="dropdown-toggle" onClick={() => setIsOpen(!isOpen)}>
             <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 size-6" />
           </button>
-          <Dropdown
-            isOpen={isOpen}
-            onClose={closeDropdown}
-            className="w-40 p-2"
-          >
-            <DropdownItem
-              onItemClick={closeDropdown}
-              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
-            >
+          <Dropdown isOpen={isOpen} onClose={() => setIsOpen(false)} className="w-40 p-2">
+            <DropdownItem onItemClick={() => setIsOpen(false)} className="w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
               View More
             </DropdownItem>
-            <DropdownItem
-              onItemClick={closeDropdown}
-              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
-            >
+            <DropdownItem onItemClick={() => setIsOpen(false)} className="w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
               Delete
             </DropdownItem>
           </Dropdown>
         </div>
       </div>
 
-      <div className="max-w-full overflow-x-auto custom-scrollbar">
-        <div className="-ml-5 min-w-[650px] xl:min-w-full pl-2">
-          <Chart options={options} series={series} type="bar" height={180} />
-        </div>
+      <div className="flex items-center gap-4 mt-4">
+        <p className="text-3xl font-bold text-gray-800 dark:text-white/90">75.08%</p>
+        <span className="text-sm text-green-600 dark:text-green-400">↑ 2% more than year</span>
+      </div>
+
+      <div className="mt-4">
+        <Chart 
+          options={options} 
+          series={[{ 
+            name: "Sales", 
+            data: salesData 
+          }]} 
+          type="area" // Changed to area for the gradient fill
+          height={300} 
+        />
+      </div>
+
+      <div className="flex justify-center mt-2">
+        <p className="text-xs text-gray-500 dark:text-gray-400">This Year</p>
       </div>
     </div>
   );

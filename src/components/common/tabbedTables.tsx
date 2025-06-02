@@ -6,9 +6,9 @@ const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Stock Alerts");
 
   const tabs = [
-    "Stock Alerts",
-    "Marketing Campaign",
-    "Operational Suggestions",
+    "All",
+    "Completed",
+    "Pending",
   ];
 
   const activities = [

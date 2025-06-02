@@ -64,5 +64,10 @@
         }
     }
     }
-
+    .fc-dayGridMonth-view.fc-view.fc-daygrid{
+        min-width: 500px !important;
+    }
+    .fc.fc-media-screen{
+        min-height: 62vh !important;
+    }
 }

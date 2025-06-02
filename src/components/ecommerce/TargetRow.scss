@@ -10,3 +10,197 @@
   background: linear-gradient(90deg, rgba(255, 199, 200, 0.5) 0%, rgba(255, 219, 220, 0.5) 51.17%, rgba(255, 199, 200, 0.5) 100%);
 
 }
+.taskManagement{
+  .task-management-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.more-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.status-filter {
+  background: #f0f0f0;
+  border-radius: 16px;
+  padding: 4px 12px;
+}
+
+.status-filter .active {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+.task-card.completed {
+  opacity: 0.7;
+  border-left: 4px solid #4CAF50;
+}
+
+.task-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4CAF50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.task-content {
+  margin-bottom: 16px;
+}
+
+.task-title {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.task-description {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.task-deadline {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #F44336;
+  font-weight: 500;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-badge.active {
+  background: #E3F2FD;
+  color: #1976D2;
+}
+
+.status-badge.completed {
+  background: #E8F5E9;
+  color: #4CAF50;
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.create-task {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-task:hover {
+  background: #3d8b40;
+}
+
+.view-all {
+  background: none;
+  border: none;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.view-all:hover {
+  color: #333;
+}
+}

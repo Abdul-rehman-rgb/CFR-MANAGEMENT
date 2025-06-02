@@ -2,8 +2,9 @@ import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 // import { FaExclamationCircle } from "react-icons/fa";
-import { FaExclamationCircle } from '../../icons';
-
+import { FaExclamationCircle } from "../../icons";
+import HeadingTwo from "../ui/heading/HeadingTwo";
+import HeadingOne from "../ui/heading/HeadinhOne";
 
 type CardProps = {
   title: string;
@@ -25,26 +26,43 @@ const BottleneckCard = ({
   icon,
 }: CardProps) => {
   return (
-    <div className=" p-4 rounded-xl w-full">
-      <div className="flex justify-between items-start">
-        <div>
-          <p className="text-sm font-semibold text-blue-900">{title}</p>
-          <h2 className="text-xl font-bold text-red-700">{issue}</h2>
+    <div className="p-4 rounded-xl w-full bg-[#FFC7C8] space-y-4 h-full">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        {/* Left Side - Info */}
+        <div className="flex flex-col gap-2">
+          <p className="text-base text-[16px] sm:text-lg font-semibold text-[#151D48] dark:text-orange-400">
+            {title}
+          </p>
+          <HeadingTwo
+            className="text-[24px] sm:text-2xl font-bold text-red-700"
+            text={issue}
+          />
         </div>
-        {icon && <div className="text-4xl">{icon}</div>}
+
+        {/* Right Side - Icon */}
+        {icon && (
+          <div className="text-4xl sm:text-5xl text-red-600">{icon}</div>
+        )}
       </div>
 
-      <div className="mt-4">
-        <h3 className="text-2xl font-bold text-blue-900">{orderCount} Orders</h3>
-        <p className="text-sm text-red-500">{status}</p>
+      <div className="flex flex-row justify-between">
+        <div>
+          <HeadingOne
+            text={orderCount + " Orders"}
+            colorClass="text-[#151D48]"
+            fontSize="text-[32px]"
+          />
+          <p className="text-[16px] text-[#AE0003]">{status}</p>
+        </div>
+        <div>
+          <button
+            onClick={onClick}
+            className="mt-4 bg-[#151D48] text-[12px] text-white px-[12px] py-[12px] rounded-[12px] hover:bg-blue-800 transition"
+          >
+            {buttonLabel}
+          </button>
+        </div>
       </div>
-
-      <button
-        onClick={onClick}
-        className="mt-4 bg-blue-900 text-white px-4 py-2 rounded-full hover:bg-blue-800 transition"
-      >
-        {buttonLabel}
-      </button>
     </div>
   );
 };
