@@ -66,10 +66,13 @@ import { ReactComponent as FeedbackIcon } from './feedback.svg?react';
 import { ReactComponent as HelpIcon } from './help.svg?react';
 import { ReactComponent as SignoutIcon } from './signout.svg?react';
 import { ReactComponent as FaExclamationCircle } from './red-exclamation.svg?react';
+import { ReactComponent as ToogleButtonIcon } from './toogleButtonIcon.svg?react';
+
 
 
 
 export {
+  ToogleButtonIcon,
   FaExclamationCircle,
   SignoutIcon,
   HelpIcon,

@@ -1,34 +1,35 @@
-// import React from "react";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { cn } from "@/lib/utils"; // optional utility for className merging
 import { LineChart, Line, ResponsiveContainer } from "recharts";
+import HeadingOne from "../ui/heading/HeadinhOne";
 
-type CardProps= {
-    category: string,
-    amount: number,
-    color: string,
-    data: [],
+type CardProps = {
+  category: string;
+  amount: number;
+  color: string;
+  data: { value: number }[];
+};
 
-}
-
-const TopPerformerCard = ({ category, amount, color, data } : CardProps) => {
+const TopPerformerCard = ({ category, amount, color, data }: CardProps) => {
   return (
-    <div className="w-full bg-gradient-to-r p-6 from-green-50 to-green-100  grid grid-cols-2">
-      <div className="flex flex-col gap-4">
-        <p className="text-lg font-semibold text-gray-700">
-          Top Performer Today!
-        </p>
-        <h2 className="text-3xl font-bold">
-          <span className="text-black">{category.slice(0, -3)}</span>
-          <span className="text-green-600">{category.slice(-3)}</span>
-        </h2>
-        <p className="text-4xl font-extrabold text-blue-900">${amount}K</p>
-        <p className="text-md text-gray-700">of total sales</p>
-
+    <div className="w-full bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-2xl h-auto">
+      <div className="flex flex-row md:flex-row items-start md:items-center justify-between gap-6">
         
-      </div>
-      <div className="flex flex-col gap-4">
-        <div className="w-full h-32">
+        {/* Left Side - Info */}
+        <div className="flex flex-col gap-2 sm:gap-8">
+          <span className="text-[16px] font-semibold text-[#151D48] dark:text-orange-400">
+            Top Performer Today!
+          </span>
+          <h2 className="text-[24px] sm:text-3xl font-bold">
+            <span className="text-black">{category.slice(0, -3)}</span>
+            <span className="text-green-600">{category.slice(-3)}</span>
+          </h2>
+          <HeadingOne text={ `${amount}K`} fontSize="text-[32px]" colorClass="text-[#151D48]" />
+          <p className="text-[17px] sm:text-base font-regular text-[#151D48] dark:text-gray-300">
+            of total sales
+          </p>
+        </div>
+
+        {/* Right Side - Chart */}
+        <div className="w-full md:w-48 h-32">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
               <Line
@@ -41,7 +42,7 @@ const TopPerformerCard = ({ category, amount, color, data } : CardProps) => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-     </div>
+      </div>
     </div>
   );
 };

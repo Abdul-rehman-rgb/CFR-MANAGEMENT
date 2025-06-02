@@ -1,12 +1,15 @@
 import { useTheme } from "../../context/ThemeContext";
+import "../../layout/Layout.scss"
+// import {ToogleButtonIcon} from "../../icons";
 
 export const ThemeToggleButton: React.FC = () => {
   const { toggleTheme } = useTheme();
 
   return (
-    <button
+    <div>
+      {/* <button
       onClick={toggleTheme}
-      className="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full hover:text-dark-900 h-11 w-11 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+      className=""
     >
       <svg
         className="hidden dark:block"
@@ -36,6 +39,23 @@ export const ThemeToggleButton: React.FC = () => {
           fill="currentColor"
         />
       </svg>
-    </button>
+    </button> */}
+
+      <label className="inline-flex items-center cursor-pointer themeToggle">
+        {/* <ToogleButtonIcon className="img"/> */}
+        <input
+          type="checkbox"
+          value=""
+          className="sr-only peer"
+          onClick={toggleTheme}
+        />
+        <div className="toogleBtm relative w-20 h-10 bg-gray-100 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[5px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-9 after:w-9 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+        {/* <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Large toggle</span> */}
+      </label>
+
+      <div>
+        
+      </div>
+    </div>
   );
 };

@@ -1,12 +1,15 @@
-// components/TargetCard.tsx
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
+import OutlineBtn from '../ui/button/OutLine';
+import { FiPlus } from 'react-icons/fi';
+import HeadingTwo from '../ui/heading/HeadingTwo';
+import HeadingOne from '../ui/heading/HeadinhOne';
+import SubHeading from '../ui/heading/SubHeading';
 
 type TargetCardProps = {
-  achieved: number; // e.g., 234000
-  target: number;   // e.g., 500000
+  achieved: number;
+  target: number;
   onCreateClick?: () => void;
   onReportClick?: () => void;
 };
@@ -20,27 +23,29 @@ const TargetCard: React.FC<TargetCardProps> = ({
   const percentage = Math.round((achieved / target) * 100);
 
   return (
-    <div className="">
-      <div className="flex justify-between items-start">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Target</h2>
-        <div className="flex flex-col items-end">
-          <button
+    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 w-full">
+      {/* Header */}
+      <div className="flex flex-row md:flex-row max-sm:flex-row sm:flex-row justify-between items-start sm:items-center mb-6 gap-2 sm:gap-0 lg:flex-row">
+        <HeadingTwo text="Target" />
+        <div className="flex flex-col items-start sm:items-end space-y-1">
+          <OutlineBtn
+            BtnName="Create Target"
+            icon={FiPlus}
             onClick={onCreateClick}
-            className="border border-blue-500 text-blue-500 px-4 py-1 rounded-md text-sm flex items-center gap-1"
-          >
-            <span className="text-lg">＋</span> Create Target
-          </button>
+            className="rounded-[6px] text-[10px]"
+          />
           <button
             onClick={onReportClick}
-            className="text-sm text-blue-400 underline mt-1"
+            className="text-[10px] text-[#5D5FEF] underline"
           >
-            view target report
+            View target report
           </button>
         </div>
       </div>
 
-      <div className="flex justify-center items-center my-6">
-        <div className="w-28 h-28">
+      {/* Progress */}
+      <div className="flex justify-center items-center mb-6">
+        <div className="w-20 h-20 max-sm:w-28 max-sm:h-28">
           <CircularProgressbar
             value={percentage}
             text={`${percentage}%`}
@@ -48,22 +53,29 @@ const TargetCard: React.FC<TargetCardProps> = ({
               textColor: '#22c55e',
               pathColor: '#6366f1',
               trailColor: '#e5e7eb',
-              textSize: '18px',
+              textSize: '16px',
               strokeLinecap: 'round',
             })}
           />
-          <div className="text-center mt-1 text-gray-500 text-sm">Achieved</div>
+          {/* <div className="text-center mt-1 text-gray-500 text-xs sm:text-sm">Achieved</div> */}
         </div>
       </div>
 
-      <div className="flex justify-between px-4">
+      {/* Revenue Stats */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-2 sm:px-4">
         <div className="text-center">
-          <div className="text-green-600 font-bold text-lg">${(achieved / 1000).toFixed(0)}k</div>
-          <div className="text-sm text-gray-500">Achieved Revenue</div>
+          <HeadingOne
+            text={`$${(achieved / 1000).toFixed(0)}k`}
+            className="text-[#0CB91D] text-[20px]"
+          />
+          <SubHeading text="Achieved Revenue" />
         </div>
         <div className="text-center">
-          <div className="text-indigo-600 font-bold text-lg">${(target / 1000).toFixed(0)}K</div>
-          <div className="text-sm text-gray-500">Target Revenue</div>
+          <HeadingOne
+            text={`$${(target / 1000).toFixed(0)}k`}
+            className="text-[#5D5FEF] text-[20px]"
+          />
+          <SubHeading text="Target Revenue" />
         </div>
       </div>
     </div>

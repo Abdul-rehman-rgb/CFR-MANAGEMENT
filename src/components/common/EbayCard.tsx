@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import HeadingOne from "../ui/heading/HeadinhOne";
 
 interface InfoCardProps {
   title: string;
@@ -6,6 +7,7 @@ interface InfoCardProps {
   linkText: string;
   linkHref: string;
   icon?: ReactNode;
+  bgColor?: string; // Tailwind background color class like 'bg-white', 'bg-gray-100', etc.
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -14,23 +16,25 @@ const InfoCard: React.FC<InfoCardProps> = ({
   linkText,
   linkHref,
   icon,
+  bgColor = "bg-white", // default background color
 }) => {
   return (
-    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div
+      className={`max-w-sm p-6 rounded-lg border dark:border-gray-700 ${bgColor} dark:bg-gray-800`}
+    >
       {icon && (
         <div className="mb-3 text-gray-500 dark:text-gray-400">
           {icon}
         </div>
       )}
-      <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+      <HeadingOne text={description} />
+
+      <h5 className="mb-2 text-1xl font-semibold tracking-tight text-[#4E4E4E] dark:text-white">
         {title}
       </h5>
-      <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
-        {description}
-      </p>
       <a
         href={linkHref}
-        className="inline-flex font-medium items-center text-blue-600 hover:underline"
+        className="inline-flex font-medium items-center text-[#5D5FEF] text-[10px] hover:underline"
       >
         {linkText}
         <svg

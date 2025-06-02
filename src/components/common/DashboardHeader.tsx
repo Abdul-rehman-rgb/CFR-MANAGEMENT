@@ -4,6 +4,9 @@ import { DateRangePicker } from 'react-date-range';
 import { Range, RangeKeyDict } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import ColorFull from '../ui/button/ColorFull';
+import OutlineBtn from '../ui/button/OutLine';
+import Export from '../ui/button/Export';
 
 type DashboardHeaderProps = {
   onExport?: () => void;
@@ -19,7 +22,6 @@ type DashboardHeaderProps = {
 };
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({
-  onExport,
   onRefresh,
   onCustomize,
   showExport = true,
@@ -32,29 +34,25 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   const [showPicker, setShowPicker] = useState(false);
 
   return (
-    <div className="flex justify-between items-center p-4 bg-white border-b border-gray-200 mb-4 relative">
-      <h2 className="text-xl font-semibold m-0">Dashboard</h2>
+    <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
+      <h2 className="text-[14px] font-medium text-[#5D5FEF]">Dashboard</h2>
 
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-col max-sm:flex-col sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (
-          <button
-            onClick={onExport}
-            className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium"
-          >
-            <FiDownload className="mr-2" />
-            Export
-          </button>
+            <Export
+                        BtnName="Export"
+                        icon={FiDownload}
+                        onClick={() => console.log("Export triggered")}
+                      />
         )}
 
         {showDateRange && (
-          <div className="relative">
-            <button
+          <div className="relative w-full sm:w-auto">
+            <ColorFull
               onClick={() => setShowPicker((prev) => !prev)}
-              className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium"
-            >
-              <FiCalendar className="mr-2" />
-              Date Range
-            </button>
+              text="Select Date Range"
+              icon={FiCalendar}
+            />
 
             {showPicker && (
               <div className="absolute right-0 z-50 mt-2 shadow-lg">
@@ -62,7 +60,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                   ranges={[dateRange]}
                   onChange={(item: RangeKeyDict) => {
                     setDateRange(item.selection);
-                    setShowPicker(true); // Auto-close on selection
+                    setShowPicker(false); // Auto-close
                   }}
                   inputRanges={[]}
                 />
@@ -72,23 +70,22 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         )}
 
         {showRefresh && (
-          <button
+          <OutlineBtn
+            BtnName="Refresh"
+            icon={FiRefreshCw}
             onClick={onRefresh}
-            className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium"
-          >
-            <FiRefreshCw className="mr-2" />
-            Refresh
-          </button>
+            className="w-full sm:w-auto"
+          />
         )}
 
         {showCustomize && (
-          <button
+          <ColorFull
             onClick={onCustomize}
-            className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-sm font-medium"
-          >
-            <FiSettings className="mr-2" />
-            Customize Dashboard
-          </button>
+            text="Customize Dashboard"
+            icon={FiSettings}
+            bgColor="bg-[#5D5FEF]"
+            textColor="text-white"
+          />
         )}
       </div>
     </div>

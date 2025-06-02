@@ -1,64 +1,53 @@
-import {
-  // ArrowDownIcon,
-  // ArrowUpIcon,
-  // BoxIconLine,
-  // GroupIcon,
-} from "../../icons";
-// import Badge from "../ui/badge/Badge";
 import DashboardCard from "../common/DashboardCard";
-// import Badge from "../ui/badge/Badge";
-import ChartImage from '../../../public/chart-green.svg'; // or import as component
-import ChartImageRed from '../../../public/chart-red.svg'; // or import as component
+import ChartImage from "../../../public/chart-green.svg";
+import ChartImageRed from "../../../public/chart-red.svg";
 
 export default function RevenusRow() {
   return (
-    <div className="md:gap-6  flex flex-col md:flex-row sm:flex-cols-4 md:flex-cols-4 lg:flex-cols-4 flex-auto">
-      {/* <!-- Metric Item Start --> */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6 flex-auto">
+    <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {/* Metric Item 1 */}
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
         <DashboardCard
-              title="Revenue"
-              amount="$13.000"
-              subtitle="50% This Week"
-              timeRange="This Week"
-              chart={<img src={ChartImage} alt="Revenue Chart" />}
-            />
+          title="Revenue"
+          amount="$13.000"
+          subtitle="50% This Week"
+          timeRange="This Week"
+          chart={<img src={ChartImage} alt="Revenue Chart" />}
+        />
       </div>
-      {/* <!-- Metric Item End --> */}
 
-      {/* <!-- Metric Item Start --> */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6 flex-auto">
+      {/* Metric Item 2 */}
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
         <DashboardCard
-              title="Revenue"
-              amount="$13.000"
-              subtitle="50% This Week"
-              timeRange="This Week"
-              chart={<img src={ChartImageRed} alt="Revenue Chart" />}
-            />
+          title="Revenue"
+          amount="$13.000"
+          subtitle="50% This Week"
+          timeRange="This Week"
+          chart={<img src={ChartImageRed} alt="Revenue Chart" />}
+        />
       </div>
-      {/* <!-- Metric Item End --> */}
 
-      {/* <!-- Metric Item Start --> */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6 flex-auto">
+      {/* Metric Item 3 */}
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
         <DashboardCard
-              title="Revenue"
-              amount="$13.000"
-              subtitle="50% This Week"
-              timeRange="This Week"
-              chart={<img src={ChartImage} alt="Revenue Chart" />}
-            />
+          title="Revenue"
+          amount="$13.000"
+          subtitle="50% This Week"
+          timeRange="This Week"
+          chart={<img src={ChartImage} alt="Revenue Chart" />}
+        />
       </div>
-      {/* <!-- Metric Item End --> */}
-      {/* <!-- Metric Item Start --> */}
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6 flex-auto">
+
+      {/* Metric Item 4 */}
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
         <DashboardCard
-              title="Revenue"
-              amount="$13.000"
-              subtitle="50% This Week"
-              timeRange="This Week"
-              chart={<img src={ChartImageRed} alt="Revenue Chart" />}
-            />
+          title="Revenue"
+          amount="$13.000"
+          subtitle="50% This Week"
+          timeRange="This Week"
+          chart={<img src={ChartImageRed} alt="Revenue Chart" />}
+        />
       </div>
-      {/* <!-- Metric Item End --> */}
     </div>
   );
 }
