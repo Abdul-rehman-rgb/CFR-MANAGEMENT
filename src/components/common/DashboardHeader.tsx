@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { FiDownload, FiRefreshCw, FiSettings, FiCalendar } from 'react-icons/fi';
 import { DateRangePicker } from 'react-date-range';
@@ -18,7 +19,7 @@ type DashboardHeaderProps = {
   showRefresh?: boolean;
   showCustomize?: boolean;
   dateRange: Range;
-  setDateRange: (range: Range) => void;
+  setDateRange: (range: any) => void;
 };
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({

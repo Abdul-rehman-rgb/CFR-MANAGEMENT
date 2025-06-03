@@ -5,12 +5,12 @@ type SystemHealthGaugeChart = {
   overall: number;
   shopify: number;
   amazon: number;
-  color: string;
+  color?: string;
   ebay: number;
   subtitle: string;
   changeText: string;
-  changeColor:string;
-  data: { value: number }[];
+  changeColor?:string;
+  data?: { value: number }[];
 };
 
 const SystemHealthGauge = ({ overall, shopify, amazon, ebay, changeText, changeColor } : SystemHealthGaugeChart) => {
@@ -35,18 +35,18 @@ const SystemHealthGauge = ({ overall, shopify, amazon, ebay, changeText, changeC
 
       <GaugeChart
         id="system-health-gauge"
-        nrOfLevels={30}
-        arcWidth={0.3}
+        nrOfLevels={100}
+        arcWidth={0.2}
         percent={overall / 100}
         colors={['#FF5F6D', '#FFC371', '#00C49F']}
-        arcPadding={0.02}
+        arcPadding={0.00}
         needleColor="#000"
         textColor="#4B5563"
       />
-      <div className="text-center mt-[-20px] text-3xl font-bold text-green-600">{overall}%</div>
+      {/* <div className="text-center mt-[-20px] text-3xl font-bold text-green-600">{overall}%</div> */}
       <p className="text-center text-gray-500 text-sm">Overall Health</p>
 
-      <div className="flex justify-between mt-4 text-sm px-7">
+      <div className="flex justify-between mt-4 text-sm px-8">
         <div className="text-center">
           <div className="font-bold text-green-600 text-2xl">{shopify}%</div>
           <div className="text-gray-500">Shopify</div>

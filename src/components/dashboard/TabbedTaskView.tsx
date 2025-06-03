@@ -19,7 +19,10 @@ const TabbedTaskView = () => {
   const filteredTasks = {
     All: allTasks,
     Completed: allTasks.filter(t => t.status === "Completed"),
-    Pending: allTasks.filter(t => t.status !== "Completed")
+    Pending: allTasks.filter(t => t.status !== "Completed"),
+    success: "green",
+  error: "red",
+  warning: "yellow",
   };
 
   const tabItems = [

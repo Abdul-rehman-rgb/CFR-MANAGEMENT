@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { MoreVertical, Check, Plus } from "react-feather";
 import "./TargetRow.scss";
 import HeadingTwo from "../ui/heading/HeadingTwo";
 
-type Task = {
+export type Task = {
   id: string;
   userName: string;
   userRole: string;
@@ -15,7 +16,8 @@ type Task = {
 };
 
 type TaskListProps = {
-  tasks: Task[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  tasks?: any;
   onAddTask?: () => void;
   onViewAll?: () => void;
 };
@@ -65,7 +67,7 @@ const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
         
 
         <div className="task-list">
-          {tasks.map((task) => (
+          {tasks.map((task : any) => (
             <TaskCard key={task.id} task={task} />
           ))}
         </div>

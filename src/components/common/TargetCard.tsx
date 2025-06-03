@@ -25,7 +25,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl pl-2 w-full py-1">
       {/* Header */}
-      <div className="flex flex-row md:flex-row max-sm:flex-row sm:flex-row justify-between items-start sm:items-center mb-1 gap-2 sm:gap-0 lg:flex-row">
+      <div className="flex flex-row justify-between items-start mb-1 gap-2 lg:flex-row">
         <HeadingTwo text="Target" />
         <div className="flex flex-col items-start sm:items-end space-y-1">
           <OutlineBtn

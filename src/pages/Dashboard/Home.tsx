@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import PageMeta from "../../components/common/PageMeta";
 import DashboardHeader from "../../components/common/DashboardHeader";
-import TargetRow from "../../components/ecommerce/TargetRow";
-import RevenusRow from "../../components/ecommerce/RevenusRow";
-import QuickAction from "../../components/ecommerce/QuickAction";
-import MultichannelView from "../../components/ecommerce/MultichannelView";
+import TargetRow from "../../components/dashboard/TargetRow";
+import RevenusRow from "../../components/dashboard/RevenusRow";
+import QuickAction from "../../components/dashboard/QuickAction";
+import MultichannelView from "../../components/dashboard/MultichannelView";
 import AIPoweredSuggestions from "../../components/common/AIPoweredSuggestions";
-import TaskList from "../../components/ecommerce/TaskManagement";
+import TaskList  from "../../components/dashboard/TaskManagement";
 import ActivityCard from "../../components/common/ActivityCard";
-import SalesTrendChart from "../../components/ecommerce/SalesCharts";
-import SystemHealthGauge from "../../components/ecommerce/SystemHealth";
+import SalesTrendChart from "../../components/dashboard/SalesCharts";
+import SystemHealthGauge from "../../components/dashboard/SystemHealth";
 import Calendar from "../Calendar";
-import AllTasks from "../Tables/AllTasks";
+// import AllTasks from "../Tables/AllTasks";
 // import HeadingTwo from "../../components/ui/heading/HeadingTwo";
 // import { FiDownload } from "react-icons/fi";
 // import Export from "../../components/ui/button/Export";
 import ActivityFeed from "../../components/common/ActivityFeed";
-import TabbedTaskView from "../../components/ecommerce/TabbedTaskView";
+import TabbedTaskView from "../../components/dashboard/TabbedTaskView";
 
 export default function Home() {
   const [dateRange, setDateRange] = useState({
@@ -50,25 +50,6 @@ export default function Home() {
       status: "completed",
     },
   ];
-
-  // ✅ Define tabs before using in useState
-  const tabs = [
-    {
-      name: "All",
-      content: <AllTasks />,
-    },
-    {
-      name: "Completed",
-      content: <AllTasks />,
-    },
-    {
-      name: "Pending",
-      content: <AllTasks />,
-    },
-  ];
-
-  // const [activeTab, setActiveTab] = useState(tabs[0].name);
-  // const currentTab = tabs.find((tab) => tab.name === activeTab);
 
   return (
     <>
@@ -118,6 +99,7 @@ export default function Home() {
           {/* <h2 className="mb-3 text-2xl font-bold">System Health</h2> */}
           <SystemHealthGauge
             overall={72}
+            color="#FFF"
             shopify={87}
             amazon={57}
             ebay={35}
@@ -142,15 +124,13 @@ export default function Home() {
           <Calendar />
         </div>
 
-      <div className="col-span-12 xl:col-span-6   flex flex-col dark:text-white dark:bg-[#0D0D0D]">
+        <div className="col-span-12 xl:col-span-6   flex flex-col dark:text-white dark:bg-[#0D0D0D]">
           <ActivityFeed />
         </div>
 
         {/* Daily Tasks with Tabs */}
         <div className="col-span-12 space-y-6 bg-white dark:bg-[#0D0D0D] p-6 rounded-lg">
-            
-      
-      <TabbedTaskView/>
+          <TabbedTaskView />
           {/* <div className="flex flex-row justify-between">
             <HeadingTwo
               text="Daily Tasks"
