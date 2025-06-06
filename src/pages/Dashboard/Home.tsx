@@ -11,10 +11,6 @@ import ActivityCard from "../../components/common/ActivityCard";
 import SalesTrendChart from "../../components/dashboard/SalesCharts";
 import SystemHealthGauge from "../../components/dashboard/SystemHealth";
 import Calendar from "../Calendar";
-// import AllTasks from "../Tables/AllTasks";
-// import HeadingTwo from "../../components/ui/heading/HeadingTwo";
-// import { FiDownload } from "react-icons/fi";
-// import Export from "../../components/ui/button/Export";
 import ActivityFeed from "../../components/common/ActivityFeed";
 import TabbedTaskView from "../../components/dashboard/TabbedTaskView";
 

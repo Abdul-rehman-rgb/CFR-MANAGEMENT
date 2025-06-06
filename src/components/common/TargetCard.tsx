@@ -23,7 +23,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
   const percentage = Math.round((achieved / target) * 100);
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl pl-2 w-full py-1">
+    <div className="bg-white dark:bg-[#0D0D0D] rounded-xl pl-2 w-full py-1">
       {/* Header */}
       <div className="flex flex-row justify-between items-start mb-1 gap-2 lg:flex-row">
         <HeadingTwo text="Target" />

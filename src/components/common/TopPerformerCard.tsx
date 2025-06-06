@@ -10,7 +10,9 @@ type CardProps = {
 
 const TopPerformerCard = ({ category, amount, color, data }: CardProps) => {
   return (
-    <div className="w-full bg-gradient-to-r from-green-50 to-green-100 p-3 p-4 rounded-xl space-y-4 h-full">
+    <div className="w-full p-4 rounded-xl space-y-4 h-full 
+  bg-[linear-gradient(90deg,_rgba(194,255,202,0.5)_0%,_rgba(215,255,220,0.5)_56.5%,_rgba(194,255,202,0.5)_100%)] 
+  dark:bg-[linear-gradient(90deg,_rgba(1,42,6,0.5)_0%,_rgba(13,87,21,0.5)_56.5%,_rgba(1,42,6,0.5)_100%)]">
       <div className="flex flex-row md:flex-row items-start md:items-center justify-between gap-6">
         
         {/* Left Side - Info */}

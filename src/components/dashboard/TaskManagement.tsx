@@ -24,13 +24,13 @@ type TaskListProps = {
 
 const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
   return (
-    <div className="taskManagement bg-white rounded-lg p-6 flex flex-col">
+    <div className="taskManagement bg-white rounded-lg p-6 flex flex-col dark:bg-[#0D0D0D] dark:text-white">
       <div className="task-header">
         <div className="flex items-center justify-between mb-3">
           {/* Left: Heading */}
           <HeadingTwo
             text="Tasks"
-            className="text-[20px] font-bold tracking-tight"
+            className="text-[20px] font-bold tracking-tight dark:text-white"
           />
 
           {/* Right: Buttons */}

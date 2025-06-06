@@ -6,7 +6,7 @@ export default function RevenusRow() {
   return (
     <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
       {/* Metric Item 1 */}
-      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-[#0D0D0D] h-full">
         <DashboardCard
           title="Revenue"
           amount="$13.000"
@@ -17,7 +17,7 @@ export default function RevenusRow() {
       </div>
 
       {/* Metric Item 2 */}
-      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-[#0D0D0D] h-full">
         <DashboardCard
           title="New Customers"
           amount="$34.000"
@@ -28,7 +28,7 @@ export default function RevenusRow() {
       </div>
 
       {/* Metric Item 3 */}
-      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-[#0D0D0D] h-full">
         <DashboardCard
           title="Sales"
           amount="$13.000"

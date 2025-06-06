@@ -47,11 +47,16 @@ const navItems: NavItem[] = [
     name: "Dashboard",
     path: "/",
   },
-   {
-    icon: <InventoryIcon />,
-    name: "Inventory Management",
-    path: "/inventoryManagement"
-  },
+  {
+  icon: <InventoryIcon />,
+  name: "Inventory Management",
+  path: "/inventoryManagement",
+  // subItems: [
+  //   { name: "Stock Overview", path: "/inventoryManagement/stock-overview" },
+  //   { name: "Reorder Suggestion", path: "/inventoryManagement/reorder-suggestion" },
+  //   { name: "Stock Transfer", path: "/inventoryManagement/stock-transfer" }
+  // ]
+},
     {
     icon: <ProductIcon />,
     name: "Product Management",
@@ -370,7 +375,7 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
+      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-black dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
         ${
           isExpanded || isMobileOpen
             ? "w-[290px]"

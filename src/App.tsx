@@ -21,8 +21,11 @@ import Home from "./pages/Dashboard/Home";
 import VerifyAccount from "./pages/AuthPages/VerifyAccount";
 import ResetCode from "./pages/AuthPages/ResetCode";
 import NewPassword from "./pages/AuthPages/NewPassword";
-
-
+import StockOverview from "./pages/inventory/Innerpage/StockOverview";
+import InventoryLayout from "./pages/inventory/InventoryLayout";
+import ReorderSuggestion from "./pages/inventory/Innerpage/ReorderSuggestion";
+import StockTransfer from "./pages/inventory/Innerpage/StockTransfer";
+import AuditLog from "./pages/inventory/Innerpage/AuditLog";
 
 export default function App() {
   return (
@@ -33,6 +36,18 @@ export default function App() {
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
+
+            {/* Inventory Routes */}
+            <Route path="/inventoryManagement" element={<InventoryLayout />}>
+              <Route index element={<StockOverview />} /> {/* Default route */}
+              <Route path="stock-overview" element={<StockOverview />} />
+              <Route
+                path="reorder-suggestion"
+                element={<ReorderSuggestion />}
+              />
+              <Route path="stock-transfer" element={<StockTransfer />} />
+              <Route path="audit-log" element={<AuditLog />} />
+            </Route>
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
@@ -64,9 +79,6 @@ export default function App() {
           <Route path="/verifyAccount" element={<VerifyAccount />} />
           <Route path="/resetCode" element={<ResetCode />} />
           <Route path="/newPassword" element={<NewPassword />} />
-
-
-
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />

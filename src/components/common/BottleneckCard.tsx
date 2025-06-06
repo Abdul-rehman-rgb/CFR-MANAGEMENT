@@ -26,7 +26,8 @@ const BottleneckCard = ({
   icon,
 }: CardProps) => {
   return (
-    <div className="p-4 rounded-xl w-full bg-[#FFC7C8] space-y-4 h-full">
+    <div className="p-4 rounded-xl w-full space-y-4 h-full bg-[linear-gradient(90deg,_rgba(255,199,200,0.5)_0%,_rgba(255,219,220,0.5)_51.17%,_rgba(255,199,200,0.5)_100%)] 
+  dark:bg-[linear-gradient(90deg,_rgba(97,0,2,0.5)_0%,_rgba(157,6,9,0.5)_51.17%,_rgba(97,0,2,0.5)_100%)]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         {/* Left Side - Info */}
         <div className="flex flex-col gap-2">
