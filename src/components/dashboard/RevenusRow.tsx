@@ -39,7 +39,7 @@ export default function RevenusRow() {
       </div>
 
       {/* Metric Item 4 */}
-      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] h-full">
+      <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-[#0D0D0D] h-full">
         <DashboardCard
           title="Orders Overview"
           amount="$13.000"
