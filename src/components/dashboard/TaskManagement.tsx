@@ -66,7 +66,7 @@ const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
       <div className="task-management-container bg-white h-[340px] rounded-lg p-6 sm:p-6 flex flex-col dark:text-white dark:bg-[#0D0D0D] overflow-y-auto">
         
 
-        <div className="task-list">
+        <div className="task-list dark:bg-[#0D0D0D]">
           {tasks.map((task : any) => (
             <TaskCard key={task.id} task={task} />
           ))}

@@ -4,8 +4,8 @@ const TaskTable = ({ data }) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full text-sm text-left text-gray-700">
-        <thead className="text-xs text-gray-500 uppercase bg-white border-b">
-          <tr>
+        <thead className="text-xs text-gray-500 uppercase bg-white border-b hover:bg-gray-50 dark:border-gray-800 dark:text-white dark:bg-[#0D0D0D]">
+          <tr className="dark:text-white dark:bg-[#0D0D0D] ">
             <th className="px-6 py-3">Task</th>
             <th className="px-6 py-3">Assigned To</th>
             <th className="px-6 py-3">Priority</th>
@@ -14,9 +14,9 @@ const TaskTable = ({ data }) => {
             <th className="px-6 py-3">Actions</th>
           </tr>
         </thead>
-        <tbody className="bg-white">
+        <tbody className="bg-white dark:text-white dark:bg-[#0D0D0D]">
           {data.map((task, idx) => (
-            <tr key={idx} className="border-b hover:bg-gray-50">
+            <tr key={idx} className="border-b hover:bg-gray-50 dark:border-gray-800">
               <td className="px-6 py-4">{task.task}</td>
               <td className="px-6 py-4">{task.assignedTo}</td>
               <td className="px-6 py-4">{task.priority}</td>

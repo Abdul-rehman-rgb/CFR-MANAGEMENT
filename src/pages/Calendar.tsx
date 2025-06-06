@@ -122,8 +122,8 @@ const Calendar: React.FC = () => {
         title=""
         description=""
       />
-      <div className="rounded-2xl border  border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-        <div className="custom-calendar">
+      <div className="rounded-2xl border  border-gray-200 bg-white dark:border-gray-800 dark:bg-[#0D0D0D]">
+        <div className="custom-calendar dark:bg-[#0D0D0D]">
           <FullCalendar
             ref={calendarRef}
             // plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -136,7 +136,7 @@ const Calendar: React.FC = () => {
               // right: "dayGridMonth,timeGridWeek,timeGridDay",
             }}
             dayCellContent={(arg) => (
-              <div className="w-10 h-10 rounded-full flex items-center justify-center  mx-auto">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center  mx-auto ">
                 {arg.dayNumberText}
               </div>
             )}

@@ -112,41 +112,45 @@ export default function MultichannelView() {
       <HeadingFour text="Multichannel View" />
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 md:grid-cols-3 max-sm:grid-cols-1 md:gap-6 ">
         {/* <!-- Metric Item Start --> */}
-        <div className="rounded-2xl bg-white  dark:border-gray-800 dark:bg-white/[0.03] ">
+        <div className="rounded-2xl  bg-[#EAF2E1] dark:bg-[#404F25]" >
           <EbayCard
             title="Ebay"
             description="$ 1000"
             linkText="+1,2% from yesterday"
             linkHref="#"
             icon={Shopify}
-            bgColor="bg-[#EAF2E1]"
-
+            // bgColor="bg-[#EAF2E1]"
+            // darkEbayColor="bg-[#404F25]"
+            
           />
         </div>
         {/* <!-- Metric Item End --> */}
 
         {/* <!-- Metric Item Start --> */}
-        <div className="rounded-2xl bg-white  dark:border-gray-800 dark:bg-white/[0.03] ">
+        <div className="rounded-2xl bg-[#F9F0DA] dark:bg-[#634A16]">
           <EbayCard
             title="Amazon"
             description="$ 1000"
             linkText="+1,2% from yesterday"
             linkHref="#"
             icon={amazon}
-            bgColor="bg-[#F9F0DA]"
+            // bgColor="bg-[#F9F0DA]"
+            // darkEbayColor="bg-[#000000]"
           />
         </div>
         {/* <!-- Metric Item End --> */}
 
         {/* <!-- Metric Item Start --> */}
-        <div className="rounded-2xl bg-white dark:border-gray-800 dark:bg-white/[0.03] ">
+        <div className="rounded-2xl bg-[#DCEEFB] dark:bg-[#1F4661]">
           <EbayCard
             title="Shopify"
             description="$ 1000"
             linkText="+1,2% from yesterday"
             linkHref="#"
             icon={ebay}
-            bgColor="bg-[#DCEEFB]"
+            // bgColor="bg-[#DCEEFB]"
+            // darkEbayColor="bg-[#000000]"
+
           />
         </div>
         {/* <!-- Metric Item End --> */}

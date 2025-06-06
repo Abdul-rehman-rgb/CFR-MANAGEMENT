@@ -8,6 +8,7 @@ interface InfoCardProps {
   linkHref: string;
   icon?: ReactNode;
   bgColor?: string; // Tailwind background color class like 'bg-white', 'bg-gray-100', etc.
+  darkEbayColor?: string;
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -16,11 +17,12 @@ const InfoCard: React.FC<InfoCardProps> = ({
   linkText,
   linkHref,
   icon,
-  bgColor = "bg-white", // default background color
+  // bgColor = "bg-white", // default background color
+  // darkEbayColor = "bg-white",
 }) => {
   return (
     <div
-      className={`max-w-sm p-6 rounded-lg border dark:border-gray-700 ${bgColor} dark:bg-gray-800`}
+      className={`max-w-sm p-6 rounded-2xl border dark:border-gray-700 `}
     >
       {icon && (
         <div className="mb-3 text-gray-500 dark:text-gray-400">

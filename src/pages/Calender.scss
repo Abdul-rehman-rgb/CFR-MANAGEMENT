@@ -1,73 +1,95 @@
-.custom-calendar{
-    .event-fc-color{
+.custom-calendar {
+    .event-fc-color {
         background-color: transparent;
-    padding: 0px;
-    }
-    .fc-h-event .fc-event-main{
-           height: 10px;
-    width: 8px;
-            margin: auto;
-    }
-    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
-            display: flex
-;
-    justify-content: center;
-    min-width: 15px;
-    }
-    .fc .fc-daygrid-day-top{
-            justify-content: center;
-            .fc-daygrid-day-number{
-                background-color: #fff !important;
-            }
-    }
-    .fc .fc-daygrid-day{
         padding: 0px;
     }
-    .fc-theme-standard td, .fc-theme-standard th{
-        border: none;
-        .fc-scrollgrid-sync-inner{
-            display: flex;
-            justify-content: center;
+
+    .fc-h-event .fc-event-main {
+        height: 10px;
+        width: 8px;
+        margin: auto;
+    }
+
+    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+        display: flex;
+        justify-content: center;
+        min-width: 15px;
+    }
+
+    .fc .fc-daygrid-day-top {
+        justify-content: center;
+
+        .fc-daygrid-day-number {
+            // background-color: #fff !important;
         }
     }
-    tr{
+
+    .fc .fc-daygrid-day {
+        padding: 0px;
+    }
+
+    .fc-theme-standard td,
+    .fc-theme-standard th {
+        border: none;
+
+        .fc-scrollgrid-sync-inner {
+            // display: flex;
+            // justify-content: center;
+        }
+    }
+
+    tr {
         height: 60px;
     }
-    .fc .fc-daygrid-day-number{
+
+    .fc .fc-daygrid-day-number {
         padding: 0px !important;
     }
-    
-    .fc-scrollgrid-sync-table{
-     height: auto !important;
+
+    .fc-scrollgrid-sync-table {
+        height: auto !important;
     }
-    .fc-today-button{
+
+    .fc-today-button {
         display: none;
     }
-    .fc .fc-daygrid-day.fc-day-today .fc-scrollgrid-sync-inner{
-        background-color: #fff;
-            display: flex
-;
-    justify-content: center;
+
+    .fc .fc-daygrid-day.fc-day-today .fc-scrollgrid-sync-inner {
+        background-color: #7476F1;
+        // display: flex
+        border-radius: 40px;
+        width: 40px;
+        height: 40px;
+        margin: auto;
+
     }
-    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
+
+    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
         min-height: 1em;
     }
-    .fc-header-toolbar.fc-toolbar{
-    .fc-toolbar-chunk{
-        background-color: #fff;
-        .fc-button{
+
+    .fc-header-toolbar.fc-toolbar {
+        .fc-button-group{
+            background-color: transparent;
+        }
+        .fc-toolbar-chunk {
+            // background-color: #fff;
+
+            .fc-button {
                 height: 40px !important;
                 width: 40px !important;
                 background-color: #5D5FEF;
                 color: #fff !important;
                 border-radius: 63px !important;
+            }
         }
     }
-    }
-    .fc-dayGridMonth-view.fc-view.fc-daygrid{
+
+    .fc-dayGridMonth-view.fc-view.fc-daygrid {
         min-width: 500px !important;
     }
-    .fc.fc-media-screen{
+
+    .fc.fc-media-screen {
         min-height: 62vh !important;
     }
 }

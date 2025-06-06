@@ -42,7 +42,7 @@ const Tabs = () => {
       : activities.filter((a) => a.type === activeTab);
 
   return (
-    <div className="h-[380px] overflow-y-auto rounded-lg p-4 sm:p-6 bg-white">
+    <div className="h-[380px] overflow-y-auto rounded-lg p-4 sm:p-6 bg-white dark:bg-[#0D0D0D]">
       {/* Header */}
       <div className="flex flex-col max-sm:flex-row justify-between sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <div className="flex items-center gap-2">
@@ -105,12 +105,12 @@ const Tabs = () => {
       {filteredActivities.map((activity, index) => (
         <div
           key={index}
-          className="mb-4 flex w-full flex-col gap-2 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 bg-[#F9F9FF]"
+          className="mb-4 flex w-full flex-col gap-2 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 bg-[#F9F9FF] dark:bg-[#151718]"
         >
           <span className="text-xs sm:text-sm font-normal text-gray-400">
             {activity.type}
           </span>
-          <p className="text-[14px] sm:text-base text-[#151D48]">
+          <p className="text-[14px] sm:text-base text-[#151D48] dark:text-white">
             {activity.message}
           </p>
         </div>

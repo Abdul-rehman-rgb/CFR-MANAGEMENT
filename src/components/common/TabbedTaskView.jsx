@@ -23,7 +23,7 @@ const TabbedTaskView = () => {
   ];
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow">
+    <div className="p-4 bg-white rounded-xl shadow dark:bg-[#0D0D0D]">
       <h2 className="text-xl font-bold text-gray-900 mb-4">Daily Tasks</h2>
       <div className="flex items-center gap-6 mb-4 border-b">
         {tabItems.map(tab => (

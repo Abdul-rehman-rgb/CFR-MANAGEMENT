@@ -105,7 +105,7 @@ const Tabs = () => {
       {filteredActivities.map((activity, index) => (
         <div
           key={index}
-          className="mb-4 flex w-full flex-col gap-2 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 bg-[#F9F9FF]"
+          className="mb-4 flex w-full flex-col gap-2 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 bg-[#F9F9FF] dark:bg-[#0D0D0D]"
         >
           <span className="text-xs sm:text-sm font-normal text-gray-400">
             {activity.type}
