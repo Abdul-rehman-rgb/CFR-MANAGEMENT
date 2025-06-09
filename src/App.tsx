@@ -26,6 +26,8 @@ import InventoryLayout from "./pages/inventory/InventoryLayout";
 import ReorderSuggestion from "./pages/inventory/Innerpage/ReorderSuggestion";
 import StockTransfer from "./pages/inventory/Innerpage/StockTransfer";
 import AuditLog from "./pages/inventory/Innerpage/AuditLog";
+import ProductManagementLayout from "./pages/ProductManagement/ProductManagementLayout";
+import ProductMain from "./pages/ProductManagement/innerpage/ProductMain";
 
 export default function App() {
   return (
@@ -48,6 +50,13 @@ export default function App() {
               <Route path="stock-transfer" element={<StockTransfer />} />
               <Route path="audit-log" element={<AuditLog />} />
             </Route>
+
+            {/* Product Management Routes */}
+            <Route path="/productManagement" element={<ProductManagementLayout />} >
+              <Route index element={<ProductMain />} />
+
+            </Route>
+
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />

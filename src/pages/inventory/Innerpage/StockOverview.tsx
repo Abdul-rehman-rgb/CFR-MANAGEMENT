@@ -5,7 +5,6 @@ import { FiDownload, FiFilter } from "react-icons/fi";
 import Export from "../../../components/ui/button/Export";
 import Paragragh from "../../../components/ui/Paragrapg";
 
-// ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const StockOverview = () => {
     return (
@@ -39,9 +38,6 @@ const StockOverview = () => {
                     <StockTable />
                 </div>
             </div>
-            {/* <div className="grid grid-cols-1 gap-4 rounded-sm bg-white">
-                    <ProductInventoryChart />
-                </div> */}
         </>
     );
 };

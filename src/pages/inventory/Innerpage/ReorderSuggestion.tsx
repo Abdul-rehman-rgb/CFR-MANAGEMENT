@@ -38,9 +38,6 @@ const ReorderSuggestion = () => {
                     <ReorderTable BtnText={"Reorder Now"} />
                 </div>
             </div>
-            {/* <div className="grid grid-cols-1 gap-4 rounded-sm bg-white">
-                    <ProductInventoryChart />
-                </div> */}
         </>
     );
 };

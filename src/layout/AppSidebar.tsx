@@ -51,11 +51,6 @@ const navItems: NavItem[] = [
   icon: <InventoryIcon />,
   name: "Inventory Management",
   path: "/inventoryManagement",
-  // subItems: [
-  //   { name: "Stock Overview", path: "/inventoryManagement/stock-overview" },
-  //   { name: "Reorder Suggestion", path: "/inventoryManagement/reorder-suggestion" },
-  //   { name: "Stock Transfer", path: "/inventoryManagement/stock-transfer" }
-  // ]
 },
     {
     icon: <ProductIcon />,

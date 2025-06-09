@@ -38,10 +38,6 @@ const ReorderTable = ({BtnText}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const navigate = useNavigate();
 
-    // const handleClick = () => {
-    //     navigate(`details`);
-    // };
-
     const totalPages = Math.ceil(data.length / PAGE_SIZE);
 
     const paginatedData = data.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);

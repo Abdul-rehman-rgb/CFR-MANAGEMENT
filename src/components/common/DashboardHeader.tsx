@@ -1,13 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
-import { FiDownload, FiRefreshCw, FiSettings, FiCalendar } from 'react-icons/fi';
-import { DateRangePicker } from 'react-date-range';
-import { Range, RangeKeyDict } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import ColorFull from '../ui/button/ColorFull';
-import OutlineBtn from '../ui/button/OutLine';
-import Export from '../ui/button/Export';
+import React, { useState } from "react";
+import {
+  FiDownload,
+  FiRefreshCw,
+  FiSettings,
+  FiCalendar,
+} from "react-icons/fi";
+import { DateRangePicker } from "react-date-range";
+import { Range, RangeKeyDict } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import ColorFull from "../ui/button/ColorFull";
+import OutlineBtn from "../ui/button/OutLine";
+import Export from "../ui/button/Export";
 
 type DashboardHeaderProps = {
   onExport?: () => void;
@@ -38,13 +43,13 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
     <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
       <h2 className="text-[14px] font-medium text-[#5D5FEF]">Dashboard</h2>
 
-      <div className="flex flex-col max-sm:flex-col sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
+      <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (
-            <Export
-                        BtnName="Export"
-                        icon={FiDownload}
-                        onClick={() => console.log("Export triggered")}
-                      />
+          <Export
+            BtnName="Export"
+            icon={FiDownload}
+            onClick={() => console.log("Export triggered")}
+          />
         )}
 
         {showDateRange && (

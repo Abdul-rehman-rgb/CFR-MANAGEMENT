@@ -88,7 +88,7 @@ const StockTransfer = () => {
               isOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}
               className="max-w-lg p-6"
-              showCloseButton={true}
+              showCloseButton={false}
               isFullscreen={false}
             >
               <HeadingOne

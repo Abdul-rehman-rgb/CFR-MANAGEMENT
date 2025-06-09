@@ -2,26 +2,19 @@ import React from "react";
 import HeadingOne from "../ui/heading/HeadinhOne";
 import IconWrapper from "./IconWrapper";
 
-type InventoryCardProps = {
+type ProductCardProps = {
   title: string;
   amount: string;
   subtitle: string;
-  chart: React.ReactNode;
   icon?: React.ReactNode;           // can be React element like an icon component or <img />
   iconBgColor?: string;             // optional background color class for icon container
   iconWrapperClassName?: string;
-  showExport?: boolean;        // This can also be removed if no longer needed
-  showDateRange?: boolean;
-  showRefresh?: boolean;
-  showCustomize?: boolean;
-  dateRange: Range;
 };
 
-const InventoryCard: React.FC<InventoryCardProps> = ({
+const ProductCard: React.FC<ProductCardProps> = ({
   title,
   amount,
   subtitle,
-  chart,
   icon,
   iconBgColor,
   iconWrapperClassName,  // <-- added here
@@ -47,13 +40,9 @@ const InventoryCard: React.FC<InventoryCardProps> = ({
             {subtitle}
           </p>
         </div>
-        {/* Right Chart */}
-        <div className="flex flex-col items-end justify-end">
-          <div className="w-full">{chart}</div>
-        </div>
       </div>
     </div>
   );
 };
 
-export default InventoryCard;
+export default ProductCard;
