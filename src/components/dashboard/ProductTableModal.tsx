@@ -1,0 +1,85 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from "react";
+import ProductTable from "./../dashboard/MultiProductSelection/ProductTable";
+
+const ProductTableModal = () => {
+  const [products, setProducts] = useState([
+    {
+      name: "Product A",
+      code: "050108",
+      quantity: 50,
+      pallet: 1,
+      cators: 50,
+      availability: "In Stock",
+    },
+    {
+      name: "Product A",
+      code: "050108",
+      quantity: 50,
+      pallet: 1,
+      cators: 50,
+      availability: "In Stock",
+    },
+  ]);
+
+  const [newProduct, setNewProduct] = useState({
+    quantity: "",
+    pallet: "",
+  });
+
+  const handleAddMore = () => {
+    if (newProduct.quantity && newProduct.pallet) {
+      setProducts([
+        ...products,
+        {
+          name: "Product A",
+          code: "050108",
+          quantity: parseInt(newProduct.quantity),
+          pallet: parseInt(newProduct.pallet),
+          cators: parseInt(newProduct.quantity),
+          availability: "In Stock",
+        },
+      ]);
+      setNewProduct({ quantity: "", pallet: "" });
+    }
+  };
+
+  const handleRemove = (index: number) => {
+    setProducts(products.filter((_, i) => i !== index));
+  };
+
+  return (
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
+        <div className="px-2 pr-14">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            Product Display
+          </h4>
+          {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            Update your details to keep your profile up-to-date.
+          </p> */}
+        </div>
+        <form className="flex flex-col">
+          <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">
+            <div>
+              <div className="">
+                <ProductTable
+                  products={products}
+                  onAddMore={handleAddMore}
+                  onRemove={handleRemove}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  onQuantityChange={(value: any) =>
+                    setNewProduct({ ...newProduct, quantity: value })
+                  }
+                  onPalletChange={(value: any) =>
+                    setNewProduct({ ...newProduct, pallet: value })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+  );
+};
+
+export default ProductTableModal;
