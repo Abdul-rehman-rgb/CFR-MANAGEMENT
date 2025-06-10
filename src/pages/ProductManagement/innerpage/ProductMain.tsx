@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductHeader from "../../../components/common/ProductHeader";
 import Icon from "../../../icons/producticon1.svg";
 import ProductCard from "../../../components/common/ProductCard";
+import Tabs from "../component/Tabs";
 
 const ProductMain = () => {
   const [dateRange, setDateRange] = useState({
@@ -13,6 +14,7 @@ const ProductMain = () => {
   const handleExport = () => console.log("Exporting data...");
   const handleRefresh = () => console.log("Refreshing data...");
   return (
+    <>
     <div className="grid grid-cols-12 gap-4 md:gap-6">
       <div className="col-span-12 space-y-6">
         <ProductHeader
@@ -59,6 +61,8 @@ const ProductMain = () => {
         </div>
       </div>
     </div>
+      <Tabs />
+</>
   );
 };
 
