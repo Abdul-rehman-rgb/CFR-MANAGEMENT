@@ -97,7 +97,7 @@ const BottleneckCardCarousel = () => {
   return (
     <div ref={sliderRef} className="keen-slider">
       {cards.map((card, idx) => (
-        <div className="keen-slider__slide px-2" key={idx}>
+        <div className="keen-slider__slide" key={idx}>
           <BottleneckCard {...card} />
         </div>
       ))}
