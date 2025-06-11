@@ -34,7 +34,7 @@ const Input: FC<InputProps> = ({
   error = false,
   hint,
 }) => {
-  let inputClasses = ` h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-gray-400 focus:outline-hidden focus:ring-3  dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:placeholder:text-[#A9A9CD] ${className}`;
+  let inputClasses = `h-11 w-full rounded-lg border appearance-none px-4 py-2.5 text-sm shadow-theme-xs placeholder:text-[#737791] focus:outline-hidden focus:ring-3  dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:placeholder:text-[#A9A9CD] ${className}`;
 
   if (disabled) {
     inputClasses += ` text-gray-500 border-gray-300 opacity-40 bg-gray-100 cursor-not-allowed dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:placeholder:text-[#A9A9CD]`;

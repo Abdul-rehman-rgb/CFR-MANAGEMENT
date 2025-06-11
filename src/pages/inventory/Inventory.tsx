@@ -8,11 +8,9 @@ import HeadingOne from "../../components/ui/heading/HeadinhOne";
 import Label from "../../components/form/Label";
 import Form from "../../components/form/Form";
 import Dropdown from "../../components/form/input/Dropdown";
-import { DropdownItem } from "../../components/ui/dropdown/DropdownItem";
 import Input from "../../components/form/input/InputField";
 import Checkbox from "../../components/form/input/Checkbox";
 import Button from "../../components/ui/button/Button";
-import SearchInput from "../../components/form/SearchInput";
 import SearchBox from "../../components/form/input/SearchBox";
 import FileInput from "../../components/form/input/FileInput";
 

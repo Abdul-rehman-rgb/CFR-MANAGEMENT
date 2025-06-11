@@ -15,54 +15,51 @@ const ProductMain = () => {
   const handleRefresh = () => console.log("Refreshing data...");
   return (
     <>
-    <div className="grid grid-cols-12 gap-4 md:gap-6">
-      <div className="col-span-12 space-y-6">
-        <ProductHeader
-          onExport={handleExport}
-          onRefresh={handleRefresh}
-          dateRange={dateRange}
-          setDateRange={setDateRange}
-        />
-      </div>
-      <div className="col-span-12 space-y-6">
-        <div className="flex flex-row gap-4">
-          <ProductCard
-            title="Total SKUs"
-            amount="25"
-            subtitle="8 less than last month"
-            icon={<img src={Icon} alt="icon" />}
-            iconBgColor="#5D5FEF"
-            iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
-          />
-          <ProductCard
-            title="Total SKUs"
-            amount="25"
-            subtitle="8 less than last month"
-            icon={<img src={Icon} alt="icon" />}
-            iconBgColor="#5D5FEF"
-            iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
-          />
-          <ProductCard
-            title="Total SKUs"
-            amount="25"
-            subtitle="8 less than last month"
-            icon={<img src={Icon} alt="icon" />}
-            iconBgColor="#5D5FEF"
-            iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
-          />
-          <ProductCard
-            title="Total SKUs"
-            amount="25"
-            subtitle="8 less than last month"
-            icon={<img src={Icon} alt="icon" />}
-            iconBgColor="#5D5FEF"
-            iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
+      <div className="grid grid-cols-12 gap-4 md:gap-6">
+        <div className="col-span-12 space-y-6">
+          <ProductHeader
+            onExport={handleExport}
+            onRefresh={handleRefresh}
+            dateRange={dateRange}
+            setDateRange={setDateRange}
           />
         </div>
+        <div className="col-span-12 space-y-6 mb-4">
+          <div className="flex flex-row gap-4">
+            <ProductCard
+              title="Orders"
+              amount="42"
+              subtitle="This month"
+              icon={<img src={Icon} alt="icon" />}
+              navigateTo="/orders"
+            />
+            <ProductCard
+              title="Orders"
+              amount="42"
+              subtitle="This month"
+              icon={<img src={Icon} alt="icon" />}
+              navigateTo="/orders"
+            />
+
+            <ProductCard
+              title="Total SKUs"
+              amount="25"
+              subtitle="8 less than last month"
+              icon={<img src={Icon} alt="icon" />}
+              iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
+            />
+            <ProductCard
+              title="Total SKUs"
+              amount="25"
+              subtitle="8 less than last month"
+              icon={<img src={Icon} alt="icon" />}
+              iconWrapperClassName="w-[40px] h-[40px] flex items-center justify-center"
+            />
+          </div>
+        </div>
       </div>
-    </div>
       <Tabs />
-</>
+    </>
   );
 };
 
