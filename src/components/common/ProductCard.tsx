@@ -7,8 +7,8 @@ type ProductCardProps = {
   title: string;
   amount: string;
   subtitle: string;
-  icon?: React.ReactNode; // can be React element like an icon component or <img />
-  iconBgColor?: string; // optional background color class for icon container
+  icon?: React.ReactNode;
+  iconBgColor?: string;
   iconWrapperClassName?: string;
   navigateTo?: string;
 };
@@ -31,30 +31,32 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </IconWrapper>
       </div>
 
-      {/* Left Content */}
+      {/* Content */}
       <div className="flex flex-row justify-between">
         <div className="space-y-4">
           <p className="text-sm text-black/40 dark:text-white font-medium">
             {title}
           </p>
           <HeadingOne fontSize="text-[24px]" text={amount} />
-            <div className="flex flex-row">
-              <div>
-              <p className="text-[10px] font-regular text-black/40 dark:text-white">
-                {subtitle}
-              </p>
-            </div>
+          <div className="flex flex-row justify-between gap-10 items-center">
             <div>
+              <p className="text-[10px] font-regular text-black/40 dark:text-white">
+              {subtitle}
+            </p>
+            </div>
+           <div>
+             {navigateTo && (
               <Link
                 to={navigateTo}
-                className="text-[10px] font-regular text-black/40 dark:text-white"
+                className="text-[10px] font-medium text-blue-600 underline"
               >
                 View All
               </Link>
-            </div>
-            </div>
+            )}
+           </div>
           </div>
         </div>
+      </div>
     </div>
   );
 };

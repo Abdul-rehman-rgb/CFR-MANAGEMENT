@@ -55,7 +55,10 @@ const StockManagement = () => {
               <div className="mr-2">
                 <Export BtnName="Filter" icon={FiDownload} />
               </div>
-              <Export BtnName="Export" icon={FiFilter} />
+
+              <div className="mr-2">
+                <Export BtnName="Export" icon={FiFilter} />
+              </div>
               <ColorFull
                 text="Add Product"
                 icon={FiPlus}
@@ -124,19 +127,19 @@ const StockManagement = () => {
 
               <ProductDetailModal />
 
-                <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
-                  <Button
-                    children="Cancel"
-                    variant="outline"
-                    onClick={() => setIsModalOpen(false)}
-                    className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] hover:bg-[#5D5FEF] hover:text-white"
-                  />
-                  <Button
-                    variant="primary"
-                    children="Save"
-                    className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] bg-[#5D5FEF] text-white hover:bg-white hover:text-[#5D5FEF]"
-                  />
-                </div>
+              <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <Button
+                  children="Cancel"
+                  variant="outline"
+                  onClick={() => setIsModalOpen(false)}
+                  className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] hover:bg-[#5D5FEF] hover:text-white"
+                />
+                <Button
+                  variant="primary"
+                  children="Save"
+                  className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] bg-[#5D5FEF] text-white hover:bg-white hover:text-[#5D5FEF]"
+                />
+              </div>
             </Form>
           )}
 
@@ -174,26 +177,26 @@ const StockManagement = () => {
         className="max-w-xl p-6"
         showCloseButton={false}
       >
-          <HeadingOne text="Assign Customer & Pricing" />
+        <HeadingOne text="Assign Customer & Pricing" />
         <PricingModal />
 
-          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
-            <Button
-              children="Cancel"
-              variant="outline"
-              onClick={() => setShowConfirmationModal(false)}
-              className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] hover:bg-[#5D5FEF] hover:text-white"
-            />
-            <Button
-              variant="primary"
-              children="Save"
-              onClick={() => {
-                setShowConfirmationModal(false);
-                setShowLogisticModal(true);
-              }}
-              className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] bg-[#5D5FEF] text-white hover:bg-white hover:text-[#5D5FEF]"
-            />
-          </div>
+        <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+          <Button
+            children="Cancel"
+            variant="outline"
+            onClick={() => setShowConfirmationModal(false)}
+            className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] hover:bg-[#5D5FEF] hover:text-white"
+          />
+          <Button
+            variant="primary"
+            children="Save"
+            onClick={() => {
+              setShowConfirmationModal(false);
+              setShowLogisticModal(true);
+            }}
+            className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] bg-[#5D5FEF] text-white hover:bg-white hover:text-[#5D5FEF]"
+          />
+        </div>
       </Modal>
 
       {/* Logistic Detail Modal */}

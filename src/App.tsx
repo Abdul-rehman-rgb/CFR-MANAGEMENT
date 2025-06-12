@@ -28,6 +28,11 @@ import StockTransfer from "./pages/inventory/Innerpage/StockTransfer";
 import AuditLog from "./pages/inventory/Innerpage/AuditLog";
 import ProductManagementLayout from "./pages/ProductManagement/ProductManagementLayout";
 import ProductMain from "./pages/ProductManagement/innerpage/ProductMain";
+import LowStcok from "./pages/ProductManagement/innerpage/LowStcok";
+import OutOfStock from "./pages/ProductManagement/innerpage/OutOfStock";
+import Expiry from "./pages/ProductManagement/innerpage/Expiry";
+import LogisticLayout from "./pages/Logistics/LogisticLayout";
+import LogisticMain from "./pages/Logistics/innerpage/LogisticMain";
 
 export default function App() {
   return (
@@ -52,11 +57,24 @@ export default function App() {
             </Route>
 
             {/* Product Management Routes */}
-            <Route path="/productManagement" element={<ProductManagementLayout />} >
+            <Route
+              path="/productManagement"
+              element={<ProductManagementLayout />}
+            >
               <Route index element={<ProductMain />} />
-
+              <Route path="low-stock" element={<LowStcok />} />
+              <Route path="out-of-stock" element={<OutOfStock />} />
+              <Route path="near-expiry" element={<Expiry />} />
             </Route>
 
+            {/* Logistic Routes */}
+            <Route
+              path="/logistics"
+              element={<LogisticLayout />}
+            >
+              <Route index element={<LogisticMain />} />
+
+            </Route>
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />

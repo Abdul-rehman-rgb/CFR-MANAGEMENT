@@ -6,7 +6,7 @@ import Escrow from "./TabContent/Escrow";
 import BatchTracking from "./TabContent/BatchTracking";
 
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("stock");
 
   const renderContent = () => {
     switch (activeTab) {
@@ -24,7 +24,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <TabButtons activeTab={activeTab} onTabChange={setActiveTab} />
       <div className="mt-4">{renderContent()}</div>
     </div>

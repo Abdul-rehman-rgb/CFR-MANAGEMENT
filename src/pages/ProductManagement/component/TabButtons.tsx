@@ -9,7 +9,7 @@ const tabs = [
 
 const TabButtons = ({ activeTab, onTabChange }) => {
   return (
-    <div className="flex flex-row border-b border-gray-300 bg-red-500">
+    <div className="flex flex-row">
       {tabs.map((tab) => (
         <button
           key={tab.id}

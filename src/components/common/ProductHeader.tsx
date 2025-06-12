@@ -22,6 +22,7 @@ type ProductHeaderProps = {
   showRefresh?: boolean;
   showCustomize?: boolean;
   dateRange: Range;
+  heading: string;
   setDateRange: (range: any) => void;
 };
 
@@ -32,12 +33,13 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({
   showRefresh = true,
   dateRange,
   setDateRange,
+  heading
 }) => {
   const [showPicker, setShowPicker] = useState(false);
 
   return (
     <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
-      <h2 className="text-[14px] font-medium text-[#5D5FEF]">Product Management</h2>
+      <h2 className="text-[14px] font-medium text-[#5D5FEF]">{heading}</h2>
 
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (
