@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 // import ProductTable from "./MultiProductSelection/ProductTable";
 
-import ShippingOptions from "./../dashboard/MultiProductSelection/ShippingTable";
+import ShippingOptions from "./AddNewOrderModal/ShippingTable";
 const ShippingTableModal = () => {
   const [priority, setPriority] = useState("");
   const [shippingOptions] = useState([

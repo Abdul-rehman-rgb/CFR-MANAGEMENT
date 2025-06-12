@@ -1,6 +1,4 @@
-import React from "react";
-import ProductDetails from "./../dashboard/MultiProductSelection/ConfirmDelivery";
-// import ProductTable from "./../dashboard/MultiProductSelection/ProductTable";
+import ProductDetails from "./AddNewOrderModal/ConfirmDelivery";
 
 const ConfitmDelivery = () => {
   const products = [

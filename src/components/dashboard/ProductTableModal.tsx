@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-import ProductTable from "./../dashboard/MultiProductSelection/ProductTable";
+import ProductTable from "./AddNewOrderModal/ProductTable";
 
 const ProductTableModal = () => {
   const [products, setProducts] = useState([

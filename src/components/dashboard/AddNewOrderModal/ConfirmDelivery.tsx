@@ -1,6 +1,5 @@
-import React from "react";
-
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
 
 const ProductDetails = ({ 
   products,
@@ -15,7 +14,7 @@ const ProductDetails = ({
     <div className="max-w-4xl mx-auto  bg-white rounded-lg shadow-sm">
       {/* Product Details Section */}
       <section className="mb-0">
-        {/* <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Details</h1> */}
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Details</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse">
             <thead>
@@ -28,7 +27,7 @@ const ProductDetails = ({
               </tr>
             </thead>
             <tbody>
-              {products.map((product, index) => (
+              {products.map((product: { articleCode: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; pallet: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; cators: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }, index: Key | null | undefined) => (
                 <tr key={index} className="border-b border-gray-200">
                   <td className="py-3 px-4">
                     <div className="w-16 h-16 bg-gray-200 rounded-md"></div>

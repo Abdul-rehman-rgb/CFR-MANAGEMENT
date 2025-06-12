@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProductCard from "../dashboard/MultiProductSelection/MultiProductCard";
+import ProductCard from "./AddNewOrderModal/MultiProductCard";
 
 const ProductList = () => {
   const [selected, setSelected] = useState<number[]>([]);

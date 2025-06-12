@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { SetStateAction, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import OutlineBtn from "../ui/button/OutLine";
@@ -6,6 +7,11 @@ import { FiPlus } from "react-icons/fi";
 import HeadingTwo from "../ui/heading/HeadingTwo";
 import HeadingOne from "../ui/heading/HeadinhOne";
 import SubHeading from "../ui/heading/SubHeading";
+import { Modal } from "../ui/modal";
+import { useModal } from "../../hooks/useModal";
+import Button from "../ui/button/Button";
+import CreateTarget from "../dashboard/CreateTargetModal/CreateTarget";
+import TargetReport from "../dashboard/CreateTargetModal/TargetReport";
 
 type TargetCardProps = {
   achieved: number;
@@ -17,11 +23,34 @@ type TargetCardProps = {
 const TargetCard: React.FC<TargetCardProps> = ({
   achieved,
   target,
-  onCreateClick,
+  // onCreateClick,
   onReportClick,
 }) => {
   const percentage = Math.round((achieved / target) * 100);
 
+  const { isOpen, openModal, closeModal } = useModal();
+  const [step, setStep] = useState(0);
+
+  const handleBack = () => setStep((prev) => prev - 1);
+  const handleNext = () => setStep((prev) => prev + 1);
+  const handleSave = () => {
+    console.log("Saving...");
+    closeModal();
+    setStep(0);
+    setCurrentModal("");
+  };
+  const [currentModal, setCurrentModal] = useState("");
+
+  const handleOpenModal = (type: SetStateAction<string>) => {
+    setCurrentModal(type);
+    setStep(0);
+    openModal();
+  };
+
+  const stepLabels = [
+    "",
+    "",
+  ];
   return (
     <div className="bg-white dark:bg-[#0D0D0D] rounded-xl pl-2 w-full py-1">
       {/* Header */}
@@ -31,8 +60,9 @@ const TargetCard: React.FC<TargetCardProps> = ({
           <OutlineBtn
             BtnName="Create Target"
             icon={FiPlus}
-            onClick={onCreateClick}
+            // onClick={onCreateClick}
             className="rounded-[6px] text-[9px]"
+            onClick={() => handleOpenModal("target")}
           />
           <button
             onClick={onReportClick}
@@ -78,6 +108,53 @@ const TargetCard: React.FC<TargetCardProps> = ({
           <SubHeading text="Target Revenue" />
         </div>
       </div>
+
+      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[725px] m-4">
+        {currentModal === "target" && (
+          <>
+            {step === 0 && <CreateTarget />}
+            {step === 1 && <TargetReport />}
+          </>
+        )}
+
+        <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+          {step > 0 && (
+            <Button
+              className="w-full mx-5 my-1 bg-gray-200 text-black"
+              size="sm"
+              onClick={handleBack}
+            >
+              Back
+            </Button>
+          )}
+
+          {step < 1 && (
+            <Button
+              className="w-full bg:hover-red mx-5 my-1"
+              size="sm"
+              onClick={handleNext}
+            >
+              Next
+            </Button>
+          )}
+
+          {step === 1 && (
+            <Button
+              className="w-full bg:hover-red mx-5 my-1"
+              size="sm"
+              onClick={handleSave}
+            >
+              Save
+            </Button>
+          )}
+
+          {stepLabels[step] && (
+            <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
+              {stepLabels[step]}
+            </Button>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 };
