@@ -13,10 +13,11 @@ import MultiProductSelection from "./MultiProductSelection";
 import ContactAddress from "./AddNewOrderModal/ContactAddress";
 import DateTime from "./AddNewOrderModal/DateTime";
 import OrderCreatedSuccess from "./AddNewOrderModal/OrderCreatedSuccess";
+import GenerateInvoiceModal from "./GenerateInvoiceModal/GenerateInvoiceModal";
 
 // Dummy Components for new modals
-const GenerateInvoiceModal = () => <div>Generate Invoices</div>;
-const UpdateInventoryModal = () => <div>Updated Inventory</div>;
+// const GenerateInvoiceModal = () => <div>Generate Invoices</div>;
+// const UpdateInventoryModal = () => <div>Updated Inventory</div>;
 
 export default function QuickAction() {
   const { isOpen, openModal, closeModal } = useModal();
@@ -73,6 +74,8 @@ export default function QuickAction() {
       </div>
 
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[725px] m-4">
+        
+        {/* Add new order Modal View start*/}
         {currentModal === "order" && (
           <>
             {step === 0 && <MultiProductSelection />}
@@ -84,10 +87,6 @@ export default function QuickAction() {
             {step === 6 && <OrderCreatedSuccess />}
           </>
         )}
-
-        {currentModal === "invoice" && <GenerateInvoiceModal />}
-        {currentModal === "inventory" && <UpdateInventoryModal />}
-
         {currentModal === "order" && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
             {step > 0 && (
@@ -115,6 +114,86 @@ export default function QuickAction() {
             )}
           </div>
         )}
+        {/* Add new order Modal View End*/}
+
+        {/* Add new Generate Invoice Modal View start*/}
+
+        {currentModal === "invoice" && (
+          <>
+            {step === 0 && <GenerateInvoiceModal />}
+            {step === 1 && <ProductTableModal />}
+            {step === 2 && <ShippingTableModal />}
+          </>
+        )}
+        {currentModal === "invoice" && (
+          <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+            {step > 0 && (
+              <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
+                Back
+              </Button>
+            )}
+
+            {step < 2 && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
+                Next
+              </Button>
+            )}
+
+            {step === 2 && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleSave}>
+                Save
+              </Button>
+            )}
+
+            {stepLabels[step] && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
+                {stepLabels[step]}
+              </Button>
+            )}
+          </div>
+        )}
+
+        {/* Add new Generate Invoice Modal View end*/}
+
+        {/* Add new Update Inventory Modal View start*/}
+
+           {currentModal === "inventory" && (
+          <>
+            {step === 0 && <MultiProductSelection />}
+            {step === 1 && <ProductTableModal />}
+            {step === 2 && <ShippingTableModal />}
+          </>
+        )}
+         {currentModal === "inventory" && (
+          <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+            {step > 0 && (
+              <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
+                Back
+              </Button>
+            )}
+
+            {step < 2 && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
+                Next
+              </Button>
+            )}
+
+            {step === 2 && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleSave}>
+                Save
+              </Button>
+            )}
+
+            {stepLabels[step] && (
+              <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
+                {stepLabels[step]}
+              </Button>
+            )}
+          </div>
+        )}
+
+          {/* Add new Update Inventory Modal View end*/}
+
       </Modal>
     </div>
   );

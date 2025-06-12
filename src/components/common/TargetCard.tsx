@@ -117,6 +117,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
           </>
         )}
 
+
         <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
           {step > 0 && (
             <Button
