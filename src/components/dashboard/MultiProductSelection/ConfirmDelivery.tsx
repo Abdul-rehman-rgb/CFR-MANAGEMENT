@@ -15,7 +15,7 @@ const ProductDetails = ({
     <div className="max-w-4xl mx-auto  bg-white rounded-lg shadow-sm">
       {/* Product Details Section */}
       <section className="mb-0">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Details</h1>
+        {/* <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Details</h1> */}
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse">
             <thead>

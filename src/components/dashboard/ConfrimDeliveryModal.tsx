@@ -39,7 +39,11 @@ const ConfitmDelivery = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
+        <div className="px-2 pr-14">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            Review & Confirm Delivery Note
+          </h4>
       <ProductDetails
         products={products}
         deliveryAddress={deliveryAddress}
@@ -49,6 +53,7 @@ const ConfitmDelivery = () => {
         priority="High Priority"
         companyInfo={companyInfo}
       />
+      </div>
     </div>
   );
 };
