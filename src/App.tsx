@@ -33,6 +33,7 @@ import OutOfStock from "./pages/ProductManagement/innerpage/OutOfStock";
 import Expiry from "./pages/ProductManagement/innerpage/Expiry";
 import LogisticLayout from "./pages/Logistics/LogisticLayout";
 import LogisticMain from "./pages/Logistics/innerpage/LogisticMain";
+import LogisticDetail from "./pages/Logistics/innerpage/LogisticDetail";
 
 export default function App() {
   return (
@@ -73,6 +74,7 @@ export default function App() {
               element={<LogisticLayout />}
             >
               <Route index element={<LogisticMain />} />
+              <Route path="logistic-detail" element={<LogisticDetail />} />
 
             </Route>
 

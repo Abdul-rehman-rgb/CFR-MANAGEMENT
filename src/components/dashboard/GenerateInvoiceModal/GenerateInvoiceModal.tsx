@@ -1,10 +1,19 @@
 import React, { useState } from "react";
+import Input from "../../form/input/InputField";
+import Label from "../../form/Label";
+import Checkbox from "../../form/input/Checkbox";
+import Dropdown from "../../form/input/Dropdown";
+import SearchBox from "../../form/input/SearchBox";
+import Form from "../../form/Form";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Form");
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const tabs = ["Form", "Upload"];
+
+  const handleSubmit = () => console.log("Submitting form...");
+
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -39,34 +48,74 @@ const Tabs = () => {
 
       {/* Tab Content */}
       {activeTab === "Form" && (
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              className="mt-1 w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              className="mt-1 w-full rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              placeholder="Enter your email"
-            />
-          </div>
-          <button
-            type="submit"
-            className="rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
-          >
-            Submit
-          </button>
-        </form>
+         <Form className="space-y-5" onSubmit={handleSubmit}>
+                    <div className="space-y-4">
+                      <Label htmlFor="product-name" children="Product Name" />
+                      <SearchBox placeholder="Enter product name" />
+
+                      <Dropdown
+                        options={[
+                          { value: "", label: "Select Product" },
+                          { value: "product1", label: "Product 1" },
+                          { value: "product2", label: "Product 2" },
+                          { value: "product3", label: "Product 3" },
+                        ]}
+                        id="product-select"
+                      />
+
+                      <div className="flex flex-wrap items-center gap-4">
+                        <Checkbox
+                          label="Pallet"
+                          checked={true}
+                          onChange={() => {}}
+                        />
+                        <Checkbox
+                          label="Cartons"
+                          checked={false}
+                          onChange={() => {}}
+                        />
+
+                        <div className="flex flex-col sm:flex-row gap-4 w-full">
+                          <div className="flex-1">
+                            <Label
+                              htmlFor="current-stock"
+                              children="Current Stock"
+                            />
+                            <Input
+                              type="number"
+                              id="current-stock"
+                              placeholder="Quantity"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <Label
+                              htmlFor="update-quantity"
+                              children="Update Quantity"
+                            />
+                            <Input
+                              type="number"
+                              id="update-quantity"
+                              placeholder="Quantity"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                        <Button
+                          children="Cancel"
+                          variant="outline"
+                          onClick={() => setIsModalOpen(false)}
+                          className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] hover:bg-[#5D5FEF] hover:text-white hover:border-[#5D5FEF] flex h-9 items-center gap-2 rounded-md px-4 sm:h-10 min-w-[120px] sm:min-w-[140px] transition-all"
+                        />
+                        <Button
+                          variant="primary"
+                          children="Save"
+                          className="border-[1px] max-sm:w-full w-full border-[#5D5FEF] bg-[#5D5FEF] text-white hover:bg-white hover:text-[#5D5FEF] hover:border-[#5D5FEF] flex h-9 items-center gap-2 rounded-md px-4 sm:h-10 min-w-[140px] transition-all"
+                        />
+                      </div> */}
+                    </div>
+                  </Form>
       )}
 
       {activeTab === "Upload" && (

@@ -14,7 +14,7 @@ type InventoryCardProps = {
   showDateRange?: boolean;
   showRefresh?: boolean;
   showCustomize?: boolean;
-  dateRange: Range;
+  //dateRange: Range;
 };
 
 const InventoryCard: React.FC<InventoryCardProps> = ({

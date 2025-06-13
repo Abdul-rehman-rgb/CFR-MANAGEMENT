@@ -38,7 +38,7 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({
   const [showPicker, setShowPicker] = useState(false);
 
   return (
-    <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
+    <div className="flex flex-row justify-between max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
       <h2 className="text-[14px] font-medium text-[#5D5FEF]">{heading}</h2>
 
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">

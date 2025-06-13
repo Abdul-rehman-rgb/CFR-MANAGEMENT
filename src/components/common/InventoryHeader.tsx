@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { FiDownload, FiRefreshCw, FiSettings, FiCalendar, FiPlus } from 'react-icons/fi';
+import { FiRefreshCw, FiCalendar, FiPlus } from 'react-icons/fi';
 import { DateRangePicker } from 'react-date-range';
 import { Range, RangeKeyDict } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import ColorFull from '../ui/button/ColorFull';
 import OutlineBtn from '../ui/button/OutLine';
-import Export from '../ui/button/Export';
 
 type InventoryHeaderProps = {
   onExport?: () => void;

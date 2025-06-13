@@ -9,7 +9,7 @@ const HeadingThree = ({
   color = "text-[#737791]",
 }) => {
   return (
-    <h3 className={`${size} ${weight} ${color} ${className}`}>
+    <h3 className={`${size} ${weight} ${color} ${className} dark:text-white`}>
       {text}
     </h3>
   );
