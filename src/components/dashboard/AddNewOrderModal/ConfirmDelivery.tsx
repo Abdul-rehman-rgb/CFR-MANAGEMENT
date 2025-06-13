@@ -1,43 +1,183 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
+import {
+  ReactElement,
+  JSXElementConstructor,
+  ReactNode,
+  ReactPortal,
+  Key,
+} from "react";
 
-const ProductDetails = ({ 
+const ProductDetails = ({
   products,
   deliveryAddress,
   deliveryDate,
   orderNotes,
   shippingMethod,
   priority,
-  companyInfo
+  companyInfo,
 }) => {
   return (
     <div className="max-w-4xl mx-auto  bg-white rounded-lg shadow-sm">
       {/* Product Details Section */}
       <section className="mb-0">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Details</h1>
+        <h1 className="text-md font-bold text-[#8E8E9C] mb-4">
+          Product Details
+        </h1>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Product Image</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Article Code</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Products Description</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Pallet</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Cators</th>
+                <th className="text-left py-1 px-4 font-medium text-gray-600 text-sm">
+                  Product Image
+                </th>
+                <th className="text-left py-1 px-4 font-medium text-gray-600 text-sm">
+                  Article Code
+                </th>
+                <th className="text-left py-1 px-4 font-medium text-gray-600 text-sm">
+                  Products Description
+                </th>
+                <th className="text-left py-1 px-4 font-medium text-gray-600 text-sm">
+                  Pallet
+                </th>
+                <th className="text-left py-1 px-4 font-medium text-gray-600 text-sm">
+                  Cators
+                </th>
               </tr>
             </thead>
             <tbody>
-              {products.map((product: { articleCode: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; pallet: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; cators: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }, index: Key | null | undefined) => (
-                <tr key={index} className="border-b border-gray-200">
-                  <td className="py-3 px-4">
-                    <div className="w-16 h-16 bg-gray-200 rounded-md"></div>
-                  </td>
-                  <td className="py-3 px-4 font-medium text-gray-800">{product.articleCode}</td>
-                  <td className="py-3 px-4 text-gray-600">{product.description}</td>
-                  <td className="py-3 px-4 text-gray-600">{product.pallet}</td>
-                  <td className="py-3 px-4 text-gray-600">{product.cators}</td>
-                </tr>
-              ))}
+              {products.map(
+                (
+                  product: {
+                    articleCode:
+                      | string
+                      | number
+                      | bigint
+                      | boolean
+                      | ReactElement<
+                          unknown,
+                          string | JSXElementConstructor<any>
+                        >
+                      | Iterable<ReactNode>
+                      | ReactPortal
+                      | Promise<
+                          | string
+                          | number
+                          | bigint
+                          | boolean
+                          | ReactPortal
+                          | ReactElement<
+                              unknown,
+                              string | JSXElementConstructor<any>
+                            >
+                          | Iterable<ReactNode>
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    description:
+                      | string
+                      | number
+                      | bigint
+                      | boolean
+                      | ReactElement<
+                          unknown,
+                          string | JSXElementConstructor<any>
+                        >
+                      | Iterable<ReactNode>
+                      | ReactPortal
+                      | Promise<
+                          | string
+                          | number
+                          | bigint
+                          | boolean
+                          | ReactPortal
+                          | ReactElement<
+                              unknown,
+                              string | JSXElementConstructor<any>
+                            >
+                          | Iterable<ReactNode>
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    pallet:
+                      | string
+                      | number
+                      | bigint
+                      | boolean
+                      | ReactElement<
+                          unknown,
+                          string | JSXElementConstructor<any>
+                        >
+                      | Iterable<ReactNode>
+                      | ReactPortal
+                      | Promise<
+                          | string
+                          | number
+                          | bigint
+                          | boolean
+                          | ReactPortal
+                          | ReactElement<
+                              unknown,
+                              string | JSXElementConstructor<any>
+                            >
+                          | Iterable<ReactNode>
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    cators:
+                      | string
+                      | number
+                      | bigint
+                      | boolean
+                      | ReactElement<
+                          unknown,
+                          string | JSXElementConstructor<any>
+                        >
+                      | Iterable<ReactNode>
+                      | ReactPortal
+                      | Promise<
+                          | string
+                          | number
+                          | bigint
+                          | boolean
+                          | ReactPortal
+                          | ReactElement<
+                              unknown,
+                              string | JSXElementConstructor<any>
+                            >
+                          | Iterable<ReactNode>
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                  },
+                  index: Key | null | undefined
+                ) => (
+                  <tr key={index} className="border-b border-gray-200">
+                    <td className="py-3 px-4">
+                      <div className="w-16 h-16 bg-gray-200 rounded-md"></div>
+                    </td>
+                    <td className="py-3 px-4 font-medium text-gray-800">
+                      {product.articleCode}
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {product.description}
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {product.pallet}
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {product.cators}
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
@@ -45,43 +185,59 @@ const ProductDetails = ({
 
       <div className="border-t border-gray-200 my-1"></div>
 
-      {/* Delivery Address Section */}
-      <section className="mb-1">
-        <h2 className="text-xl font-bold text-gray-800 mb-1">Delivery Address</h2>
-        <div className="bg-gray-50 p-0 rounded-md">
-          <ul className="list-disc list-inside space-y-1">
-            <li className="font-medium text-gray-700">Name</li>
-            <li className="text-gray-600 ml-4">{deliveryAddress.name}</li>
-            <li className="font-medium text-gray-700">Address</li>
-            <li className="text-gray-600 ml-4 whitespace-pre-line">{deliveryAddress.address}</li>
-          </ul>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-lg font-medium text-gray-800 mb-2">Delivery Date</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p className="text-gray-600">Date:</p>
-              <p className="font-medium">{deliveryDate.date}</p>
+      <div className="flex flex-col-2">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-5 lg:grid-cols-2">
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className="text-lg font-medium text-gray-800 mb-2">
+              Delivery Address
+            </h3>
+            <div className="bg-gray-50 p-0 rounded-md">
+              <ul className="list-disc list-inside space-y-1">
+                <label className="font-medium text-gray-700 text-xs">
+                  Name
+                </label>
+                <div className="text-gray-600 text-sm">
+                  {deliveryAddress.name}
+                </div>
+                <label className="font-medium text-gray-700 text-xs">
+                  Address
+                </label>
+                <div className="text-gray-600  text-sm">
+                  {deliveryAddress.address}
+                </div>
+              </ul>
             </div>
-            <div>
-              <p className="text-gray-600">Time:</p>
-              <p className="font-medium">{deliveryDate.time}</p>
+          </div>
+
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className="text-lg font-medium text-gray-800 mb-2">
+              Delivery Date
+            </h3>
+            <div className="bg-gray-50 p-0 rounded-md">
+              <ul className="list-disc list-inside space-y-1">
+                <label className="font-medium text-gray-700 text-xs">
+                  Name
+                </label>
+                <div className="text-gray-600 text-sm">
+                  {deliveryAddress.name}
+                </div>
+                <label className="font-medium text-gray-700 text-xs">
+                  Order Notes:
+                </label>
+                <div className="text-gray-600  text-sm">{orderNotes}</div>
+              </ul>
             </div>
           </div>
         </div>
-
-        <div className="mt-4">
-          <p className="text-gray-600">Order Notes:</p>
-          <p className="font-medium mt-1">{orderNotes}</p>
-        </div>
-      </section>
+      </div>
 
       <div className="border-t border-gray-200 my-1"></div>
 
       {/* Shipping Section */}
-      <section className="mb-2">
-        <h3 className="text-lg font-medium text-gray-800 mb-2">Shipping by {shippingMethod}</h3>
+      <section className="mb-2 flex">
+        <h3 className="text-lg font-medium text-gray-800 mb-2">
+          Shipping by {shippingMethod}
+        </h3>
         <span className="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
           {priority}
         </span>
@@ -90,13 +246,21 @@ const ProductDetails = ({
       <div className="border-t border-gray-200 my-1"></div>
 
       {/* Quantity Delivered Section */}
+
       <section className="mb-2">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Quantity Delivered</h2>
-        <ul className="list-disc list-inside space-y-1">
-          <li className="font-medium text-gray-700">Date</li>
-          <li className="font-medium text-gray-700">Receliver Name</li>
-          <li className="font-medium text-gray-700">Receliver Signature</li>
-        </ul>
+        <div className="flex flex-col-2">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-5 lg:grid-cols-2">
+            <div className="col-span-2 lg:col-span-1">
+              <li className="font-medium text-gray-700">Date</li>
+              <li className="font-medium text-gray-700">Date</li>
+            </div>
+            <div className="col-span-2 lg:col-span-1">
+              <li className="font-medium text-gray-700">Receliver Name</li>
+              <li className="font-medium text-gray-700">Receliver Signature</li>
+            </div>
+          </div>
+        </div>
+        <ul className="list-disc list-inside space-y-1"></ul>
       </section>
 
       {/* Company Footer */}

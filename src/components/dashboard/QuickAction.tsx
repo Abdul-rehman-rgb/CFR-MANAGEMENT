@@ -96,13 +96,13 @@ export default function QuickAction() {
             )}
 
             {step < 6 && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
+              <Button className="w-full bg-[#5D5FEF] text-sm mx-5 my-1 " size="sm" onClick={handleNext}>
                 Next
               </Button>
             )}
 
             {step === 6 && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleSave}>
+              <Button className="w-full   ``````mx-5 my-1" size="sm" onClick={handleSave}>
                 Save
               </Button>
             )}
@@ -134,7 +134,7 @@ export default function QuickAction() {
             )}
 
             {step < 2 && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
+              <Button className="w-full bg-[#5D5FEF] bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
                 Next
               </Button>
             )}

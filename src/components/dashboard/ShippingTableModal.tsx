@@ -1,19 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 // import ProductTable from "./MultiProductSelection/ProductTable";
+import imageTumb2 from "../../../public/dhl2.svg";
+import imageTumb from "../../../public/dhl.svg";
+
 
 import ShippingOptions from "./AddNewOrderModal/ShippingTable";
 const ShippingTableModal = () => {
   const [priority, setPriority] = useState("");
   const [shippingOptions] = useState([
-    { name: "Shipping Walkerpack (Northampton)", available: true },
-    { name: "Shipping Greet Bear UK", available: false },
-    { name: "Shipping DHL UK", available: false }
+    { image: imageTumb2 ,name: "Shipping Walkerpack (Northampton)", available: true },
+    { image: imageTumb ,name: "Shipping Greet Bear UK", available: false },
+    { image: imageTumb2 ,name: "Shipping DHL UK", available: false }
   ]);
   return (
-      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
         <div className="px-2 pr-14">
-          <h4 className="mb-7 text-2xl font-semibold text-gray-800 dark:text-white/90">
+          <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Shipping
           </h4>
           {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
