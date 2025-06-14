@@ -24,7 +24,21 @@ export default function QuickAction() {
   const [step, setStep] = useState(0);
   const [currentModal, setCurrentModal] = useState("");
 
-  const stepLabels = ["", "Continue to Shipping", "Confirm Delivery Details", "Save Order", ""];
+  const stepLabelsOrder = ["", "", "", "", "", "", ];
+  const stepLabelsInvoice = ["stepLabelsInvoice", "", "stepLabelsInvoice", "", "", "Create Order", ];
+  const stepLabelsInventory = ["stepLabelsInventory", "stepLabelsInventory", "stepLabelsInventory", "", "", "Create Order", ];
+
+  const nextButtonLabelsOrder = [
+  "Next",       // step 0
+  "Next",   // step 1
+  "Next",    // step 2
+  "Next",       // step 3
+  "Next",       // step 4
+  "Create Order",    // step 5
+  "View Delivery note"            // step 6 — no "Next" here
+];
+
+
 
   const handleSave = () => {
     console.log("Saving...");
@@ -89,27 +103,32 @@ export default function QuickAction() {
         )}
         {currentModal === "order" && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
-            {step > 0 && (
-              <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
-                Back
-              </Button>
+            {step > 0 && step < 6  && (
+              <span className="absolute top-[22px] left-5 w-[34px] flex items-center gap-2 text-sm font-medium cursor-pointer" onClick={handleBack}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </span>
+              // <Button className="absolute top-[10px] left-0 w-[50px] mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
+              //   Back
+              // </Button>
             )}
 
             {step < 6 && (
-              <Button className="w-full bg-[#5D5FEF] text-sm mx-5 my-1 " size="sm" onClick={handleNext}>
-                Next
+              <Button className="primary w-full mx-4" size="sm" onClick={handleNext}>
+                {nextButtonLabelsOrder[step] || "Next"}
               </Button>
             )}
 
             {step === 6 && (
-              <Button className="w-full   ``````mx-5 my-1" size="sm" onClick={handleSave}>
-                Save
+              <Button className="w-full mx-4 my-1" size="sm" onClick={handleSave}>
+                View in Order Management
               </Button>
             )}
 
-            {stepLabels[step] && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
-                {stepLabels[step]}
+            {stepLabelsOrder[step] && (
+              <Button className=" w-full bg:hover-red mx-5 my-1" size="sm">
+                {stepLabelsOrder[step]}
               </Button>
             )}
           </div>
@@ -145,9 +164,9 @@ export default function QuickAction() {
               </Button>
             )}
 
-            {stepLabels[step] && (
+            {stepLabelsInvoice[step] && (
               <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
-                {stepLabels[step]}
+                {stepLabelsInvoice[step]}
               </Button>
             )}
           </div>
@@ -184,9 +203,9 @@ export default function QuickAction() {
               </Button>
             )}
 
-            {stepLabels[step] && (
+            {stepLabelsInventory[step] && (
               <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
-                {stepLabels[step]}
+                {stepLabelsInventory[step]}
               </Button>
             )}
           </div>

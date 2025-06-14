@@ -50,7 +50,7 @@ const ProductTableModal = () => {
 
   return (
       <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
-        <div className="px-2 pr-14">
+        <div className="pl-10 px-2 pr-14">
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Product Display
           </h4>

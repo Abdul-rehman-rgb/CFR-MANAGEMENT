@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import imageTumb from "../../../../public/dhl.svg";
-import imageTumb2 from "../../../../public/dhl2.svg";
+
 
 import Radio from "../../form/input/Radio";
 import SingleSelect from "../../form/input/SingleSelect";
