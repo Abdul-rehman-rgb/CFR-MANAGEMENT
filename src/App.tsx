@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
@@ -34,6 +35,7 @@ import Expiry from "./pages/ProductManagement/innerpage/Expiry";
 import LogisticLayout from "./pages/Logistics/LogisticLayout";
 import LogisticMain from "./pages/Logistics/innerpage/LogisticMain";
 import LogisticDetail from "./pages/Logistics/innerpage/LogisticDetail";
+import ChatScreen from "./components/common/ChatScreen";
 
 export default function App() {
   return (
@@ -108,6 +110,12 @@ export default function App() {
           <Route path="/verifyAccount" element={<VerifyAccount />} />
           <Route path="/resetCode" element={<ResetCode />} />
           <Route path="/newPassword" element={<NewPassword />} />
+
+          {/* Chat Layout */}
+          <Route path="/Chat" element={<ChatScreen messages={[]} currentUserId={""} onSend={function (message: string): void {
+            throw new Error("Function not implemented.");
+          } } />} />
+
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
