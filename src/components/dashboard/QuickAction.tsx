@@ -13,7 +13,8 @@ import MultiProductSelection from "./MultiProductSelection";
 import ContactAddress from "./AddNewOrderModal/ContactAddress";
 import DateTime from "./AddNewOrderModal/DateTime";
 import OrderCreatedSuccess from "./AddNewOrderModal/OrderCreatedSuccess";
-import GenerateInvoiceModal from "./GenerateInvoiceModal/GenerateInvoiceModal";
+import GenerateManuallyFirstStep from "./GenerateInvoiceModal/GenerateManuallyFirstStep";
+import GenerateManuallySecondStep from "./GenerateInvoiceModal/GenerateManuallySecondStep";
 
 // Dummy Components for new modals
 // const GenerateInvoiceModal = () => <div>Generate Invoices</div>;
@@ -139,8 +140,8 @@ export default function QuickAction() {
 
         {currentModal === "invoice" && (
           <>
-            {step === 0 && <GenerateInvoiceModal />}
-            {step === 1 && <ProductTableModal />}
+            {step === 0 && <GenerateManuallyFirstStep />}
+            {step === 1 && <GenerateManuallySecondStep />}
             {step === 2 && <ShippingTableModal />}
           </>
         )}

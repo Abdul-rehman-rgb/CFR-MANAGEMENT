@@ -13,18 +13,18 @@ export default function NotFound() {
         <GridShape />
         <div className="mx-auto w-full max-w-[242px] text-center sm:max-w-[472px]">
           <h1 className="mb-8 font-bold text-gray-800 text-title-md dark:text-white/90 xl:text-title-2xl">
-            ERROR
+            Under Development
           </h1>
 
-          <img src="/images/error/404.svg" alt="404" className="dark:hidden" />
+          {/* <img src="/images/error/404.svg" alt="404" className="dark:hidden" />
           <img
             src="/images/error/404-dark.svg"
             alt="404"
             className="hidden dark:block"
-          />
+          /> */}
 
           <p className="mt-10 mb-6 text-base text-gray-700 dark:text-gray-400 sm:text-lg">
-            We can’t seem to find the page you are looking for!
+            We're currently working on this page. Development is in progress — stay tuned for updates!
           </p>
 
           <Link
@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
         {/* <!-- Footer --> */}
         <p className="absolute text-sm text-center text-gray-500 -translate-x-1/2 bottom-6 left-1/2 dark:text-gray-400">
-          &copy; {new Date().getFullYear()} - TailAdmin
+          &copy; {new Date().getFullYear()} - CFR - Admin Dashboard
         </p>
       </div>
     </>
