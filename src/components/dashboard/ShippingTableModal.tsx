@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-// import ProductTable from "./MultiProductSelection/ProductTable";
 import imageTumb2 from "../../../public/dhl2.svg";
 import imageTumb from "../../../public/dhl.svg";
 
@@ -26,7 +25,7 @@ const ShippingTableModal = () => {
         <form className="flex flex-col">
           <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">
             <div>
-              <div className="">
+              <div>
                     <ShippingOptions
                       options={shippingOptions}
                       selectedPriority={priority}

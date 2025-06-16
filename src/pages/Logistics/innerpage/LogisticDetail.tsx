@@ -22,8 +22,7 @@ const LogisticDetail = () => {
           icon={FiDownload}
           onClick={() => console.log("Export triggered")}
         />
-            <TransitBtn text="Transit" />
-
+        <TransitBtn text="Transit" />
       </div>
 
       {/* Grid layout */}
@@ -41,7 +40,11 @@ const LogisticDetail = () => {
                 className="text-[20px] text-black"
               />
             </div>
-            <img src={Truck} alt="truck" className="w-[120px] md:w-[155px] h-auto" />
+            <img
+              src={Truck}
+              alt="truck"
+              className="w-[120px] md:w-[155px] h-auto"
+            />
           </div>
           <div className="flex flex-col sm:flex-row justify-between gap-4">
             <div className="space-y-3">
@@ -50,8 +53,16 @@ const LogisticDetail = () => {
                   <FiDroplet className="text-white" />
                 </div>
                 <div>
-                  <Paragragh para="Delivery Date" className="text-[12px]" color="text-black/40" />
-                  <HeadingThree text="12/01/2025" className="font-semibold text-black" size="text-[16px]" />
+                  <Paragragh
+                    para="Delivery Date"
+                    className="text-[12px]"
+                    color="text-black/40"
+                  />
+                  <HeadingThree
+                    text="12/01/2025"
+                    className="font-semibold text-black"
+                    size="text-[16px]"
+                  />
                 </div>
               </div>
               <div className="flex items-center">
@@ -59,8 +70,16 @@ const LogisticDetail = () => {
                   <FiDroplet className="text-white" />
                 </div>
                 <div>
-                  <Paragragh para="Delivery Date" className="text-[12px]" color="text-black/40" />
-                  <HeadingThree text="12/01/2025" className="font-semibold text-black" size="text-[16px]" />
+                  <Paragragh
+                    para="Delivery Date"
+                    className="text-[12px]"
+                    color="text-black/40"
+                  />
+                  <HeadingThree
+                    text="12/01/2025"
+                    className="font-semibold text-black"
+                    size="text-[16px]"
+                  />
                 </div>
               </div>
             </div>
@@ -70,7 +89,11 @@ const LogisticDetail = () => {
 
         {/* Product Info Panel */}
         <div className="bg-white dark:bg-[#0D0D0D] p-4 space-y-4 rounded-[12px]">
-          <HeadingThree text="Product Info" className="font-semibold text-black" size="text-[16px]" />
+          <HeadingThree
+            text="Product Info"
+            className="font-semibold text-black"
+            size="text-[16px]"
+          />
           <div className="grid grid-cols-2 gap-4">
             <InfoBlock label="Name" value="Product A" />
             <InfoBlock label="Article Number" value="SKU 23434" />
@@ -81,26 +104,50 @@ const LogisticDetail = () => {
 
         {/* Customer Info Panel */}
         <div className="bg-white dark:bg-[#0D0D0D] p-4 space-y-4 rounded-[12px]">
-          <HeadingThree text="Customer Info" className="font-semibold text-black" size="text-[16px]" />
+          <HeadingThree
+            text="Customer Info"
+            className="font-semibold text-black"
+            size="text-[16px]"
+          />
           <div className="grid grid-cols-2 gap-4">
             <InfoBlock label="Name" value="John Doe" />
             <InfoBlock label="Contact" value="+1 234 567 890" />
           </div>
-          <InfoBlock label="Address" value="123, Main Street, NY, Noida, India" />
+          <InfoBlock
+            label="Address"
+            value="123, Main Street, NY, Noida, India"
+          />
         </div>
 
         {/* Carrier Info Panel */}
         <div className="bg-white dark:bg-[#0D0D0D] p-4 space-y-4 rounded-[12px]">
-          <HeadingThree text="Carrier Details" className="font-semibold text-black" size="text-[16px]" />
+          <HeadingThree
+            text="Carrier Details"
+            className="font-semibold text-black"
+            size="text-[16px]"
+          />
           <div className="bg-[#EFF0F7] p-3 rounded-md flex items-center gap-4">
-            <img src={CarrierImage} alt="carrier" className="w-[32px] h-[32px] object-contain" />
-            <HeadingThree text="Shipping Walkerpack (Northampton)" weight="font-medium" color="text-[#2B2B2B]/80" size="text-[14px]" />
+            <img
+              src={CarrierImage}
+              alt="carrier"
+              className="w-[32px] h-[32px] object-contain"
+            />
+            <HeadingThree
+              text="Shipping Walkerpack (Northampton)"
+              weight="font-medium"
+              color="text-[#2B2B2B]/80"
+              size="text-[14px]"
+            />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <InfoBlock label="Email" value="example@mail.com" />
             <InfoBlock label="Contact" value="+1 234 567 890" />
           </div>
-          <InfoBlock label="Website" value="www.shippingwalkerpack.com" color="text-[#007AFF]" />
+          <InfoBlock
+            label="Website"
+            value="www.shippingwalkerpack.com"
+            color="text-[#007AFF]"
+          />
         </div>
 
         {/* Suggestion Panel */}
@@ -110,7 +157,11 @@ const LogisticDetail = () => {
 
         {/* Codes Panel */}
         <div className="bg-white dark:bg-[#0D0D0D] p-4 space-y-4 rounded-[12px]">
-          <HeadingThree text="Codes" className="font-semibold text-black" size="text-[16px]" />
+          <HeadingThree
+            text="Codes"
+            className="font-semibold text-black"
+            size="text-[16px]"
+          />
           <div className="grid grid-cols-2 gap-4">
             <InfoBlock label="HS Code" value="5996071650983" />
             <InfoBlock label="Unit Bar Code" value="5996071650983" />
@@ -121,7 +172,11 @@ const LogisticDetail = () => {
 
         {/* Display Units Panel */}
         <div className="md:col-span-2 bg-white dark:bg-[#0D0D0D] p-4 space-y-4 rounded-[12px]">
-          <HeadingThree text="Display Units" className="font-semibold text-black" size="text-[16px]" />
+          <HeadingThree
+            text="Display Units"
+            className="font-semibold text-black"
+            size="text-[16px]"
+          />
           <div className="grid grid-cols-3 gap-4">
             <InfoBlock label="Unit Display" value="12" />
             <InfoBlock label="Inner Display" value="6" />
@@ -135,7 +190,11 @@ const LogisticDetail = () => {
 
 const InfoBlock = ({ label, value, color = "text-[#2B2B2B]/80" }) => (
   <div className="flex flex-col">
-    <Paragragh para={label} color="text-black/40" className="text-[10px] font-medium" />
+    <Paragragh
+      para={label}
+      color="text-black/40"
+      className="text-[10px] font-medium"
+    />
     <HeadingThree
       text={value}
       weight="font-medium"

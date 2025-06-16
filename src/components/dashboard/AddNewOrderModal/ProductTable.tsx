@@ -21,7 +21,7 @@ const ProductTable = ({
   image,
 } : ProductTable) => {
   return (
-    <div className="max-w-4xl mx-auto p-0 bg-white  pt-4  ">
+    <div className="pt-4">
       <table className="w-full border-collapse">
         <thead>
           <tr className="border-gray-200 bg-[#F2F2FE]">

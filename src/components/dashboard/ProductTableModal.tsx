@@ -49,7 +49,7 @@ const ProductTableModal = () => {
   };
 
   return (
-      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900">
         <div className="pl-10 px-2 pr-14">
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Product Display
@@ -59,9 +59,9 @@ const ProductTableModal = () => {
           </p> */}
         </div>
         <form className="flex flex-col">
-          <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">
+          <div className="custom-scrollbar h-[450px] overflow-y-auto pb-3">
             <div>
-              <div className="">
+              <div>
                 <ProductTable
                   products={products}
                   onAddMore={handleAddMore}

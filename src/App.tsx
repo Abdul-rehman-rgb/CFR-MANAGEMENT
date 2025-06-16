@@ -36,6 +36,9 @@ import LogisticLayout from "./pages/Logistics/LogisticLayout";
 import LogisticMain from "./pages/Logistics/innerpage/LogisticMain";
 import LogisticDetail from "./pages/Logistics/innerpage/LogisticDetail";
 import ChatScreen from "./components/common/ChatScreen";
+import OrderLayout from "./pages/OrderManagement/OrderLayout";
+import OrderMain from "./pages/OrderManagement/innerpage/OrderMain";
+import OrderDetails from "./pages/OrderManagement/innerpage/OrderDetails";
 
 export default function App() {
   return (
@@ -77,6 +80,16 @@ export default function App() {
             >
               <Route index element={<LogisticMain />} />
               <Route path="logistic-detail" element={<LogisticDetail />} />
+
+            </Route>
+
+            {/* Order Management Routes */}
+            <Route
+              path="/orderManagement"
+              element={<OrderLayout />}
+            >
+              <Route index element={<OrderMain />} />
+              <Route path="order-detail" element={<OrderDetails />} />
 
             </Route>
 

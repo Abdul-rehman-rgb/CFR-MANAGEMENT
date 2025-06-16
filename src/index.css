@@ -781,3 +781,7 @@ span.flatpickr-weekday,
 .simplebar-scrollbar.simplebar-visible:before {
   @apply opacity-100;
 }
+.invoice-text{
+  color: #344054;
+  font-weight: 100;
+}

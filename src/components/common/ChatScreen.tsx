@@ -1,6 +1,7 @@
 import React, { FC, useState, KeyboardEvent, ChangeEvent } from "react";
-import { Smile, Send } from "lucide-react";
+//import { Smile, Send } from "lucide-react";
 import clsx from "clsx";
+import { FiSend, FiSmile } from "react-icons/fi";
 
 interface Message {
   id: number;
@@ -84,7 +85,7 @@ const ChatInput: FC<ChatInputProps> = ({ onSend }) => {
   return (
     <div className="flex items-center gap-3 border-t px-4 py-3 dark:border-neutral-800">
       <button className="text-gray-400 transition hover:text-indigo-500 dark:text-gray-500 dark:hover:text-indigo-400">
-        <Smile size={20} />
+        <FiSmile size={20} />
       </button>
 
       <input
@@ -99,7 +100,7 @@ const ChatInput: FC<ChatInputProps> = ({ onSend }) => {
         onClick={handleSend}
         className="rounded-full bg-indigo-500 p-2 text-white transition hover:bg-indigo-600 focus:outline-none dark:bg-indigo-600 dark:hover:bg-indigo-500"
       >
-        <Send size={18} className="-rotate-45" />
+        <FiSend size={18} className="-rotate-45" />
       </button>
     </div>
   );
