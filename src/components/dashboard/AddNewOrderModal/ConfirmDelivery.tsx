@@ -18,7 +18,7 @@ const ProductDetails = ({
   companyInfo,
 }) => {
   return (
-    <div className="max-w-4xl mx-auto  bg-white rounded-lg">
+    <div className="max-w-4xl mx-auto bg-white rounded-lg h-[400px]">
       {/* Product Details Section */}
       <section className="mb-0">
         <h1 className="text-md font-medium text-[#8E8E9C] mb-2">

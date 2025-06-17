@@ -54,9 +54,6 @@ const ProductTableModal = () => {
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Product Display
           </h4>
-          {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
-            Update your details to keep your profile up-to-date.
-          </p> */}
         </div>
         <form className="flex flex-col">
           <div className="custom-scrollbar h-[450px] overflow-y-auto pb-3">
@@ -66,7 +63,6 @@ const ProductTableModal = () => {
                   products={products}
                   onAddMore={handleAddMore}
                   onRemove={handleRemove}
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onQuantityChange={(value: any) =>
                     setNewProduct({ ...newProduct, quantity: value })
                   }

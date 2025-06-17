@@ -5,14 +5,6 @@ import ChartImage from "../../../public/chart-green.svg";
 import InventoryHeader from "../../components/common/InventoryHeader";
 import { Modal } from "../../components/ui/modal";
 import HeadingOne from "../../components/ui/heading/HeadinhOne";
-import Label from "../../components/form/Label";
-import Form from "../../components/form/Form";
-import Dropdown from "../../components/form/input/Dropdown";
-import Input from "../../components/form/input/InputField";
-import Checkbox from "../../components/form/input/Checkbox";
-import Button from "../../components/ui/button/Button";
-import SearchBox from "../../components/form/input/SearchBox";
-import FileInput from "../../components/form/input/FileInput";
 import GenerateInvoice from "./components/modal/GenerateInvoice";
 
 export default function Inventory() {

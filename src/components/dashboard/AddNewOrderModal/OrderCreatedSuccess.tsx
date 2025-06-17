@@ -9,9 +9,6 @@ export default function MultiProductSelection() {
           <h4 className="flex justify-center mb-2 text-xl font-bold text-gray-800 dark:text-white/90 mx-auto">
             Order Created Successfully
           </h4>
-          {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
-            Update your details to keep your profile up-to-date.
-          </p> */}
           <div className="flex justify-center mb-4 mt-2">
             <svg
                 width="120"

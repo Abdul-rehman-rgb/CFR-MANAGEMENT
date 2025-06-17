@@ -11,9 +11,6 @@ export default function MultiProductSelection() {
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Multi Product Selection
           </h4>
-          {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
-            Update your details to keep your profile up-to-date.
-          </p> */}
         </div>
         <form className="flex flex-col">
           <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">

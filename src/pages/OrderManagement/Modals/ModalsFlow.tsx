@@ -47,12 +47,6 @@ export default function ModalsFlow() {
     setStep(0);
     setCurrentModal("");
   };
-
-//   const onCustomize = () => {
-//   console.log("Customize triggered");
-//   setIsModalOpen(true);
-// };
-
   const handleOpenModal = (type: SetStateAction<string>) => {
     setCurrentModal(type);
     setStep(0);

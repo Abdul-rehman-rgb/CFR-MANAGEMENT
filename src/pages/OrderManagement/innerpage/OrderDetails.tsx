@@ -6,13 +6,6 @@ import ModalsFlow from "../Modals/ModalsFlow";
 //import mobile from "../../../assets/images/mobile.png";
 
 const OrderDetails = () => {
-
-
-
-
-// const closeModal = () => {
-//   setIsModalOpen(false);
-// };
   return (
     <>
       {/* Top Header */}

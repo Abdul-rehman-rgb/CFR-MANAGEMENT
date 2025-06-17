@@ -11,7 +11,7 @@ import OutlineBtn from "../ui/button/OutLine";
 import Export from "../ui/button/Export";
 import HeadingFour from "../ui/heading/HeadingFour";
 
-type OrderManagementHeaderProps = {
+type CustomerHeaderProps = {
   onExport?: () => void;
   onDateRangeChange?: (range: RangeKeyDict) => void;
   onRefresh?: () => void;
@@ -23,7 +23,7 @@ type OrderManagementHeaderProps = {
   setDateRange: (range: any) => void;
 };
 
-const OrderManagementHeader: React.FC<OrderManagementHeaderProps> = ({
+const CustomerHeader: React.FC<CustomerHeaderProps> = ({
   onExport,
   onRefresh,
   onAddNewOrder, // <-- destructure this
@@ -88,4 +88,4 @@ const OrderManagementHeader: React.FC<OrderManagementHeaderProps> = ({
   );
 };
 
-export default OrderManagementHeader;
+export default CustomerHeader;

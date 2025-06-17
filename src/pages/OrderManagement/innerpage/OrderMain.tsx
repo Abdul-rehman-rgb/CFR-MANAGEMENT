@@ -63,7 +63,7 @@ const OrderMain = () => {
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        className="max-w-3xl p-6"
+        className="max-w-[724px] p-6"
         showCloseButton={false}
       >
         <NewOrderModalView

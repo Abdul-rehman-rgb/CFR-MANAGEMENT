@@ -18,6 +18,7 @@ import LogisticModal from "../modals/LogisticModal";
 import PricingModal from "../modals/PricingModal";
 import ProductDetailModal from "../modals/ProductDetailModal";
 import DimensionModal from "../modals/DimensionModal";
+import ModalWithTabs from "../../../../components/common/ModalWithTabs";
 
 const StepButtons = ({ onNext, onBack }) => (
   <div className="flex flex-col gap-2 sm:flex-row sm:justify-between mt-4">

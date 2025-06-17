@@ -39,6 +39,8 @@ import ChatScreen from "./components/common/ChatScreen";
 import OrderLayout from "./pages/OrderManagement/OrderLayout";
 import OrderMain from "./pages/OrderManagement/innerpage/OrderMain";
 import OrderDetails from "./pages/OrderManagement/innerpage/OrderDetails";
+import CustomerLayout from "./pages/customer/CustomerLayout";
+import CustomerMain from "./pages/customer/innerpage/CustomerMain";
 
 export default function App() {
   return (
@@ -90,6 +92,15 @@ export default function App() {
             >
               <Route index element={<OrderMain />} />
               <Route path="order-detail" element={<OrderDetails />} />
+
+            </Route>
+
+            {/* Customer Routes */}
+            <Route
+              path="/customers"
+              element={<CustomerLayout />}
+            >
+              <Route index element={<CustomerMain />} />
 
             </Route>
 

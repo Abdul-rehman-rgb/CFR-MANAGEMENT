@@ -13,6 +13,7 @@ import "react-date-range/dist/theme/default.css";
 import ColorFull from "../ui/button/ColorFull";
 import OutlineBtn from "../ui/button/OutLine";
 import Export from "../ui/button/Export";
+import HeadingFour from "../ui/heading/HeadingFour";
 
 type DashboardHeaderProps = {
   onExport?: () => void;
@@ -40,8 +41,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   const [showPicker, setShowPicker] = useState(false);
 
   return (
-    <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center ">
-      <h2 className="text-[14px] font-medium text-[#5D5FEF]">Dashboard</h2>
+    <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center">
+        <HeadingFour text="Dashboard" />
+
 
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (

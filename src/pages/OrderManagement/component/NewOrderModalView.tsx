@@ -47,7 +47,7 @@ const NewOrderModalView = ({ step, setStep, closeModal }: Props) => {
     <>
       {renderStep()}
 
-      <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+      <div className="flex items-center gap-3 mt-0 mb-4 lg:justify-end">
         {step > 0 && step < 6 && (
           <span
             className="absolute top-[22px] left-5 w-[34px] flex items-center gap-2 text-sm font-medium cursor-pointer"

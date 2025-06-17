@@ -6,6 +6,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import ColorFull from '../ui/button/ColorFull';
 import OutlineBtn from '../ui/button/OutLine';
+import HeadingFour from '../ui/heading/HeadingFour';
 
 type InventoryHeaderProps = {
   onExport?: () => void;
@@ -33,7 +34,7 @@ const InventoryHeader: React.FC<InventoryHeaderProps> = ({
 
   return (
     <div className="flex flex-row max-sm:flex-col sm:flex-col md:flex-row sm:justify-between sm:items-center">
-      <h2 className="text-[14px] font-medium text-[#5D5FEF]">Inventory Management</h2>
+      <HeadingFour text="Inventory Management" />
 
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
       {showDateRange && (
