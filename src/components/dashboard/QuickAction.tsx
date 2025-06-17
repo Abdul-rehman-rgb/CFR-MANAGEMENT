@@ -13,8 +13,11 @@ import MultiProductSelection from "./MultiProductSelection";
 import ContactAddress from "./AddNewOrderModal/ContactAddress";
 import DateTime from "./AddNewOrderModal/DateTime";
 import OrderCreatedSuccess from "./AddNewOrderModal/OrderCreatedSuccess";
-import GenerateManuallyFirstStep from "./GenerateInvoiceModal/GenerateManuallyFirstStep";
-import GenerateManuallySecondStep from "./GenerateInvoiceModal/GenerateManuallySecondStep";
+import GenerateManuallyMain from "./GenerateInvoiceModal/GenerateManuallyMain";
+
+// import GenerateManuallyFirstStep from "./GenerateInvoiceModal/GenerateManuallyFirstStep";
+// import GenerateManuallySecondStep from "./GenerateInvoiceModal/GenerateManuallySecondStep";
+// import GenerateManuallyThirdStep from "./GenerateInvoiceModal/GenerateManuallyThirdStep";
 
 // Dummy Components for new modals
 // const GenerateInvoiceModal = () => <div>Generate Invoices</div>;
@@ -26,7 +29,7 @@ export default function QuickAction() {
   const [currentModal, setCurrentModal] = useState("");
 
   const stepLabelsOrder = ["", "", "", "", "", "", ];
-  const stepLabelsInvoice = ["stepLabelsInvoice", "", "stepLabelsInvoice", "", "", "Create Order", ];
+  // const stepLabelsInvoice = ["stepLabelsInvoice", "", "stepLabelsInvoice", "", "", "Create Order", ];
   const stepLabelsInventory = ["stepLabelsInventory", "stepLabelsInventory", "stepLabelsInventory", "", "", "Create Order", ];
 
   const nextButtonLabelsOrder = [
@@ -38,8 +41,6 @@ export default function QuickAction() {
   "Create Order",    // step 5
   "View Delivery note"            // step 6 — no "Next" here
 ];
-
-
 
   const handleSave = () => {
     console.log("Saving...");
@@ -140,12 +141,14 @@ export default function QuickAction() {
 
         {currentModal === "invoice" && (
           <>
-            {step === 0 && <GenerateManuallyFirstStep />}
+            {step === 0 && <GenerateManuallyMain />}
+
+            {/* {step === 0 && <GenerateManuallyFirstStep />}
             {step === 1 && <GenerateManuallySecondStep />}
-            {step === 2 && <ShippingTableModal />}
+            {step === 2 && <GenerateManuallyThirdStep />} */}
           </>
         )}
-        {currentModal === "invoice" && (
+        {/* {currentModal === "invoice" && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
             {step > 0 && (
               <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
@@ -171,7 +174,8 @@ export default function QuickAction() {
               </Button>
             )}
           </div>
-        )}
+        )} */}
+        
 
         {/* Add new Generate Invoice Modal View end*/}
 

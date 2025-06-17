@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FileUploadDropZone from "../../common/FileUploadDropZone";
+// import FileUploadDropZone from "../../common/FileUploadDropZone";
 
 type ProductEntry = {
   id: string;
@@ -48,9 +48,9 @@ const initialEntry = (): ProductEntry => ({
 
 const Tabs: React.FC = () => {
 
-  const [activeTab, setActiveTab] = useState("Generate manually");
+  // const [activeTab, setActiveTab] = useState("Generate manually");
 
-  const tabs = ["Generate manually", "Upload file"];
+  // const tabs = ["Generate manually", "Upload file"];
 
 
   const [products, setProducts] = useState<ProductEntry[]>([initialEntry()]);
@@ -90,9 +90,9 @@ const Tabs: React.FC = () => {
         </h4>
        
       </div>
-      <div className="flex flex-col px-3">
+      <div className="flex flex-col px-0">
         {/* Tabs */}
-        <div className="w-full px-4 mb-4 flex gap-1 sm:gap-1">
+        {/* <div className="w-full px-4 mb-4 flex gap-1 sm:gap-1">
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -106,15 +106,15 @@ const Tabs: React.FC = () => {
               {tab}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Tab Content */}
-        {activeTab === "Generate manually" && (
+        {/* {activeTab === "Generate manually" && ( */}
           <div className="space-y-6  custom-scrollbar h-[550px] overflow-y-auto px-2 pb-3">
       {products.map((product, idx) => (
         <div
           key={product.id}
-          className="bg-indigo-50 rounded-2xl px-6 py-6 space-y-4 shadow-sm"
+          className="bg-gray-50 rounded-2xl px-6 py-6 space-y-4 shadow-sm"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -288,18 +288,15 @@ const Tabs: React.FC = () => {
         </div>
       ))}
     </div>
-        )}
+        {/* )} */}
 
-        {activeTab === "Upload file" && (
+        {/* {activeTab === "Upload file" && (
           <div>
             <FileUploadDropZone />
           </div>
-        )}
+        )} */}
       </div>
     </div>
-
-
-    
   );
 };
 
