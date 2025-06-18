@@ -1,14 +1,14 @@
 // import { Modal } from "../ui/modal";
 
+import HeadingTwo from "../../ui/heading/HeadingTwo"
+
 export default function MultiProductSelection() {
 
   return (
     <>
       <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
         <div className="px-2 pr-14">
-          <h4 className="flex justify-center mb-2 text-xl font-bold text-gray-800 dark:text-white/90 mx-auto">
-            Order Created Successfully
-          </h4>
+          <HeadingTwo text="Order Created Successfully" />
           <div className="flex justify-center mb-4 mt-2">
             <svg
                 width="120"

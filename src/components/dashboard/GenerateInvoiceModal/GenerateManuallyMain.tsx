@@ -13,6 +13,8 @@ import Button from "../../ui/button/Button";
 import SalesInvoice from "./SalesInvoice";
 import OrderCreatedSuccess from "../AddNewOrderModal/OrderCreatedSuccess";
 import Payment from "./Payment";
+import HeadingFour from "../../ui/heading/HeadingFour";
+import HeadingTwo from "../../ui/heading/HeadingTwo";
 
 const TabsMain = () => {
   const Tabs = {
@@ -63,9 +65,9 @@ const TabsMain = () => {
     <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 ">
       {showHeading && (
         <div className="py-6 px-6 pr-14">
-          <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-            Generate Invoice
-          </h4>
+          
+          <HeadingTwo text="Generate Invoice" />
+
         </div>
       )}
 

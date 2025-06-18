@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
     primary:
       "bg-[#5D5FEF] border-[1px] text-white shadow-theme-xs hover:bg-white hover:border-[#5D5FEF] hover:text-[#5D5FEF] disabled:bg-brand-300",
     secondary:
-      "bg-white border-[1px] text-[#5D5FEF] border-indigo-500 shadow-theme-xs hover:bg-white hover:border-[#5D5FEF] hover:text-[#5D5FEF] disabled:bg-brand-300",    
+      "bg-white border-[1px] text-[#5D5FEF] border-indigo-500 shadow-theme-xs hover:bg-[#5D5FEF] hover:border-[#5D5FEF] hover:text-white disabled:bg-brand-300",    
     
       outline:
       "bg-white border-[1px] text-[#5D5FEF] ring-1 ring-inset ring-gray-300 hover:bg-[#5D5FEF] dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:hover:bg-white dark:hover:text-[#5D5FEF] dark:hover:border-[#5D5FEF] dark:hover:border-[1px] dark:ring-gray-700/50 dark:hover:ring-gray-700/50",

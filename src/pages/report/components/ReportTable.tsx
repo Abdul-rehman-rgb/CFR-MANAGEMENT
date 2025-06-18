@@ -55,7 +55,7 @@ const data = [
 
 const PAGE_SIZE = 3;
 
-const ReportTable = ({ BtnText, BtnTextTwo }) => {
+const ReportTable = ({ BtnText, BtnTextTwo, MoveToPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
@@ -141,9 +141,9 @@ const ReportTable = ({ BtnText, BtnTextTwo }) => {
               <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
                  <OutlineBtn
-                    className="flex items-center gap-2 font-medium rounded px-4 py-2 text-[11px] text-[#5D5FEF] transition-colors hover:bg-black"
+                    className="flex items-center gap-2 font-medium rounded px-4 py-2 text-[11px] text-[#5D5FEF] transition-colors hover:bg-[#5D5FEF] hover:text-white"
                     BtnName={BtnTextTwo}
-                    onClick={() => navigate("order-detail")}
+                    onClick={MoveToPage}
                   />
                   <button
                     onClick={() => navigate("logistic-detail")}

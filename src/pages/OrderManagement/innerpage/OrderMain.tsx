@@ -11,7 +11,6 @@ import DelayIcon from "../../../icons/delay.svg";
 import SuccessIcon from "../../../icons/success.svg";
 import OrderTable from "../component/OrderTable";
 import OrderManagementHeader from "../../../components/common/OrderManagementHeader";
-import ColorFull from "../../../components/ui/button/ColorFull";
 import { Modal } from "../../../components/ui/modal";
 import NewOrderModalView from "../component/NewOrderModalView";
 

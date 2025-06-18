@@ -5,6 +5,9 @@ import Form from "../../form/Form";
 import TextArea from "../../form/input/TextArea";
 import { useState } from "react";
 import DatePicker from "../../form/date-picker";
+import HeadingFour from "../../ui/heading/HeadingFour";
+import HeadingThree from "../../ui/heading/HeadingThree";
+import HeadingTwo from "../../ui/heading/HeadingTwo";
 
 const Tabs = () => {
 
@@ -15,16 +18,9 @@ const Tabs = () => {
   return (
     <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
       <div className="px-2 pr-14">
-        <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-          Generate Invoice 1st
-        </h4>
-       
+        <HeadingTwo text="Generate Invoice 1st" />
       </div>
       <div className="flex flex-col px-3">
-        {/* Tabs */}
-        
-
-        {/* Tab Content */}
           <Form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4 w-full">

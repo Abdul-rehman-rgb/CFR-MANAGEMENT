@@ -23,7 +23,7 @@ const ColorFull: React.FC<ColorFullProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`font-medium border-[1px] ${textColor} ${bgColor} ${fontSize} max-sm:w-[71px] max-sm:text-[8px] border-[#5D5FE1] hover:bg-white hover:text-[#5D5FEF] hover:border-[#5D5FEF] hover:border-[1px] dark:hover:bg-gray-700 flex h-9 items-center gap-2 rounded-md px-4 sm:h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden`}
+      className={`font-medium border-[1px] ${textColor} ${bgColor} ${fontSize} w-full sm:w-auto px-3 py-2 border-[#5D5FE1] hover:bg-white hover:text-[#5D5FEF] hover:border-[#5D5FEF] hover:border-[1px] dark:hover:bg-gray-700 flex h-9 items-center gap-2 rounded-md px-4 sm:h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden`}
     >
       <Icon className="w-[18px] h-[18px] max-sm:w-[12px] max-sm:h-[12px] flex-shrink-0" {...iconProps} />
       <span className="truncate flex-shrink-0" title={text}>

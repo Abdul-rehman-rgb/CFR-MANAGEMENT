@@ -16,12 +16,14 @@ const Export: React.FC<ExportProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center justify-center dark:border-[#A9A9A9] dark:bg-transparent dark:text-white max-sm:w-[58px] px-3 py-2 bg-white border border-[#A9A9A9] hover:bg-gray-200 rounded-md text-sm font-medium sm:w-auto max-sm:text-[8px] ${className}`}
+      className={`flex items-center justify-center dark:border-[#A9A9A9] dark:bg-transparent dark:text-white 
+      w-full sm:w-auto px-3 py-2 bg-white border border-[#A9A9A9] 
+      hover:bg-gray-200 rounded-md text-sm font-medium text-center ${className}`}
     >
       {Icon && (
-        <Icon className="w-[20px] h-[20px] text-base sm:mr-2 max-sm:w-[12px] max-sm:h-[12px]" />
+        <Icon className="w-[16px] h-[16px] text-base sm:mr-2" />
       )}
-      <span className="sm:inline">{BtnName}</span>
+      <span className="truncate">{BtnName}</span>
     </button>
   );
 };

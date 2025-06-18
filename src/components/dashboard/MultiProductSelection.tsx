@@ -1,6 +1,7 @@
 // import { Modal } from "../ui/modal";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
+import HeadingTwo from "../ui/heading/HeadingTwo";
 import ProductList from "./MultiProductSelectionModal";
 
 export default function MultiProductSelection() {
@@ -8,9 +9,8 @@ export default function MultiProductSelection() {
     <>
       <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
         <div className="px-2 pr-14">
-          <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-            Multi Product Selection
-          </h4>
+          
+          <HeadingTwo text="Multi Product Selection" />
         </div>
         <form className="flex flex-col">
           <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">

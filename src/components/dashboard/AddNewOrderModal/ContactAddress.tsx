@@ -4,6 +4,7 @@ import Input from "../../form/input/InputField";
 import SingleSelect from "../../form/input/SingleSelect";
 import TextArea from "../../form/input/TextArea";
 import Label from "../../form/Label";
+import HeadingTwo from "../../ui/heading/HeadingTwo";
 
 export default function MultiProductSelection() {
     const [message, setMessage] = useState("");
@@ -11,9 +12,8 @@ export default function MultiProductSelection() {
     <>
       <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
         <div className="pl-10 px-2 pr-14 pb-5">
-          <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-            Contact & Address
-          </h4>
+          <HeadingTwo text="Contact & Address" />
+
         </div>
         <form className="flex flex-col">
           <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-2">

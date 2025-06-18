@@ -5,11 +5,11 @@ import { DateRangePicker } from "react-date-range";
 import { Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import HeadingFour from "../../../components/ui/heading/HeadingFour";
+import Export from "../../../components/ui/button/Export";
+import ColorFull from "../../../components/ui/button/ColorFull";
+import OutlineBtn from "../../../components/ui/button/OutLine";
 
-import ColorFull from "../ui/button/ColorFull";
-import OutlineBtn from "../ui/button/OutLine";
-import Export from "../ui/button/Export";
-import HeadingFour from "../ui/heading/HeadingFour";
 
 type OrderManagementHeaderProps = {
   onExport?: () => void;
@@ -72,7 +72,7 @@ const OrderManagementHeader: React.FC<OrderManagementHeaderProps> = ({
             BtnName="Refresh"
             icon={FiRefreshCw}
             onClick={onRefresh}
-            className="w-full sm:w-auto px-4 h-9"
+            className="w-full sm:w-auto"
           />
         )}
 

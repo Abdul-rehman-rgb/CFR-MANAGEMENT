@@ -93,9 +93,9 @@ const StockTable = ({ BtnTextTwo }) => {
             <th scope="col" className="px-6 py-3">
               Status
             </th>
-            <th scope="col" className="px-6 py-3">
+            {/* <th scope="col" className="px-6 py-3">
               Location
-            </th>
+            </th> */}
           </tr>
         </thead>
         <tbody>
@@ -135,7 +135,7 @@ const StockTable = ({ BtnTextTwo }) => {
                   In Stock
                 </div>
               </td>
-              <td className="px-6 py-4">
+              {/* <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
                   <OutlineBtn
                     className="flex items-center gap-2 font-medium rounded px-4 py-2 text-[11px] text-[#5D5FEF] transition-colors hover:bg-red-600"
@@ -152,7 +152,7 @@ const StockTable = ({ BtnTextTwo }) => {
                   </button>
                   
                 </div>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

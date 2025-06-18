@@ -14,7 +14,7 @@ import ContactAddress from "./AddNewOrderModal/ContactAddress";
 import DateTime from "./AddNewOrderModal/DateTime";
 import OrderCreatedSuccess from "./AddNewOrderModal/OrderCreatedSuccess";
 import GenerateManuallyMain from "./GenerateInvoiceModal/GenerateManuallyMain";
-import UpdateInventoryMain from "./UpdateInventory/UpdateInventoryMain";
+//import UpdateInventoryMain from "./UpdateInventory/UpdateInventoryMain";
 
 // import GenerateManuallyFirstStep from "./GenerateInvoiceModal/GenerateManuallyFirstStep";
 // import GenerateManuallySecondStep from "./GenerateInvoiceModal/GenerateManuallySecondStep";
