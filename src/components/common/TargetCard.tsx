@@ -109,7 +109,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
         </div>
       </div>
 
-      <Modal isOpen={isOpen} onClose={closeModal} className="w-fit m-4">
+      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[1000px] w-full mx-auto m-4">
         {currentModal === "target" && (
           <>
             {step === 0 && <CreateTarget />}

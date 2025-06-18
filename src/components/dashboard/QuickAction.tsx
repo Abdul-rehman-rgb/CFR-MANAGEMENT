@@ -14,6 +14,7 @@ import ContactAddress from "./AddNewOrderModal/ContactAddress";
 import DateTime from "./AddNewOrderModal/DateTime";
 import OrderCreatedSuccess from "./AddNewOrderModal/OrderCreatedSuccess";
 import GenerateManuallyMain from "./GenerateInvoiceModal/GenerateManuallyMain";
+import UpdateInventoryMain from "./UpdateInventory/UpdateInventoryMain";
 
 // import GenerateManuallyFirstStep from "./GenerateInvoiceModal/GenerateManuallyFirstStep";
 // import GenerateManuallySecondStep from "./GenerateInvoiceModal/GenerateManuallySecondStep";
@@ -30,7 +31,7 @@ export default function QuickAction() {
 
   const stepLabelsOrder = ["", "", "", "", "", "", ];
   // const stepLabelsInvoice = ["stepLabelsInvoice", "", "stepLabelsInvoice", "", "", "Create Order", ];
-  const stepLabelsInventory = ["stepLabelsInventory", "stepLabelsInventory", "stepLabelsInventory", "", "", "Create Order", ];
+  // const stepLabelsInventory = ["stepLabelsInventory", "stepLabelsInventory", "stepLabelsInventory", "", "", "Create Order", ];
 
   const nextButtonLabelsOrder = [
   "Next",       // step 0
@@ -148,36 +149,35 @@ export default function QuickAction() {
 
            {currentModal === "inventory" && (
           <>
-            {step === 0 && <MultiProductSelection />}
-            {step === 1 && <ProductTableModal />}
-            {step === 2 && <ShippingTableModal />}
+            {step === 0 && <UpdateInventoryMain />}
+            
           </>
         )}
          {currentModal === "inventory" && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
-            {step > 0 && (
-              <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
-                Back
+            {step == 0 && (
+              <Button className="w-full mx-5 my-1 text-black" size="sm" onClick={handleSave}>
+                Cancel
               </Button>
             )}
 
-            {step < 2 && (
+            {/* {step < 2 && (
               <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
                 Next
               </Button>
-            )}
+            )} */}
 
-            {step === 2 && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleSave}>
+            {step === 0 && (
+              <Button className="w-full mx-5 my-1" size="sm" onClick={handleSave}>
                 Save
               </Button>
             )}
 
-            {stepLabelsInventory[step] && (
+            {/* {stepLabelsInventory[step] && (
               <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
                 {stepLabelsInventory[step]}
               </Button>
-            )}
+            )} */}
           </div>
         )}
 

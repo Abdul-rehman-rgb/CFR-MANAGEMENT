@@ -73,7 +73,7 @@ const FileUploadDropZone: React.FC = () => {
 
   return (
     <div>
-      <label className="font-medium text-[15px] mb-2 block">Upload Stock</label>
+      <label className="font-medium text-[15px] mb-2 block">Upload Stock check</label>
       <div
         onClick={() => inputRef.current?.click()}
         onDrop={handleDrop}

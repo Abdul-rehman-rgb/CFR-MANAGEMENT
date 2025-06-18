@@ -5,7 +5,7 @@ export default function MultiProductSelection() {
 
   return (
     <>
-      <div className="no-scrollbar min-w-[1000px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
+      <div className="no-scrollbar max-w-[1000px] mx-auto overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
         <div className="px-2 pr-14">
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
             Target Report 
