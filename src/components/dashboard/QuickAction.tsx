@@ -135,50 +135,15 @@ export default function QuickAction() {
             )}
           </div>
         )}
-        {/* Add new order Modal View End*/}
 
         {/* Add new Generate Invoice Modal View start*/}
 
         {currentModal === "invoice" && (
           <>
             {step === 0 && <GenerateManuallyMain />}
-
-            {/* {step === 0 && <GenerateManuallyFirstStep />}
-            {step === 1 && <GenerateManuallySecondStep />}
-            {step === 2 && <GenerateManuallyThirdStep />} */}
           </>
         )}
-        {/* {currentModal === "invoice" && (
-          <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
-            {step > 0 && (
-              <Button className="w-full mx-5 my-1 bg-gray-200 text-black" size="sm" onClick={handleBack}>
-                Back
-              </Button>
-            )}
-
-            {step < 2 && (
-              <Button className="w-full bg-[#5D5FEF] bg:hover-red mx-5 my-1" size="sm" onClick={handleNext}>
-                Next
-              </Button>
-            )}
-
-            {step === 2 && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm" onClick={handleSave}>
-                Save
-              </Button>
-            )}
-
-            {stepLabelsInvoice[step] && (
-              <Button className="w-full bg:hover-red mx-5 my-1" size="sm">
-                {stepLabelsInvoice[step]}
-              </Button>
-            )}
-          </div>
-        )} */}
-        
-
-        {/* Add new Generate Invoice Modal View end*/}
-
+       
         {/* Add new Update Inventory Modal View start*/}
 
            {currentModal === "inventory" && (

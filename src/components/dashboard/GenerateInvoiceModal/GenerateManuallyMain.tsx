@@ -77,11 +77,11 @@ const TabsMain = () => {
               <button
                 key={key}
                 onClick={() => setActiveTab(key as TabKey)}
-                className={`w-1/2 py-1.5 text-sm rounded
+                className={`w-1/2 py-1.5 text-sm border-b-2 border-[#E5E5E5]
                   ${
                     activeTab === key
-                      ? "text-[#5D5FEF] border-b-2 border-[#5D5FEF]"
-                      : "text-[#8E8E9C] hover:text-[#151D48]"
+                      ? "text-[#5D5FEF] border-b-2 border-active-[#5D5FEF] focus:border-indigo-400"
+                      : "text-[#8E8E9C] hover:text-[#151D48] "
                   }`}
               >
                 {label}
