@@ -1,4 +1,6 @@
 import React from "react";
+import HeadingOne from "../../../components/ui/heading/HeadinhOne";
+import HoverDropdown from "../../../components/ui/button/HoverDropdown";
 
 // Example data
 const data = [
@@ -39,15 +41,10 @@ const legendOrder: ("critical" | "moderate" | "low")[] = [
 
 const ReorderSuggestionChart: React.FC = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 min-h-[340px] relative">
+    <div className="rounded-2xl p-6 min-h-[340px] relative">
       <div className="flex items-center justify-between mb-1">
-        <h2 className="font-bold text-xl text-[#1a2343]">Reorder Suggestion</h2>
-        <button className="bg-[#4f46e5] text-white rounded-lg px-4 py-1 text-sm focus:outline-none flex items-center gap-1 shadow">
-          This Year
-          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
+        <HeadingOne text={"Reorder Suggestion"} />
+        <HoverDropdown DropdownName={"This Year"} />
       </div>
       {/* Legend */}
       <div className="flex items-center gap-7 mb-3 mt-2">

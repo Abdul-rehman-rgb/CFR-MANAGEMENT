@@ -13,7 +13,6 @@ import { Modal } from "../../../components/ui/modal";
 import { useModal } from "../../../hooks/useModal";
 import GenerateReportModal from "../components/GenerateReportModal";
 
-
 const ReportMain = () => {
   const [dateRange, setDateRange] = useState({
     startDate: new Date(),
@@ -21,9 +20,7 @@ const ReportMain = () => {
     key: "selection",
   });
 
-    const { isOpen, openModal, closeModal } = useModal();
-  
-
+  const { isOpen, openModal, closeModal } = useModal();
 
   const navigate = useNavigate();
   const HandleMoveToPage = () => {
@@ -35,41 +32,54 @@ const ReportMain = () => {
 
   return (
     <>
-    <div className="space-y-6">
-      {/* Header Section */}
-      <div className="col-span-1 md:col-span-4 space-y-6">
-        <OrderManagementHeader
-          headerTitle="Reporting"
-          onExport={handleExport}
-          onRefresh={handleRefresh}
-          dateRange={dateRange}
-          setDateRange={setDateRange}
-          onAddNewOrder={()=>{openModal(true)}}
-        />
-      </div>
-
-            <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[725px] m-4">
-              <GenerateReportModal />
-      </Modal>
-
-      {/* Revenue Cards Grid */}
-      <div className="col-span-1 md:col-span-4 space-y-6">
-        <div className="grid grid-cols-1 max-sm:justify-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-          {Array(5).fill(null).map((_, i) => (
-            <CustomerCard
-              key={i}
-              title="Total Revenue"
-              amount="$1,245"
-              subtitle="2% more than last year"
-              icon={<FiDollarSign className="text-[#22C55E]" size={15} />}
-              iconBgColor="bg-[#22C55E]/5"
-              iconWrapperClassName="dark:bg-[#27DA68]/5"
-              chart={<img src={image} alt="Revenue Chart" className="mt-2 h-auto" />}
-            />
-          ))}
+      <div className="space-y-6">
+        {/* Header Section */}
+        <div className="col-span-1 md:col-span-4 space-y-6">
+          <OrderManagementHeader
+            headerTitle="Reporting"
+            onExport={handleExport}
+            onRefresh={handleRefresh}
+            dateRange={dateRange}
+            setDateRange={setDateRange}
+            onAddNewOrder={() => {
+              openModal(true);
+            }}
+          />
         </div>
-      </div>
 
+        <Modal
+          isOpen={isOpen}
+          onClose={closeModal}
+          className="max-w-[725px] m-4"
+        >
+          <GenerateReportModal />
+        </Modal>
+
+        {/* Revenue Cards Grid */}
+        <div className="col-span-1 md:col-span-4 space-y-6">
+          <div className="grid grid-cols-1 max-sm:justify-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+            {Array(5)
+              .fill(null)
+              .map((_, i) => (
+                <CustomerCard
+                  key={i}
+                  title="Total Revenue"
+                  amount="$1,245"
+                  subtitle="2% more than last year"
+                  icon={<FiDollarSign className="text-[#22C55E]" size={15} />}
+                  iconBgColor="bg-[#22C55E]/5"
+                  iconWrapperClassName="dark:bg-[#27DA68]/5"
+                  chart={
+                    <img
+                      src={image}
+                      alt="Revenue Chart"
+                      className="mt-2 h-auto"
+                    />
+                  }
+                />
+              ))}
+          </div>
+        </div>
       </div>
 
       {/* Table & Filters Section */}
