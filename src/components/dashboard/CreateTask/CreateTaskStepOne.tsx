@@ -6,15 +6,15 @@ import { TimeIcon } from "../../../icons";
 import TextArea from "../../form/input/TextArea";
 import { useState } from "react";
 
-export default function CreateTarget() {
+export default function CreateTask() {
   const [messageTwo, setMessageTwo] = useState("");
 
   return (
     <>
-      <div className="no-scrollbar max-w-[1000px] mx-auto overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
+      <div className="no-scrollbar max-w-[1000px] w-full mx-auto overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
         <div className="px-2 pr-14">
           <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-            Create Target
+            Create Task
           </h4>
           {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
             Update your details to keep your profile up-to-date.
