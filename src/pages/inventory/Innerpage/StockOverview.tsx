@@ -4,6 +4,7 @@ import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 import { FiDownload, FiFilter } from "react-icons/fi";
 import Export from "../../../components/ui/button/Export";
 import Paragragh from "../../../components/ui/Paragrapg";
+import ProductInventoryChart from "../components/ProductInventoryChart";
 
 
 const StockOverview = () => {
@@ -36,6 +37,7 @@ const StockOverview = () => {
                 {/* Table */}
                 <div>
                     <StockTable />
+                    <ProductInventoryChart />
                 </div>
             </div>
         </>

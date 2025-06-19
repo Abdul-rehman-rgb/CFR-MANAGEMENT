@@ -3,6 +3,7 @@ import ProductHeader from "../../../components/common/ProductHeader";
 import Icon from "../../../icons/producticon1.svg";
 import ProductCard from "../../../components/common/ProductCard";
 import Tabs from "../component/Tabs";
+import SalesTrendsRevenueChart from "../component/SalesTrendRevenueChart";
 
 const ProductMain = () => {
   const [dateRange, setDateRange] = useState({
@@ -60,6 +61,13 @@ const ProductMain = () => {
         </div>
       </div>
       <Tabs />
+
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-8 ">
+          <SalesTrendsRevenueChart />
+        </div>
+        <div className="col-span-4 ">4 cols</div>
+      </div>
     </>
   );
 };

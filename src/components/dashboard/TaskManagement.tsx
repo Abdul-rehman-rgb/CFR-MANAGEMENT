@@ -8,6 +8,7 @@ import Button from "../ui/button/Button";
 import { Modal } from "../ui/modal";
 import TargetReport from "./CreateTargetModal/TargetReport";
 import CreateTaskStepOne from "./CreateTask/CreateTaskStepOne";
+import CreateTaskStepTwo from "./CreateTask/CreateTaskStepTwo";
 
 export type Task = {
   id: string;
@@ -110,7 +111,8 @@ const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
         {currentModal === "task" && (
           <>
             {step === 0 && <CreateTaskStepOne />}
-            {step === 1 && <TargetReport />}
+            {step === 1 && <CreateTaskStepTwo />}
+            {step === 2 && <TargetReport />}
           </>
         )}
 
@@ -125,7 +127,7 @@ const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
             </Button>
           )} */}
 
-          {step == 0 && (
+          {step >= 0 && step <= 1 && (
             <Button
               className="w-full bg:hover-red mx-5 my-1"
               size="sm"
@@ -135,7 +137,7 @@ const TaskList = ({ tasks, onAddTask, onViewAll }: TaskListProps) => {
             </Button>
           )}
 
-          {step == 0 && (
+         {step >= 0 && step <= 1 && (
             <Button
               className="w-full bg:hover-red mx-5 my-1"
               size="sm"

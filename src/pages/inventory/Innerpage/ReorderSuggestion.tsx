@@ -4,6 +4,7 @@ import { FiDownload, FiFilter } from "react-icons/fi";
 import Export from "../../../components/ui/button/Export";
 import Paragragh from "../../../components/ui/Paragrapg";
 import ReorderTable from "../../Tables/inventorytables/ReoderTable";
+import ReorderSuggestionChart from "../components/ReorderSuggestionChart";
 
 
 const ReorderSuggestion = () => {
@@ -36,6 +37,14 @@ const ReorderSuggestion = () => {
                 {/* Table */}
                 <div>
                     <ReorderTable BtnText={"Reorder Now"} />
+                </div>
+                <div className="grid grid-cols-2">
+                    <div>
+                        <ReorderSuggestionChart/>
+                    </div>
+                    <div>
+                        col 2
+                    </div>
                 </div>
             </div>
         </>

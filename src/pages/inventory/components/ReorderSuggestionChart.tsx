@@ -1,0 +1,100 @@
+import React from "react";
+
+// Example data
+const data = [
+  { label: "Electronics", percent: 100, urgency: "critical" },
+  { label: "Apparel", percent: 60, urgency: "moderate" },
+  { label: "Appliances", percent: 80, urgency: "critical" },
+  { label: "Furniture", percent: 50, urgency: "moderate" },
+  { label: "Food", percent: 100, urgency: "critical" },
+  { label: "Healthcare", percent: 25, urgency: "low" },
+  { label: "Others", percent: 60, urgency: "moderate" },
+];
+
+// Color mapping for urgency
+const urgencyToColor = {
+  critical: "bg-gradient-to-t from-[#ff6262] to-[#ff3c3c]",
+  moderate: "bg-gradient-to-t from-[#ffd162] to-[#ffb800]",
+  low: "bg-gradient-to-t from-[#69e27f] to-[#0fcf4e]",
+};
+
+// Dot colors for legend
+const urgencyDotColor = {
+  critical: "bg-[#ff6262]",
+  moderate: "bg-[#ffd162]",
+  low: "bg-[#69e27f]",
+};
+
+const urgencyLabel = {
+  critical: "Critical Urgency",
+  moderate: "Moderate Urgency",
+  low: "Low Urgency",
+};
+
+const legendOrder: ("critical" | "moderate" | "low")[] = [
+  "critical",
+  "moderate",
+  "low",
+];
+
+const ReorderSuggestionChart: React.FC = () => {
+  return (
+    <div className="bg-white rounded-2xl shadow-sm p-6 min-h-[340px] relative">
+      <div className="flex items-center justify-between mb-1">
+        <h2 className="font-bold text-xl text-[#1a2343]">Reorder Suggestion</h2>
+        <button className="bg-[#4f46e5] text-white rounded-lg px-4 py-1 text-sm focus:outline-none flex items-center gap-1 shadow">
+          This Year
+          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+      {/* Legend */}
+      <div className="flex items-center gap-7 mb-3 mt-2">
+        {legendOrder.map((urgency) => (
+          <div key={urgency} className="flex items-center gap-1 mb-5">
+            <span className={`w-3 h-3 rounded-full ${urgencyDotColor[urgency]}`}></span>
+            <span className="text-xs font-medium text-gray-500">{urgencyLabel[urgency]}</span>
+          </div>
+        ))}
+      </div>
+      {/* Chart */}
+      <div className="flex items-end gap-2 mt-4 min-h-[180px] w-full justify-between">
+        {data.map((d, idx) => (
+          <div key={d.label} className="flex flex-col items-center flex-1 min-w-[60px]">
+            <div className="relative flex items-end justify-center h-[180px] w-full">
+              {/* Bar */}
+              <div
+                className={`
+                  ${urgencyToColor[d.urgency as "critical" | "moderate" | "low"]}
+                  w-[32px] rounded-t-[1.25rem] rounded-b-[0.75rem] transition-all
+                  `}
+                style={{
+                  height: `${d.percent * 1.5}px`,
+                  boxShadow: "0px 2px 8px 0px rgba(120,120,120,0.07)",
+                }}
+              />
+              {/* Percent label */}
+              {/* <span className="absolute -top-7 left-1/2 -translate-x-1/2 text-xs font-semibold text-gray-500">
+                {d.percent}%
+              </span> */}
+            </div>
+            {/* Category Label */}
+            <span className="mt-2 text-sm font-medium text-gray-700 text-center">{d.label}</span>
+          </div>
+        ))}
+      </div>
+      {/* Y-axis labels (optional for visual hint) */}
+      <div className="absolute left-0 top-[85px] flex flex-col items-end gap-7 h-[180px] pointer-events-none select-none">
+        <span className="text-xs text-gray-400">100%</span>
+        <span className="text-xs text-gray-300">80%</span>
+        <span className="text-xs text-gray-300">60%</span>
+        <span className="text-xs text-gray-300">40%</span>
+        <span className="text-xs text-gray-300">20%</span>
+        <span className="text-xs text-gray-300">0%</span>
+      </div>
+    </div>
+  );
+};
+
+export default ReorderSuggestionChart;
