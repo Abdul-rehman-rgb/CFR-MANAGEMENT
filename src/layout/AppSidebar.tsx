@@ -87,7 +87,7 @@ const navItems: NavItem[] = [
               {
     icon: <AccountsIcon />,
     name: "Accounts",
-    path: "/accounts",
+    path: "/account",
     separatorAfter: true
   },
                 {

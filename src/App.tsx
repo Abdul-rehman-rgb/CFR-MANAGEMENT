@@ -42,6 +42,8 @@ import OrderDetails from "./pages/OrderManagement/innerpage/OrderDetails";
 import ReportLayout from "./pages/report/ReportLayout";
 import ReportMain from "./pages/report/innerpage/ReportMain";
 import ReportDetail from "./pages/report/innerpage/ReportDetail";
+import AccountLayout from "./pages/accounts/AccountLayout";
+import AccountMain from "./pages/accounts/innerpage/AccountMain";
 
 export default function App() {
   return (
@@ -103,6 +105,15 @@ export default function App() {
             >
               <Route index element={<ReportMain />} />
               <Route path="report-detail" element={<ReportDetail />} />
+
+            </Route>
+
+            {/* Account Routes */}
+            <Route
+              path="/account"
+              element={<AccountLayout />}
+            >
+              <Route index element={<AccountMain />} />
 
             </Route>
 

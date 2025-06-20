@@ -62,7 +62,7 @@ const TabsMain = () => {
 
   return (
     <div>
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 ">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl dark:bg-gray-900">
       {showHeading && (
         <div className="py-6 px-6 pr-14">
           
@@ -71,7 +71,7 @@ const TabsMain = () => {
         </div>
       )}
 
-      <div className="flex flex-col px-3">
+      <div className="flex flex-col">
         {/* Only show tabs if not hidden */}
         {!hideTabs && (
           <div className="flex gap-1 mb-4">
