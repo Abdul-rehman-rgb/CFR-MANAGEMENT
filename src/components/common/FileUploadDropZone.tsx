@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { FiTrash2, FiX } from "react-icons/fi";
 
 type FileStatus = 'uploading' | 'uploaded';
 
@@ -74,11 +75,12 @@ const FileUploadDropZone: React.FC = () => {
   return (
     <div>
       <label className="font-medium text-[15px] mb-2 block">Upload Stock check</label>
+      <div className='mb-5 border-2 border-gray rounded-lg p-3'>
       <div
         onClick={() => inputRef.current?.click()}
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
-        className="border-2 border-dashed border-indigo-400 rounded-lg text-center py-8 cursor-pointer mb-5 bg-white transition hover:bg-indigo-50"
+        className="border-2 border-dashed border-indigo-400 rounded-lg text-center py-3  cursor-pointer bg-white transition hover:bg-indigo-50"
       >
         <input
           ref={inputRef}
@@ -89,13 +91,14 @@ const FileUploadDropZone: React.FC = () => {
           onChange={(e) => handleFiles(e.target.files)}
         />
         <div>
-          <div className="text-indigo-400 font-semibold text-base mb-1 flex items-center justify-center gap-1">
+          <div className="text-indigo-400 font-semibold text-base mb-1 flex items-center justify-center gap-1 text-sm py-3">
             <span role="img" aria-label="cloud" className="text-lg">☁️</span>
             Click here to upload
           </div>
-          <div className="font-semibold text-[17px] mb-1">Drag &amp; Drop</div>
-          <div className="text-gray-400 text-sm">XLX &amp; CSV formats, upto 50Mb</div>
+          <div className="text-gray-500 font-semibold text-[17px] mb-1">Drag &amp; Drop</div>
+          <div className="text-gray-400 text-sm py-2">XLX &amp; CSV formats, upto 50Mb</div>
         </div>
+      </div>
       </div>
 
       <div>
@@ -106,7 +109,7 @@ const FileUploadDropZone: React.FC = () => {
           return (
             <div
               key={id}
-              className="bg-indigo-50 rounded-xl px-4 py-4 mb-4 flex items-start relative shadow-sm"
+              className="bg-[#f7f7fe] rounded-xl px-4 py-4 mb-4 flex items-start relative"
             >
               <img
                 src="https://img.icons8.com/color/48/000000/ms-excel.png"
@@ -114,32 +117,34 @@ const FileUploadDropZone: React.FC = () => {
                 className="w-10 h-10 mr-4"
               />
               <div className="flex-1">
-                <div className="font-bold text-lg text-gray-900 mb-0.5">
+                <div className="font-bold text-sm text-gray-900 mb-0.5">
                   {file.name.replace(/\.[^/.]+$/, '')}
                 </div>
-                <div className="text-sm text-gray-400 mb-1">
+                <div className="text-xs text-gray-400 mb-1">
                   {formatBytes(Math.min(progress, file.size))} of {formatBytes(file.size)}
                   {" "}•{" "}
                   {isUploading ? (
                     <span className="inline-flex items-center gap-1">
-                      <span role="img" aria-label="loading" className="animate-spin">⏳</span> Uploading...
+                      {/* <span role="img" aria-label="loading" className="animate-spin">⏳</span>  */}
+                      Uploading...
                     </span>
                   ) : (
-                    <span className="text-green-500 font-semibold inline-flex items-center gap-1">
-                      <span role="img" aria-label="success">✔️</span> Uploaded
+                    <span className="text-green-600 font-semibold inline-flex items-center gap-1">
+                      {/* <span role="img" aria-label="success">✔️</span>  */}
+                      Uploaded
                     </span>
                   )}
                 </div>
-                <div className="w-full bg-indigo-100 rounded h-2 mt-2 relative">
+                <div className="w-full bg-indigo-100 rounded h-1 mt-2 relative mt-4">
                   <div
-                    className={`h-2 rounded transition-all duration-300`}
+                    className={`h-1 rounded transition-all duration-300`}
                     style={{
                       width: `${percent}%`,
-                      background: isUploading ? '#8a88f0' : '#3ecf8e',
+                      background: isUploading ? '#0CB91D' : '#0CB91D',
                     }}
                   />
                   {isUploading && (
-                    <span className="absolute right-2 top-0 text-xs text-gray-400">{percent}%</span>
+                    <span className="absolute right-2 top-2 text-xs text-gray-400">{percent}%</span>
                   )}
                 </div>
               </div>
@@ -150,7 +155,8 @@ const FileUploadDropZone: React.FC = () => {
                 title="Delete"
                 aria-label="Delete"
               >
-                {isUploading ? '✖️' : '🗑️'}
+                {/* {isUploading ? '✖️' : '🗑️'} */}
+                {isUploading ? <FiX /> : <FiTrash2 />}
               </button>
             </div>
           );

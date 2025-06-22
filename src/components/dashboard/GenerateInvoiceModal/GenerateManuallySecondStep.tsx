@@ -83,13 +83,13 @@ const Tabs: React.FC = () => {
 
   return (
 
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
-      <div className="px-2 pr-14">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900">
+      {/* <div className="px-2 pr-14">
         <h4 className="mb-2 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
           Generate Invoice
         </h4>
        
-      </div>
+      </div> */}
       <div className="flex flex-col px-0">
         {/* Tabs */}
         {/* <div className="w-full px-4 mb-4 flex gap-1 sm:gap-1">
@@ -110,7 +110,7 @@ const Tabs: React.FC = () => {
 
         {/* Tab Content */}
         {/* {activeTab === "Generate manually" && ( */}
-          <div className="space-y-6  custom-scrollbar h-[550px] overflow-y-auto px-2 pb-3">
+          <div className="space-y-6  custom-scrollbar h-[550px] overflow-y-auto pb-3">
       {products.map((product, idx) => (
         <div
           key={product.id}
@@ -118,7 +118,7 @@ const Tabs: React.FC = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Product
               </label>
               <div className="relative">
@@ -141,7 +141,7 @@ const Tabs: React.FC = () => {
               </div>
             </div>
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Ledger Account
               </label>
               <div className="relative">
@@ -167,7 +167,7 @@ const Tabs: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Qty/Hrs
               </label>
               <input
@@ -179,7 +179,7 @@ const Tabs: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Price Rate
               </label>
               <input
@@ -191,7 +191,7 @@ const Tabs: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Discount
               </label>
               <input
@@ -206,7 +206,7 @@ const Tabs: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 VAT Rate
               </label>
               <div className="relative">
@@ -229,7 +229,7 @@ const Tabs: React.FC = () => {
               </div>
             </div>
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 VAT
               </label>
               <input
@@ -241,7 +241,7 @@ const Tabs: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block font-medium text-gray-500 mb-1">
+              <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
                 Total
               </label>
               <input
@@ -255,7 +255,7 @@ const Tabs: React.FC = () => {
           </div>
 
           <div>
-            <label className="block font-medium text-gray-500 mb-1">
+            <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
               Product Description
             </label>
             <textarea

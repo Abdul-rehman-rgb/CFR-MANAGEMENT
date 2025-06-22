@@ -19,11 +19,11 @@ const OrderSummarySection: React.FC = () => {
   const total = 0.0;
 
   return (
-    <div className="w-full">
+    <div className="w-full px-1">
       {/* Notes and Terms */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
         <div>
-          <label className="block text-gray-400 font-medium mb-1">
+          <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
             Notes
           </label>
           <textarea
@@ -33,7 +33,7 @@ const OrderSummarySection: React.FC = () => {
           />
         </div>
         <div>
-          <label className="block text-gray-400 font-medium mb-1">
+          <label className="mb-1.5 block text-[12px] text-[#737791] font-medium dark:text-gray-400">
             Terms &amp; Condition
           </label>
           <textarea
@@ -45,10 +45,10 @@ const OrderSummarySection: React.FC = () => {
       </div>
 
       {/* Summary Section */}
-      <div className="bg-indigo-50 rounded-lg p-6">
+      <div className="bg-gray-100 rounded-lg p-6 mb-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           <div className="flex items-center">
-            <span className="text-gray-500 font-medium w-24">Carriage</span>
+            <span className="w-24 font-medium text-[14px] leading-[18px] tracking-[0] text-[#737791]">Carriage</span>
             <div className="relative flex-1 max-w-xs">
               <select
                 className="w-full py-2 pl-3 pr-10 rounded-lg border border-gray-200 bg-white text-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-100"
@@ -77,20 +77,20 @@ const OrderSummarySection: React.FC = () => {
         </div>
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-gray-500 font-medium">Discount</span>
+            <span className="font-medium text-[14px] leading-[18px] tracking-[0] text-[#737791]">Discount</span>
             <span className="text-gray-700 font-medium">{discount.toFixed(2)}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-500 font-medium">Net</span>
+            <span className="font-medium text-[14px] leading-[18px] tracking-[0] text-[#737791]">Net</span>
             <span className="text-gray-700 font-medium">{net.toFixed(2)}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-500 font-medium">VAT</span>
+            <span className="font-medium text-[14px] leading-[18px] tracking-[0] text-[#737791]">VAT</span>
             <span className="text-gray-700 font-medium">{vat.toFixed(2)}</span>
           </div>
           <hr className="my-2 border-indigo-100" />
           <div className="flex justify-between items-center">
-            <span className="text-gray-500 font-medium">Total</span>
+            <span className="font-medium text-[14px] leading-[18px] tracking-[0] text-[#737791]">Total</span>
             <span className="text-gray-900 font-semibold">{total.toFixed(2)}</span>
           </div>
         </div>

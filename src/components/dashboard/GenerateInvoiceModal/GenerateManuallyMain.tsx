@@ -1,19 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Input from "../../form/input/InputField";
-import Label from "../../form/Label";
-import Form from "../../form/Form";
 import FileUploadDropZone from "../../common/FileUploadDropZone";
-import TextArea from "../../form/input/TextArea";
 import { useEffect, useState } from "react";
-import DatePicker from "../../form/date-picker";
 import GenerateManuallyFirstStep from "./GenerateManuallyFirstStep";
 import GenerateManuallySecondStep from "./GenerateManuallySecondStep";
 import GenerateManuallyThirdStep from "./GenerateManuallyThirdStep";
 import Button from "../../ui/button/Button";
 import SalesInvoice from "./SalesInvoice";
-import OrderCreatedSuccess from "../AddNewOrderModal/OrderCreatedSuccess";
 import Payment from "./Payment";
-import HeadingFour from "../../ui/heading/HeadingFour";
 import HeadingTwo from "../../ui/heading/HeadingTwo";
 
 const TabsMain = () => {
@@ -32,7 +25,7 @@ const TabsMain = () => {
 
   const currentStep = activeTab === "manual" ? stepManual : stepUpload;
   const setCurrentStep = activeTab === "manual" ? setStepManual : setStepUpload;
-  const stepLabelsManual = ["Draft", "Review", "Confirm", "Invoice"];
+  const stepLabelsManual = ["", "", "Send this invoice", ""];
   const stepLabelsUpload = ["Upload", "Invoice"];
   const stepLabels =
     activeTab === "manual" ? stepLabelsManual : stepLabelsUpload;
@@ -71,7 +64,7 @@ const TabsMain = () => {
         </div>
       )}
 
-      <div className="flex flex-col">
+      <div className="flex flex-col px-6">
         {/* Only show tabs if not hidden */}
         {!hideTabs && (
           <div className="flex gap-1 mb-4">
@@ -114,18 +107,19 @@ const TabsMain = () => {
       {/* navigation buttons, only show if not on standalone SalesInvoice */}
       {!showSalesInvoice && (
         <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
-          {currentStep > 0 && (
-            <Button
-              className="w-full mx-5 my-1 bg-gray-200 text-black"
+          {currentStep >= 0 && currentStep <= 1 && (
+              <Button
+              className="w-full mx-5 my-1"
+              variant='secondary'
               size="sm"
               onClick={() => setCurrentStep((s) => s - 1)}
             >
-              Back
+              Cancel
             </Button>
           )}
 
           {/* Adjust next step limits for both tabs */}
-          {((activeTab === "manual" && currentStep < 3) ||
+          {((activeTab === "manual" && currentStep < 2) ||
             (activeTab === "upload" && currentStep < 1)) && (
             <Button
               className="w-full bg-[#5D5FEF] mx-5 my-1"
@@ -137,16 +131,18 @@ const TabsMain = () => {
           )}
 
           {/* Only on the last step for manual */}
-          {activeTab === "manual" && currentStep === 3 && (
-            <Button className="w-full mx-5 my-1" size="sm" onClick={handleSave}>
-              Save
+          {activeTab === "manual" && currentStep === 2 && (
+            <Button className="w-full mx-5 my-1" size="sm"  onClick={() => setCurrentStep((s) => s + 1)}>
+              Priview
             </Button>
           )}
 
           {/* optional label button */}
-          <Button className="w-full mx-5 my-1" size="sm">
-            {stepLabels[currentStep]}
-          </Button>
+          {stepLabels[currentStep] && (
+            <Button className="w-full mx-5 my-1" size="sm" onClick={() => setCurrentStep((s) => s + 1)}>
+              {stepLabels[currentStep]}
+            </Button>
+          )}
         </div>
       )}
 
