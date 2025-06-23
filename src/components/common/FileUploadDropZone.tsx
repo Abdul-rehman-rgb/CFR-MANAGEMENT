@@ -135,7 +135,7 @@ const FileUploadDropZone: React.FC = () => {
                     </span>
                   )}
                 </div>
-                <div className="w-full bg-indigo-100 rounded h-1 mt-2 relative mt-4">
+                <div className="w-full bg-indigo-100 rounded h-1 mt-2 relative mt-4 display-flex">
                   <div
                     className={`h-1 rounded transition-all duration-300`}
                     style={{
@@ -143,9 +143,12 @@ const FileUploadDropZone: React.FC = () => {
                       background: isUploading ? '#0CB91D' : '#0CB91D',
                     }}
                   />
-                  {isUploading && (
-                    <span className="absolute right-2 top-2 text-xs text-gray-400">{percent}%</span>
+                  <div>
+                    {isUploading && (
+                    <span className="absolute right-2  top-[-30px] text-xs text-gray-400">{percent}%</span>
                   )}
+                  </div>
+                  
                 </div>
               </div>
               <button
