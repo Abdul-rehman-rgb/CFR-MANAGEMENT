@@ -98,12 +98,12 @@ const navItems: NavItem[] = [
                   {
     icon: <FeedbackIcon />,
     name: "Feedback",
-    path: "/feedback"
+    path: "/Feedback"
   },
                     {
     icon: <HelpIcon />,
     name: "Help",
-    path: "/help"
+    path: "/helpCenter"
   },
                       {
     icon: <SignoutIcon />,
@@ -418,7 +418,7 @@ const AppSidebar: React.FC = () => {
           )}
         </Link>
       </div>
-      <div className="flex flex-col  duration-300 ease-linear no-scrollbar">
+      <div className="flex flex-col  duration-300 ease-linear overflow-y-auto no-scrollbar">
         <nav className="mb-6">
           <div className="flex flex-col gap-4">
             <div>

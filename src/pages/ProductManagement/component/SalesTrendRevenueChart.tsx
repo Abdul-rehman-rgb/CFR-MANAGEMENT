@@ -57,7 +57,7 @@ const SalesTrendsRevenueChart: React.FC = () => {
 //   const [selectedPeriod, setSelectedPeriod] = useState("This Year");
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 min-h-[370px] flex flex-col gap-3 relative overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-sm p-6 min-h-[370px] flex flex-col gap-3 relative overflow-hidden mt-5">
       {/* Heading and filters */}
       <div className="flex flex-wrap justify-between items-center mb-2">
         <h2 className="font-bold text-2xl text-[#1a2343]">Sales Trends & Revenue</h2>

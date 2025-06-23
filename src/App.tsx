@@ -44,6 +44,9 @@ import ReportMain from "./pages/report/innerpage/ReportMain";
 import ReportDetail from "./pages/report/innerpage/ReportDetail";
 import AccountLayout from "./pages/accounts/AccountLayout";
 import AccountMain from "./pages/accounts/innerpage/AccountMain";
+import Settings from "./pages/Settings";
+import HelpCenter from "./pages/HelpCenter";
+import Feedback from "./pages/Feedback";
 
 export default function App() {
   return (
@@ -116,6 +119,26 @@ export default function App() {
               <Route index element={<AccountMain />} />
 
             </Route>
+      
+            <Route
+            path="/settings"
+            element={<Settings/>}
+            >
+            </Route>
+
+            <Route
+            path="/helpCenter"
+            element={<HelpCenter/>}
+            >
+            </Route>
+
+             <Route
+            path="/Feedback"
+            element={<Feedback />}
+            >
+            </Route>
+
+
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />

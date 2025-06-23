@@ -4,6 +4,7 @@ import Icon from "../../../icons/producticon1.svg";
 import ProductCard from "../../../components/common/ProductCard";
 import Tabs from "../component/Tabs";
 import SalesTrendsRevenueChart from "../component/SalesTrendRevenueChart";
+import AIPoweredSuggestions from "../../../components/common/AIPoweredSuggestions";
 
 const ProductMain = () => {
   const [dateRange, setDateRange] = useState({
@@ -66,7 +67,9 @@ const ProductMain = () => {
         <div className="col-span-8 ">
           <SalesTrendsRevenueChart />
         </div>
-        <div className="col-span-4 ">4 cols</div>
+        <div className="col-span-4 ">
+          <AIPoweredSuggestions/>
+        </div>
       </div>
     </>
   );

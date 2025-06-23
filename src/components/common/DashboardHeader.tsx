@@ -63,7 +63,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             />
 
             {showPicker && (
-              <div className="absolute right-0 z-50 mt-2 shadow-lg">
+              <div className="absolute right-0 z-50 mt-2 shadow-lg dark:bg-[#000]">
                 <DateRangePicker
                   ranges={[dateRange]}
                   onChange={(item: RangeKeyDict) => {
