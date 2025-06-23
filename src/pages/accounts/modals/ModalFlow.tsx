@@ -1,13 +1,15 @@
 import FileUploadDropZone from "../../../components/common/FileUploadDropZone";
 import { useEffect, useState } from "react";
 import GenerateManuallyFirstStep from "../../../components/dashboard/GenerateInvoiceModal/GenerateManuallyFirstStep";
-import GenerateManuallySecondStep from "../../../components/dashboard/GenerateInvoiceModal/GenerateManuallySecondStep";
-import GenerateManuallyThirdStep from "../../../components/dashboard/GenerateInvoiceModal/GenerateManuallyThirdStep";
 import Button from "../../../components/ui/button/Button";
-import SalesInvoice from "../../../components/dashboard/GenerateInvoiceModal/SalesInvoice";
-import Payment from "../../../components/dashboard/GenerateInvoiceModal/Payment";
 import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
 import GenerateInvoice from "../../../components/dashboard/GenerateInvoiceModal/GenerateInvoice";
+import GenerateInvoiceThirdStep from "./GenerateInvoiceThirdStep";
+import GenerateInvoiceFourthStep from "./GenerateInvoiceFouthStep";
+import GenerateInvoiceFifthStep from "./GenerateInvoiceFifthStep";
+import GenerateInvoiceSixthStep from "./GenerateInvoiceSixthStep";
+import Payment from "../../../components/dashboard/GenerateInvoiceModal/Payment";
+import GenerateInvoiceSeven from "./GenerateInvoiceSeven";
 
 const TabsMain = () => {
   const Tabs = {
@@ -17,39 +19,26 @@ const TabsMain = () => {
 
   type TabKey = keyof typeof Tabs;
 
-  /** which tab is visible */
   const [activeTab, setActiveTab] = useState<TabKey>("manual");
-  const [stepManual, setStepManual] = useState(0); // 0‑1‑2‑3
-  const [stepUpload, setStepUpload] = useState(0); // 0‑1
+  const [stepManual, setStepManual] = useState(0);
+  const [stepUpload, setStepUpload] = useState(0);
   const [stepSalesInvoice, setStepSalesInvoice] = useState(0);
 
   const currentStep = activeTab === "manual" ? stepManual : stepUpload;
   const setCurrentStep = activeTab === "manual" ? setStepManual : setStepUpload;
-  const stepLabelsManual = ["sss", "ssss", "Confirm", "Invoice"];
+  const stepLabelsManual = ["Details", "Items", "Confirm", "Review", "Invoice"];
   const stepLabelsUpload = ["Upload", "Invoice"];
-  const stepLabels =
-    activeTab === "manual" ? stepLabelsManual : stepLabelsUpload;
+  const stepLabels = activeTab === "manual" ? stepLabelsManual : stepLabelsUpload;
 
   useEffect(() => {
     setCurrentStep(0);
+    setStepSalesInvoice(0); // reset sales invoice when tab changes
   }, [activeTab]);
 
-//   const handleSubmit = () => console.log("Submitting form...");
-//   const [message, setMessage] = useState("");
-
-//   const handleSave = () => {
-//     console.log("Saving...");
-//   };
-
-  // Determine whether to hide tab buttons and show SalesInvoice standalone
-  const hideTabs =
-    (activeTab === "manual" && stepManual === 3) ||
-    (activeTab === "upload" && stepUpload === 1);
   const showSalesInvoice =
-    (activeTab === "manual" && stepManual === 3) ||
+    (activeTab === "manual" && stepManual === 4) ||
     (activeTab === "upload" && stepUpload === 1);
 
-  // Remove heading if SalesInvoice is shown
   const showHeading = !showSalesInvoice;
 
   return (
@@ -62,8 +51,8 @@ const TabsMain = () => {
         )}
 
         <div className="flex flex-col">
-          {/* Only show tabs if not hidden */}
-          {!hideTabs && (
+          {/* Tabs */}
+          {!showSalesInvoice && (
             <div className="flex gap-1 mb-4">
               {Object.entries(Tabs).map(([key, label]) => (
                 <button
@@ -73,7 +62,7 @@ const TabsMain = () => {
                   ${
                     activeTab === key
                       ? "text-[#5D5FEF] border-b-2 border-active-[#5D5FEF] focus:border-indigo-400"
-                      : "text-[#8E8E9C] hover:text-[#151D48] "
+                      : "text-[#8E8E9C] hover:text-[#151D48]"
                   }`}
                 >
                   {label}
@@ -82,26 +71,27 @@ const TabsMain = () => {
             </div>
           )}
 
-          {/* MANUAL tab content */}
-          {activeTab === "manual" && !showSalesInvoice && (
+          {/* Manual Tab Steps */}
+          {activeTab === "manual" && (
             <>
               {stepManual === 0 && <GenerateManuallyFirstStep />}
               {stepManual === 1 && <GenerateInvoice />}
-              {stepManual === 2 && <GenerateManuallyThirdStep />}
-              {/* stepManual === 3 handled separately below */}
+              {stepManual === 2 && <GenerateInvoiceThirdStep />}
+              {stepManual === 3 && <GenerateInvoiceFourthStep />}
+              {/* stepManual === 4 will show SalesInvoice below */}
             </>
           )}
 
-          {/* UPLOAD tab content */}
+          {/* Upload Tab Steps */}
           {activeTab === "upload" && !showSalesInvoice && (
             <>
               {stepUpload === 0 && <FileUploadDropZone />}
-              {/* stepUpload === 1 handled separately below */}
+              {/* stepUpload === 1 will show SalesInvoice below */}
             </>
           )}
         </div>
 
-        {/* navigation buttons, only show if not on standalone SalesInvoice */}
+        {/* Navigation Buttons */}
         {!showSalesInvoice && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
             {currentStep > 0 && (
@@ -114,8 +104,7 @@ const TabsMain = () => {
               </Button>
             )}
 
-            {/* Adjust next step limits for both tabs */}
-            {((activeTab === "manual" && currentStep < 3) ||
+            {((activeTab === "manual" && currentStep < 4) ||
               (activeTab === "upload" && currentStep < 1)) && (
               <Button
                 className="w-full bg-[#5D5FEF] mx-5 my-1"
@@ -126,18 +115,6 @@ const TabsMain = () => {
               </Button>
             )}
 
-            {/* Only on the last step for manual */}
-            {/* {activeTab === "manual" && currentStep === 3 && (
-              <Button
-                className="w-full mx-5 my-1"
-                size="sm"
-                onClick={handleSave}
-              >
-                Save
-              </Button>
-            )} */}
-
-            {/* optional label button */}
             <Button className="w-full mx-5 my-1" size="sm">
               {stepLabels[currentStep]}
             </Button>
@@ -145,16 +122,25 @@ const TabsMain = () => {
         )}
       </div>
 
-      <div className="SalesInvoice">
-        {/* Show SalesInvoice standalone if on step 3 manual or step 1 upload */}
-        {showSalesInvoice && (
-          <div>
-            <>
-              {stepSalesInvoice === 0 && <SalesInvoice />}
-              {stepSalesInvoice === 1 && <Payment />}
-            </>
+      {/* SalesInvoice Step for Manual or Upload */}
+      {showSalesInvoice && (
+        <div className="SalesInvoice">
+          
+          {stepSalesInvoice === 0 && <GenerateInvoiceFifthStep />}
+          {stepSalesInvoice === 1 && <GenerateInvoiceSixthStep />}
+          {stepSalesInvoice === 2 && <GenerateInvoiceSeven />}
 
-            <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+          <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
+            {stepSalesInvoice > 0 && (
+              <Button
+                className="w-full bg-gray-200 text-black mx-5 my-1"
+                size="sm"
+                onClick={() => setStepSalesInvoice((s) => s - 1)}
+              >
+                Back
+              </Button>
+            )}
+            {stepSalesInvoice < 2 && (
               <Button
                 className="w-full bg-[#5D5FEF] mx-5 my-1"
                 size="sm"
@@ -162,18 +148,10 @@ const TabsMain = () => {
               >
                 Next
               </Button>
-
-              <Button
-                className="w-full bg-[#5D5FEF] mx-5 my-1"
-                size="sm"
-                onClick={() => setStepSalesInvoice((s) => s - 1)}
-              >
-                Back
-              </Button>
-            </div>
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

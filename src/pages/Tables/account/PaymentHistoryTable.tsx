@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { FiEdit } from "react-icons/fi";
-import { useNavigate } from "react-router";
 import HoverDropdown from "../../../components/ui/button/HoverDropdown";
+import { Modal } from "../../../components/ui/modal";
+import HeadingOne from "../../../components/ui/heading/HeadinhOne";
+import Label from "../../../components/form/Label";
+import Paragragh from "../../../components/ui/Paragrapg";
+import Button from "../../../components/ui/button/Button";
 
 const data = [
   {
     id: "#456456545",
-    name: "	Invoice Payment",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
@@ -14,7 +18,7 @@ const data = [
   },
   {
     id: "#456454645",
-    name: "	Invoice Payment",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
@@ -22,31 +26,31 @@ const data = [
   },
   {
     id: "#456456425",
-    name: "	Invoice Payment",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
     status: "Pending",
   },
   {
-    id: "#456415645",
-    name: "	Invoice Payment",
+    id: "#456415645-1",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
     status: "Pending",
   },
   {
-    id: "#456415645",
-    name: "	Invoice Payment",
+    id: "#456415645-2",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
     status: "Pending",
   },
   {
-    id: "#456415645",
-    name: "	Invoice Payment",
+    id: "#456415645-3",
+    name: "Invoice Payment",
     Category: "Sales",
     amount: "$3,434",
     date: "12/01/2025",
@@ -58,9 +62,9 @@ const PAGE_SIZE = 3;
 
 const PaymentHistoryTable = ({ BtnText = "View Details" }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
-
   const totalPages = Math.ceil(data.length / PAGE_SIZE);
+
+  const [activeRowId, setActiveRowId] = useState<string | null>(null);
 
   const paginatedData = data.slice(
     (currentPage - 1) * PAGE_SIZE,
@@ -72,93 +76,112 @@ const PaymentHistoryTable = ({ BtnText = "View Details" }) => {
       <table className="min-w-[768px] w-full text-left text-sm">
         <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
           <tr>
-            <th scope="col" className="p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-all"
-                  type="checkbox"
-                  className="h-4 w-4 rounded-sm border-[#EA7D00] bg-gray-100 text-[#EA7D00] focus:ring-2 focus:ring-blue-500"
-                />
-                <label
-                  htmlFor="checkbox-all border-[#EA7D00] text-[#EA7D00]"
-                  className="sr-only"
-                >
-                  checkbox
-                </label>
-              </div>
+            <th className="p-4">
+              <input
+                id="checkbox-all"
+                type="checkbox"
+                className="h-4 w-4 rounded-sm border-[#EA7D00] bg-gray-100 text-[#EA7D00]"
+              />
             </th>
-            <th scope="col" className="px-6 py-3">
-              Date
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Payment Type
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Category
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Amount
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Status Action
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Status
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Action
-            </th>
+            <th className="px-6 py-3">Date</th>
+            <th className="px-6 py-3">Payment Type</th>
+            <th className="px-6 py-3">Category</th>
+            <th className="px-6 py-3">Amount</th>
+            <th className="px-6 py-3">Status Action</th>
+            <th className="px-6 py-3">Status</th>
+            <th className="px-6 py-3">Action</th>
           </tr>
         </thead>
         <tbody>
           {paginatedData.map((item) => (
             <tr
               key={item.id}
-              className={`text-[14px] text-[#666666] dark:text-[#F2F2FE]`}
+              className="text-[14px] text-[#666666] dark:text-[#F2F2FE]"
             >
               <td className="w-4 p-4">
-                <div className="flex items-center">
-                  <input
-                    id={`checkbox-table-${item.id}`}
-                    type="checkbox"
-                    className="h-4 w-4 rounded-sm border-[#EA7D00] text-[#EA7D00] focus:border-[#EA7D00] focus:ring-2"
-                  />
-                  <label
-                    htmlFor={`checkbox-table-${item.id}`}
-                    className="sr-only"
-                  >
-                    checkbox
-                  </label>
-                </div>
+                <input
+                  id={`checkbox-table-${item.id}`}
+                  type="checkbox"
+                  className="h-4 w-4 rounded-sm border-[#EA7D00] text-[#EA7D00]"
+                />
               </td>
-
-              <th
-                scope="row"
-                className="text[14px] font-medium px-6 py-4 whitespace-nowrap text-[#666666]"
-              >
+              <td className="px-6 py-4 font-medium whitespace-nowrap">
                 {item.date}
-              </th>
+              </td>
               <td className="px-6 py-4">{item.name}</td>
               <td className="px-6 py-4">{item.Category}</td>
               <td className="px-6 py-4">{item.amount}</td>
               <td className="px-6 py-4 text-[#FFBF00]">
-                <HoverDropdown DropdownName="Paid" className="text-[#333333] font-medium text-[10px] border-[#A9A9A9]/55" />
+                <HoverDropdown
+                  DropdownName="Paid"
+                  className="text-[#333333] font-medium text-[10px] border-[#A9A9A9]/55"
+                />
               </td>
               <td className="px-6 py-4">
-                <div className="poppins-semibold rounded bg-[#DEF7E7] px-2 py-2 text-center text-[11px] text-[#22C55E] transition-colors">
-                  Paid
+                <div className="poppins-semibold rounded bg-[#DEF7E7] px-2 py-2 text-center text-[11px] text-[#22C55E]">
+                  {item.status}
                 </div>
               </td>
               <td className="px-6 py-4">
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => navigate("logistic-detail")}
-                    className="font-medium flex bg-[#7476F1] rounded px-4 py-2 text-[11px] text-white transition-colors hover:bg-blue-700"
+                <button
+                  onClick={() => setActiveRowId(item.id)}
+                  className="font-medium flex bg-[#7476F1] rounded px-4 py-2 text-[11px] text-white transition-colors hover:bg-blue-700"
+                >
+                  <FiEdit className="mr-1" />
+                  {BtnText}
+                </button>
+
+                {/* Row-specific Modal */}
+                {activeRowId === item.id && (
+                  <Modal
+                    isOpen={true}
+                    onClose={() => setActiveRowId(null)}
+                    className="max-w-[725px] m-4"
+                    showCloseButton={true}
                   >
-                    <FiEdit />
-                    {BtnText}
-                  </button>
-                </div>
+                    <div className="p-4">
+                      <HeadingOne text="Payment Summary" />
+                      <div className="mt-4 flex flex-row justify-between bg-[#F2F2FE]/60 p-4 rounded">
+                        <div className="space-y-3">
+                          <Label children="Transaction Type" />
+                          <Label children="Reference ID" />
+                          <Label children="Category" />
+                          <Label children="Client/Vendor" />
+                          <Label children="Payment Method" />
+                          <Label children="Amount" />
+                          <Label children="Status" />
+                          <Label children="Action" />
+                        </div>
+                        <div className="space-y-3 text-right text-sm text-gray-600">
+                          <Paragragh para="Payment" />
+                          <Paragragh para={item.id} />
+                          <Paragragh para={item.Category} />
+                          <Paragragh para={"Client/Vendor"} />
+                          <Paragragh para={"Bank Transfer"} />
+                          <Paragragh para={item.amount} />
+                          <Paragragh para={item.status} />
+                          <Paragragh para={"Record Payment"} />
+                        </div>
+                      </div>
+                      <div className="flex flex-row mt-4">
+                        <Button
+                          variant="outline"
+                          className="bg-[#5D5FEF] mx-5 my-1 w-full"
+                          size="md"
+                        >
+                          Print
+                        </Button>
+                        <Button
+                          variant="primary"
+                          className="bg-[#5D5FEF] mx-5 my-1 w-full"
+                          size="md"
+                        >
+                          Record Payment
+                        </Button>
+                      </div>
+                    </div>
+                  </Modal>
+                )}
               </td>
             </tr>
           ))}

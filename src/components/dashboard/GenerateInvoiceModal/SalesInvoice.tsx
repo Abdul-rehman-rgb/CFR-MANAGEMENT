@@ -42,9 +42,6 @@ const ConfitmDelivery = () => {
     <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
       
         <div className="">
-          <h4 className="mb-3 text-xl font-bold text-gray-800 dark:text-white/90 font-bold">
-            Sales Invoice sadsa
-          </h4>
           <div className="flex justify-center">
         <img className="w-60 h-20" src={Logo} alt="" />
       </div>

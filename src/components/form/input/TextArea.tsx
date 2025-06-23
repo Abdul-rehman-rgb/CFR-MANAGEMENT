@@ -16,7 +16,7 @@ const TextArea: React.FC<TextareaProps> = ({
   rows = 3, // Default number of rows
   value = "", // Default value
   onChange, // Callback for changes
-  className = "", // Additional custom styles
+  className = "bg-white", // Additional custom styles
   disabled = false, // Disabled state
   error = false, // Error state
   hint = "", // Default hint text
