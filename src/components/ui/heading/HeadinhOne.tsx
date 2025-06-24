@@ -12,7 +12,7 @@ const HeadingOne: React.FC<HeadingOneProps> = ({
   text,
   className = "",
   colorClass = "text-[#151D48] dark:text-white",
-  fontSize = "text-[20px] sm:text-[20px] md:text-[20px]",
+  fontSize = "text-[24px] sm:text-[20px] md:text-[20px]",
   fontWeight = "font-bold",
 }) => {
   return (
