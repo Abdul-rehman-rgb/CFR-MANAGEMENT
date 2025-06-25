@@ -22,6 +22,7 @@ const Tabs = () => {
   return (
     <div>
       <TabButtons activeTab={activeTab} onTabChange={setActiveTab} />
+
       <div className="mt-4">{renderContent()}</div>
     </div>
   );

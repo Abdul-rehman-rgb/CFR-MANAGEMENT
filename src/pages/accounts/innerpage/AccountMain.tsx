@@ -95,7 +95,9 @@ const AccountMain = () => {
           </div>
         </div>
       </div>
-      <Tabs />
+      <div className="bg-white p-6 mt-5 dark:bg-[#0D0D0D] rounded-lg">
+        <Tabs />
+      </div>
     </>
   );
 };

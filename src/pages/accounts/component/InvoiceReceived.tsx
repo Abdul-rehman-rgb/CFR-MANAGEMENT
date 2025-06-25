@@ -8,7 +8,7 @@ import InvoiceSentTable from '../../Tables/account/InvoiceSentTable'
 
 const InvoiceReceived = () => {
   return (
-      <div className="grid grid-cols-1 gap-4 rounded-sm bg-white p-6 dark:bg-[#0D0D0D]">
+      <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3 flex flex-col gap-2 max-sm:flex-col md:flex-row md:items-center md:justify-between">
                     <div>
                         <HeadingOne text="Invoices" />

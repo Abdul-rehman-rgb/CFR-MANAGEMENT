@@ -28,11 +28,11 @@ const ReportCard: React.FC<ReportCardProps> = ({
       {/* Left Content */}
       <div className="flex flex-row justify-between sm:justify-between">
         <div className="space-y-4">
-          <p className="text-sm text-black/40 dark:text-white font-medium">
+          <p className="text-[14px] text-black/40 dark:text-white font-medium">
             {title}
           </p>
           <HeadingOne fontSize="text-[24px]" text={amount} />
-          <p className="text-[10px] font-regular text-black/40 dark:text-white flex">
+          <p className="text-[10px] font-regular text-[#2B2B2B]/50 dark:text-white flex">
             {icon}
             {subtitle}
           </p>

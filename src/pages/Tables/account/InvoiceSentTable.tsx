@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiEye } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import HoverDropdown from "../../../components/ui/button/HoverDropdown";
+import ViewDetails from "../../../components/ui/button/ViewDetails";
 
 const data = [
   {
@@ -70,7 +71,7 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
   return (
     <div className="w-full">
       <table className="min-w-[768px] w-full text-left text-sm">
-        <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
+        <thead className="table-head dark:text-[#8E8E9C]">
           <tr>
             <th scope="col" className="p-4">
               <div className="flex items-center">
@@ -96,7 +97,7 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
             <th scope="col" className="px-6 py-3">
               Category
             </th>
-             <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Auto Billing
             </th>
             <th scope="col" className="px-6 py-3">
@@ -148,7 +149,10 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
                 <span>toggle</span>
               </td>
               <td className="px-6 py-4 text-[#FFBF00]">
-                <HoverDropdown DropdownName="Paid" className="text-[#333333] font-medium text-[10px] border-[#A9A9A9]/55" />
+                <HoverDropdown
+                  DropdownName="Paid"
+                  className="text-[#333333] font-medium text-[10px] border-[#A9A9A9]/55"
+                />
               </td>
               <td className="px-6 py-4">
                 <div className="poppins-semibold rounded bg-[#DEF7E7] px-2 py-2 text-center text-[11px] text-[#22C55E] transition-colors">
@@ -157,13 +161,11 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
               </td>
               <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => navigate("logistic-detail")}
-                    className="font-medium flex bg-[#7476F1] rounded px-4 py-2 text-[11px] text-white transition-colors hover:bg-blue-700"
-                  >
-                    <FiEdit />
-                    {BtnText}
-                  </button>
+                  <ViewDetails
+                    BtnName="View Details"
+                    icon={FiEye}
+                    onClick={() => console.log("View Detail Trigger")}
+                  />
                 </div>
               </td>
             </tr>

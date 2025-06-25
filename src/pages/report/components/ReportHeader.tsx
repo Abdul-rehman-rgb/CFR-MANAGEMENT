@@ -42,7 +42,7 @@ const OrderManagementHeader: React.FC<OrderManagementHeaderProps> = ({
         <HeadingFour text={headerTitle} />
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (
-          <Export BtnName="Export" icon={FiDownload} onClick={onExport} />
+          <Export className="hover:bg-[#5D5FEF]" BtnName="Export" icon={FiDownload} onClick={onExport} />
         )}
 
         {showDateRange && (
@@ -51,6 +51,7 @@ const OrderManagementHeader: React.FC<OrderManagementHeaderProps> = ({
               onClick={() => setShowPicker((prev) => !prev)}
               text="Select Date Range"
               icon={FiCalendar}
+              className="w-full sm:w-auto"
             />
             {showPicker && (
               <div className="absolute right-0 z-50 mt-2 shadow-lg">

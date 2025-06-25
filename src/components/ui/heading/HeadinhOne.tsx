@@ -13,10 +13,10 @@ const HeadingOne: React.FC<HeadingOneProps> = ({
   className = "",
   colorClass = "text-[#151D48] dark:text-white",
   fontSize = "text-[24px] sm:text-[20px] md:text-[20px]",
-  fontWeight = "font-bold",
+  fontWeight = "font-semibold",
 }) => {
   return (
-    <h1 className={`${fontSize} ${fontWeight} ${colorClass} ${className}`}>
+    <h1 className={`${fontSize} ${fontWeight} ${colorClass} ${className} leading-[20px] mb-2`}>
       {text}
     </h1>
   );

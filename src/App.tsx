@@ -82,63 +82,33 @@ export default function App() {
             </Route>
 
             {/* Logistic Routes */}
-            <Route
-              path="/logistics"
-              element={<LogisticLayout />}
-            >
+            <Route path="/logistics" element={<LogisticLayout />}>
               <Route index element={<LogisticMain />} />
               <Route path="logistic-detail" element={<LogisticDetail />} />
-
             </Route>
 
             {/* Order Management Routes */}
-            <Route
-              path="/orderManagement"
-              element={<OrderLayout />}
-            >
+            <Route path="/orderManagement" element={<OrderLayout />}>
               <Route index element={<OrderMain />} />
               <Route path="order-detail" element={<OrderDetails />} />
-
             </Route>
 
             {/* Report Routes */}
-            <Route
-              path="/reporting"
-              element={<ReportLayout />}
-            >
+            <Route path="/reporting" element={<ReportLayout />}>
               <Route index element={<ReportMain />} />
               <Route path="report-detail" element={<ReportDetail />} />
-
             </Route>
 
             {/* Account Routes */}
-            <Route
-              path="/account"
-              element={<AccountLayout />}
-            >
+            <Route path="/account" element={<AccountLayout />}>
               <Route index element={<AccountMain />} />
-
-            </Route>
-      
-            <Route
-            path="/settings"
-            element={<Settings/>}
-            >
             </Route>
 
-            <Route
-            path="/helpCenter"
-            element={<HelpCenter/>}
-            >
-            </Route>
+            <Route path="/settings" element={<Settings />}></Route>
 
-             <Route
-            path="/Feedback"
-            element={<Feedback />}
-            >
-            </Route>
+            <Route path="/helpCenter" element={<HelpCenter />}></Route>
 
-
+            <Route path="/Feedback" element={<Feedback />}></Route>
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
@@ -172,10 +142,18 @@ export default function App() {
           <Route path="/newPassword" element={<NewPassword />} />
 
           {/* Chat Layout */}
-          <Route path="/Chat" element={<ChatScreen messages={[]} currentUserId={""} onSend={function (message: string): void {
-            throw new Error("Function not implemented.");
-          } } />} />
-
+          <Route
+            path="/Chat"
+            element={
+              <ChatScreen
+                messages={[]}
+                currentUserId={""}
+                onSend={function (message: string): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
+            }
+          />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
