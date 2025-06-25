@@ -19,7 +19,7 @@ const GenerateReportModal = () => {
       <div className="px-2 pr-14">
         <HeadingTwo text="Generate Report" />
       </div>
-      <div className="flex flex-col px-3">
+      <div className="flex flex-col px-3 mt-5">
         <Form className="space-y-5" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4 w-full">

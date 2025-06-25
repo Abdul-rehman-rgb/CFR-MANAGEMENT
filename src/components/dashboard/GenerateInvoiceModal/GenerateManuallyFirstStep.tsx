@@ -16,10 +16,7 @@ const Tabs = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto bg-white dark:bg-gray-900 py-6">
-      {/* <div className="px-2 pr-14">
-        <HeadingTwo text="Generate Invoice 1st" />
-      </div> */}
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto bg-white dark:bg-[#0D0D0D] py-6">
       <div className="flex flex-col px-2">
           <Form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-4">

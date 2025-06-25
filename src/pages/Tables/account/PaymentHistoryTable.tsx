@@ -97,7 +97,7 @@ const PaymentHistoryTable = ({ BtnText = "View Details" }) => {
           {paginatedData.map((item) => (
             <tr
               key={item.id}
-              className="text-[14px] text-[#666666] font-medium dark:text-[#F2F2FE]"
+              className="text-[14px] text-[#666666] font-medium dark:text-[#F2F2FE]/20"
             >
               <td className="w-4 p-4">
                 <input
@@ -137,7 +137,7 @@ const PaymentHistoryTable = ({ BtnText = "View Details" }) => {
                   >
                     <div className="p-4">
                       <HeadingOne text="Payment Summary" />
-                      <div className="mt-4 flex flex-row justify-between bg-[#F2F2FE]/60 p-4 rounded">
+                      <div className="mt-4 flex flex-row justify-between bg-[#F2F2FE]/60 dark:bg-[#0D0D0D] p-4 rounded">
                         <div className="space-y-3">
                           <Label children="Transaction Type" />
                           <Label children="Reference ID" />

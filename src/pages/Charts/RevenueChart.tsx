@@ -8,6 +8,9 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+import HeadingOne from "../../components/ui/heading/HeadinhOne";
+import planeIcon from "../../icons/plane.svg";
+import HazardIcon from "../../icons/hazard.svg";
 
 // Example data - replace with your own data source or props
 const data = [
@@ -54,12 +57,12 @@ const ProjectedRevenueVsExpensesChart: React.FC<{
   onChangePeriod,
 }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 min-h-[370px] flex flex-col gap-3 relative overflow-hidden dark:bg-[#000000]">
+    <div className="bg-white rounded-2xl p-6 min-h-[370px] flex flex-col gap-3 relative overflow-hidden dark:bg-[#000000]">
       {/* Heading and filter */}
       <div className="flex flex-wrap justify-between items-center mb-3">
-        <h2 className="font-bold text-xl text-[#1a2343]">Projected Revenue vs. Expenses</h2>
+        <HeadingOne fontWeight="font-bold" fontSize="text-[20px]" text="Projected Revenue vs. Expenses" />
         <select
-          className="bg-[#4f46e5] text-white rounded-lg px-4 py-1 text-sm font-medium focus:outline-none shadow"
+          className="bg-[#4f46e5] text-white rounded-lg px-4 py-2 text-[12px] hover:bg-[#fff] hover:text-[#4f46e5] hover:border-[#5D5FEF] border-1 font-medium focus:outline-none shadow dark:text-[#0D0D0D] dark:border-[#0D0D0D] dark:bg-[#fff] dark:hover:bg-[#5D5FEF]dark:bg-[#5D5FEF] dark:hover:text-[#5D5FEF] dark:hover:border-[#000] dark:hover:border-[1px] dark:ring-gray-700/50 dark:hover:ring-gray-700/50"
           value={selectedPeriod}
           onChange={e => onChangePeriod?.(e.target.value)}
         >
@@ -70,16 +73,19 @@ const ProjectedRevenueVsExpensesChart: React.FC<{
       </div>
       {/* Highlights */}
       <div className="gap-1 mb-1 sm:flex-row sm:gap-6">
-        <span className="flex items-center text-[#2176ff] text-sm font-medium">
-          <svg className="mr-1" width={18} height={18} fill="none" viewBox="0 0 24 24">
+        <span className="flex items-center text-[#1A9FFF] text-[14px] leading-[24px] font-medium">
+          {/* <svg className="mr-1" width={18} height={18} fill="none" viewBox="0 0 24 24">
             <path d="M12 2v20M12 2l4 4M12 2L8 6" stroke="#2176ff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          </svg> */}
+          <img src={planeIcon} alt="plane icon" className="mr-1" />
           Revenue will exceed expense in 2 months!
         </span>
-        <span className="flex items-center text-[#ff6e5d] text-sm font-medium">
-          <svg className="mr-1" width={18} height={18} fill="none" viewBox="0 0 24 24">
+        <span className="flex items-center text-[#EA4710] text-[14px] font-medium mt-1">
+          {/* <svg className="mr-1" width={18} height={18} fill="none" viewBox="0 0 24 24">
             <path d="M12 9v4m0 4h.01M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9Z" stroke="#ff6e5d" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          </svg> */}
+          <img src={HazardIcon} alt="plane icon" className="mr-1" />
+
           Expenses will exceed revenue in 2 months!
         </span>
       </div>

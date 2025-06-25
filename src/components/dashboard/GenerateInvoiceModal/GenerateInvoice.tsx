@@ -48,7 +48,7 @@ const GenerateInvoice: React.FC = () => {
   };
 
   return (
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-[#D9D9D9] py-6 px-4">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-[#0D0D0D] py-6 px-4">
       <div className="flex flex-col">
         <div className="space-y-6 overflow-y-auto px-2 pb-3 custom-scrollbar">
           {products.map((product, idx) => (

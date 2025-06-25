@@ -50,7 +50,7 @@ export default function GenerateInvoiceSeven() {
   };
 
   return (
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-[#0D0D0D]">
       <div className="px-2 pr-14">
         <HeadingOne text="Record Payment" />
       </div>
@@ -74,10 +74,7 @@ export default function GenerateInvoiceSeven() {
                 />
               </div>
               <div className="flex-1">
-                <Label
-                  htmlFor={`cust-name-${idx}`}
-                  children="Discount"
-                />
+                <Label htmlFor={`cust-name-${idx}`} children="Discount" />
                 <Input
                   type="number"
                   id={`cust-name-${idx}`}
@@ -86,20 +83,17 @@ export default function GenerateInvoiceSeven() {
               </div>
               <div className="flex-1">
                 <Label htmlFor={`cust-name-${idx}`} children="Customer Name" />
-                 <DatePicker
-                                   id="date-picker"
-                                   placeholder="Select a date"
-                                   onChange={(dates, currentDateString) => {
-                                     // Handle your logic
-                                     console.log({ dates, currentDateString });
-                                   }}
-                                 />
+                <DatePicker
+                  id="date-picker"
+                  placeholder="Select a date"
+                  onChange={(dates, currentDateString) => {
+                    // Handle your logic
+                    console.log({ dates, currentDateString });
+                  }}
+                />
               </div>
               <div className="flex-1">
-                <Label
-                  htmlFor={`cust-contact-${idx}`}
-                  children="Paid Into"
-                />
+                <Label htmlFor={`cust-contact-${idx}`} children="Paid Into" />
                 <Dropdown
                   options={PRODUCT_OPTIONS}
                   id={`cust-name-${idx}`}
@@ -111,15 +105,14 @@ export default function GenerateInvoiceSeven() {
               </div>
               <div className="flex-1">
                 <Label htmlFor={`cust-contact-${idx}`} children="Method" />
-                <Input
-                  type="text"
-                  placeholder="Enter A Method"/>
+                <Input type="text" placeholder="Enter A Method" />
               </div>
               <div className="flex-1">
-                <Label htmlFor={`cust-contact-${idx}`} children="Reference(Optional)" />
-                <Input
-                  type="text"
-                  placeholder="Enter A Method"/>
+                <Label
+                  htmlFor={`cust-contact-${idx}`}
+                  children="Reference(Optional)"
+                />
+                <Input type="text" placeholder="Enter A Method" />
               </div>
             </div>
           ))}

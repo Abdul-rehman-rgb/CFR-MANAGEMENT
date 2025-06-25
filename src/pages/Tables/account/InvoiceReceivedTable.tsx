@@ -1,65 +1,66 @@
 import React, { useState } from "react";
-import { FiEdit, FiEye } from "react-icons/fi";
-import { useNavigate } from "react-router";
-import HoverDropdown from "../../../components/ui/button/HoverDropdown";
-import ViewDetails from "../../../components/ui/button/ViewDetails";
 
 const data = [
   {
     id: "#456456545",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Delivered",
   },
   {
     id: "#456454645",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Delivered",
   },
   {
     id: "#456456425",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Pending",
   },
   {
     id: "#456415645",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Pending",
   },
   {
     id: "#456415645",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Pending",
   },
   {
     id: "#456415645",
-    name: "	Invoice Payment",
-    Category: "Sales",
-    amount: "$3,434",
+    invoice: "INV-001",
+    name: "ABC Corp",
+    term: "30 Days",
     date: "12/01/2025",
+    due: "€43",
     status: "Pending",
   },
 ];
 
 const PAGE_SIZE = 3;
 
-const InvoiceSentTable = ({ BtnText = "View Details" }) => {
+const InvoiceReceivedTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
 
   const totalPages = Math.ceil(data.length / PAGE_SIZE);
 
@@ -89,28 +90,28 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
               </div>
             </th>
             <th scope="col" className="px-6 py-3">
-              Date
+              Invoice
             </th>
             <th scope="col" className="px-6 py-3">
-              Payment Type
+              Client Name
             </th>
             <th scope="col" className="px-6 py-3">
-              Category
+              Invoice Date
             </th>
             <th scope="col" className="px-6 py-3">
-              Auto Billing
+              Due Date
             </th>
             <th scope="col" className="px-6 py-3">
-              Amount
+              Payment Term
             </th>
             <th scope="col" className="px-6 py-3">
-              Status Action
+              Payment Due
             </th>
             <th scope="col" className="px-6 py-3">
-              Status
+              VAT
             </th>
             <th scope="col" className="px-6 py-3">
-              Action
+              Notes
             </th>
           </tr>
         </thead>
@@ -140,33 +141,16 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
                 scope="row"
                 className="text[14px] font-medium px-6 py-4 whitespace-nowrap text-[#666666]"
               >
-                {item.date}
+                {item.invoice}
               </th>
               <td className="px-6 py-4">{item.name}</td>
-              <td className="px-6 py-4">{item.Category}</td>
-              <td className="px-6 py-4">{item.amount}</td>
+              <td className="px-6 py-4">{item.date}</td>
+              <td className="px-6 py-4">{item.date}</td>
+              <td className="px-6 py-4">{item.term}</td>
+              <td className="px-6 py-4">{item.due}</td>
+              <td className="px-6 py-4">{item.due}</td>
               <td className="px-6 py-4">
-                <span>toggle</span>
-              </td>
-              <td className="px-6 py-4 text-[#FFBF00]">
-                <HoverDropdown
-                  DropdownName="Paid"
-                  className="text-[#333333] font-medium text-[10px] border-[#A9A9A9]/55"
-                />
-              </td>
-              <td className="px-6 py-4">
-                <div className="poppins-semibold rounded bg-[#DEF7E7] px-2 py-2 text-center text-[11px] text-[#22C55E] transition-colors">
-                  Paid
-                </div>
-              </td>
-              <td className="px-6 py-4">
-                <div className="flex flex-wrap gap-2">
-                  <ViewDetails
-                    BtnName="View Details"
-                    icon={FiEye}
-                    onClick={() => console.log("View Detail Trigger")}
-                  />
-                </div>
+               {item.name}
               </td>
             </tr>
           ))}
@@ -277,4 +261,4 @@ const InvoiceSentTable = ({ BtnText = "View Details" }) => {
   );
 };
 
-export default InvoiceSentTable;
+export default InvoiceReceivedTable;

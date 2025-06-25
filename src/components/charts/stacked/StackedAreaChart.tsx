@@ -34,7 +34,7 @@ const StackedAreaChart = ({Title = "heading"}) => {
       {" "}
       <div className="flex flex-row justify-between">
         <div>
-          <HeadingOne text={Title} />
+          <HeadingOne fontSize="text-[20px]" fontWeight="font-bold" text={Title} />
         </div>
         <div className="flex gap-2 flex-row">
           <HoverDropdown DropdownName="Electronics" />
@@ -47,7 +47,7 @@ const StackedAreaChart = ({Title = "heading"}) => {
       </div>
       <div>
         <Paragragh para="Overall Sales" color="text-[#8E8E9C]" className="text-[8px] font-regular" />
-        <HeadingOne text={"$1,222"} colorClass="text-[#0CB91D]" />
+        <HeadingOne text={"$1,222"} colorClass="text-[#0CB91D]" fontSize="text-[20px]" />
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart

@@ -10,44 +10,50 @@ import AIPoweredSuggestions from "../../../components/common/AIPoweredSuggestion
 
 const PaymentHistory = () => {
   return (
-    <div className="grid grid-cols-1 gap-4">
-      <div className="mb-3 flex flex-col gap-4 max-sm:flex-col md:flex-row md:items-center md:justify-between">
-        <div>
-          <HeadingOne fontWeight="font-bold" colorClass="text-[#333333]" fontSize="text-[20px]" text="Payment History" />
-          <Paragragh para="Real-time data on stock levels, location, and status." />
-        </div>
-        <div className="flex items-center gap-2 max-sm:flex-col">
-          <SearchInput />
-          <div className="flex justify-between max-sm:flex-row max-sm:gap-2">
-            <div className="mr-2">
+    <>
+      <div className="grid grid-cols-1 gap-4 bg-white p-6 mt-5 dark:bg-[#0D0D0D] rounded-lg">
+        <div className="mb-3 flex flex-col gap-4 max-sm:flex-col md:flex-row md:items-center md:justify-between">
+          <div>
+            <HeadingOne
+              fontWeight="font-bold"
+              colorClass="text-[#333333]"
+              fontSize="text-[20px]"
+              text="Payment History"
+            />
+            <Paragragh para="Real-time data on stock levels, location, and status." />
+          </div>
+          <div className="flex items-center gap-2 max-sm:flex-col">
+            <SearchInput />
+            <div className="flex justify-between max-sm:flex-row max-sm:gap-2">
+              <div className="mr-2">
+                <Export
+                  BtnName="Filters"
+                  icon={FiFilter}
+                  onClick={() => console.log("Export triggered")}
+                />
+              </div>
               <Export
-                BtnName="Filters"
+                BtnName="Export"
                 icon={FiFilter}
                 onClick={() => console.log("Export triggered")}
               />
             </div>
-            <Export
-              BtnName="Export"
-              icon={FiFilter}
-              onClick={() => console.log("Export triggered")}
-            />
           </div>
         </div>
+        {/* Table */}
+        <div>
+          <PaymentHistoryTable />
+        </div>
       </div>
-      {/* Table */}
-      <div>
-        <PaymentHistoryTable />
-      </div>
-      
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 gap-10 bg-[#F9FAFB] mt-5">
         <div className="col-span-8 ">
-           <RevenueChart />
+          <RevenueChart />
         </div>
         <div className="col-span-4 ">
-          <AIPoweredSuggestions/>
+          <AIPoweredSuggestions />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

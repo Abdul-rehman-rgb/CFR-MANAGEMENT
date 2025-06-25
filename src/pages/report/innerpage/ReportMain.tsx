@@ -12,7 +12,6 @@ import { useNavigate } from "react-router";
 import { Modal } from "../../../components/ui/modal";
 import { useModal } from "../../../hooks/useModal";
 import GenerateReportModal from "../components/GenerateReportModal";
-
 const ReportMain = () => {
   const [dateRange, setDateRange] = useState({
     startDate: new Date(),
@@ -56,7 +55,7 @@ const ReportMain = () => {
         </Modal>
 
         {/* Revenue Cards Grid */}
-        <div className="col-span-1 md:col-span-4 space-y-6">
+        <div className="col-span-1 md:col-span-4 space-y-6 mb-5">
           <div className="grid grid-cols-1 max-sm:justify-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
             {Array(5)
               .fill(null)
@@ -104,11 +103,11 @@ const ReportMain = () => {
         <div className="overflow-x-auto">
           <ReportTable
             MoveToPage={HandleMoveToPage}
-            BtnText={"Download"}
             BtnTextTwo={"View Report"}
           />
         </div>
       </div>
+      
     </>
   );
 };

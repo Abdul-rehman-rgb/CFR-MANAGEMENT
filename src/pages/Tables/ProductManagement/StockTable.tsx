@@ -58,7 +58,7 @@ const StockTable = ({ BtnTextTwo }) => {
   return (
     <div className="w-full overflow-x-auto">
       <table className="min-w-[768px] w-full text-left text-sm">
-        <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
+        <thead className="table-head dark:text-[#8E8E9C]">
           <tr>
             <th scope="col" className="p-4">
               <div className="flex items-center">
@@ -102,7 +102,7 @@ const StockTable = ({ BtnTextTwo }) => {
           {paginatedData.map((item) => (
             <tr
               key={item.id}
-              className={`text-[14px] text-[#666666] dark:text-[#F2F2FE] hover:bg-gray-50 hover:dark:bg-gray-800`}
+              className={`text-[14px] text-[#666666] dark:text-[#F2F2FE]/20 hover:bg-gray-50 hover:dark:bg-gray-800`}
             >
               <td className="w-4 p-4">
                 <div className="flex items-center">

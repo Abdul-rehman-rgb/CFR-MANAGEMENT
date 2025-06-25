@@ -11,7 +11,7 @@ type HeadingOneProps = {
 const HeadingOne: React.FC<HeadingOneProps> = ({
   text,
   className = "",
-  colorClass = "text-[#151D48] dark:text-white",
+  colorClass = "text-[#151D48] dark:text-white letter-spacing-[0.01px]",
   fontSize = "text-[24px] sm:text-[20px] md:text-[20px]",
   fontWeight = "font-semibold",
 }) => {

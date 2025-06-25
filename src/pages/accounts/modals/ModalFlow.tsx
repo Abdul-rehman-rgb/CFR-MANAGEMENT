@@ -43,7 +43,7 @@ const TabsMain = () => {
 
   return (
     <div>
-      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl dark:bg-gray-900">
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl dark:bg-[#0D0D0D]">
         {showHeading && (
           <div className="py-6 px-6 pr-14">
             <HeadingTwo text="Generate Invoice" />
@@ -53,16 +53,16 @@ const TabsMain = () => {
         <div className="flex flex-col">
           {/* Tabs */}
           {!showSalesInvoice && (
-            <div className="flex gap-1 mb-4">
+            <div className="flex gap-1 mb-1">
               {Object.entries(Tabs).map(([key, label]) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key as TabKey)}
-                  className={`w-1/2 py-1.5 text-sm border-b-2 border-[#E5E5E5]
+                  className={`w-1/2 py-1.5 text-[14px] font-regular border-b-2 border-[#E5E5E5]
                   ${
                     activeTab === key
-                      ? "text-[#5D5FEF] border-b-2 border-active-[#5D5FEF] focus:border-indigo-400"
-                      : "text-[#8E8E9C] hover:text-[#151D48]"
+                      ? "text-[#151D48] border-b-2 border-active-[#151D48] focus:border-indigo-400 dark:text-[#B7BFEA]"
+                      : "text-[#151D48] hover:text-[#151D48] dark:text-[#B7BFEA]"
                   }`}
                 >
                   {label}

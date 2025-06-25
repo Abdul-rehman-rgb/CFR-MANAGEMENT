@@ -8,11 +8,11 @@ import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 export default function GenerateInvoiceSixthStep() {
   return (
     <>
-      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-5">
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-[#0D0D0D]">
         <HeadingTwo text="Payment" />
         <div className="px-2 pr-14">
           
-          <div className="bg-[#F2F2FE]/60 p-4 flex flex-row justify-between">
+          <div className="bg-[#F2F2FE]/60 dark:bg-[#0D0D0D] p-4 flex flex-row justify-between">
             <div>
                 <HeadingFour text="Amount Paid" className="text-black" />
                 <HeadingOne text="$0.00" />

@@ -88,8 +88,8 @@ const ReportDetail = () => {
             <div className="flex justify-between max-sm:flex-row max-sm:gap-2">
               <div className="mr-2">
                 <Export
-                  BtnName="Export"
-                  icon={FiDownload}
+                  BtnName="Filters"
+                  icon={FiFilter}
                   onClick={() => console.log("Export triggered")}
                 />
               </div>

@@ -20,7 +20,7 @@ const GenerateInvoiceFourthStep = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-[#F2F2FE]/60 dark:bg-[#D9D9D9] px-4">
+      <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-[#F2F2FE]/60 dark:bg-[#0D0D0D] px-4">
         <div className="flex flex-col p-4 space-y-6">
           {/* Notes and Ledger */}
           <div className="flex flex-col sm:flex-row gap-4">

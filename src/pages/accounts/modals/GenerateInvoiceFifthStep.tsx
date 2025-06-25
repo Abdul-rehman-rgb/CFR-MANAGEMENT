@@ -1,4 +1,4 @@
-import Logo from "../../../../public/logo.png";
+import Logo from "../../../../public/logo.svg";
 import Label from "../../../components/form/Label";
 import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
 import HeadingOne from "../../../components/ui/heading/HeadinhOne";
@@ -41,7 +41,7 @@ const GenerateInvoiceFifthStep = () => {
   };
 
   return (
-    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-gray-900 py-6 px-4">
+    <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-[#0D0D0D] dark:text-[#A9A9CD] py-6 px-4">
       {/* Company Logo */}
       <HeadingTwo text="Sales Invoice" />
       <div className="flex justify-center mb-4">
@@ -114,7 +114,7 @@ const GenerateInvoiceFifthStep = () => {
         </tbody>
       </table>
 
-      <div className="grid grid-cols-2 gap-4 bg-[#F2F2FE]/60 p-4">
+      <div className="grid grid-cols-2 gap-4 bg-[#F2F2FE]/60 dark:bg-[#0D0D0D] p-4">
             <div className="space-y-3">
               <Label children="Discount" />
               <Label children="Net" />

@@ -5,7 +5,6 @@ import image from "../../../../public/images/icons/scale-icon.svg";
 import CustomerCard from "../../report/components/ReportCard";
 import Tabs from "../component/Tabs";
 import { Modal } from "../../../components/ui/modal";
-import NewOrderModalView from "../../OrderManagement/component/NewOrderModalView";
 import ModalFlow from "../modals/ModalFlow";
 
 const AccountMain = () => {
@@ -95,7 +94,7 @@ const AccountMain = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-6 mt-5 dark:bg-[#0D0D0D] rounded-lg">
+      <div>
         <Tabs />
       </div>
     </>

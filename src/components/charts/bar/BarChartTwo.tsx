@@ -32,7 +32,7 @@ const BarChartTwo = () => {
       {/* Chart Header */}
         <div className="flex flex-row justify-between">
         <div>
-          <HeadingOne text={"Performance Sales"} />
+          <HeadingOne text={"Performance Sales"} fontSize="text-[20px]" fontWeight="font-bold" />
         </div>
         <div className="flex gap-2 flex-row">
           <HoverDropdown DropdownName="Electronics" />
