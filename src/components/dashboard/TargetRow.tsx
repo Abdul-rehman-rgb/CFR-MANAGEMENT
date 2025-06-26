@@ -16,9 +16,9 @@ export default function TargetRow() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col md:flex-col lg:flex-row gap-3 sm:gap-3 w-full h-full">
+      <div className="flex flex-col md:flex-col lg:flex-row gap-5 w-full h-full">
         {/* Target Card */}
-        <div className="flex-1 h-full rounded-2xl dark:border-gray-800 dark:bg-white/[0.03]">
+        <div className="h-full rounded-2xl dark:border-gray-800 dark:bg-white/[0.03] w-full lg:w-1/4">
           <TargetCard
             achieved={234000}
             target={500000}
@@ -28,7 +28,8 @@ export default function TargetRow() {
         </div>
 
         {/* Top Performer Card */}
-        <div className="flex-1 h-full rounded-2xl bg-white dark:bg-white/[0.03]">
+        
+        <div className="h-full rounded-2xl bg-white dark:bg-white/[0.03] w-full lg:w-3/9">
           <TopPerformerCard
             category="Electronics"
             amount={356}
@@ -38,7 +39,7 @@ export default function TargetRow() {
         </div>
 
         {/* Bottleneck Card */}
-        <div className="flex-1 h-full md:max-w-[37.5%] rounded-2xl bg-white dark:bg-white/[0.03]">
+        <div className="h-full rounded-2xl bg-white dark:bg-white/[0.03] w-full lg:w-3/8">
           <BottleneckCard />
         </div>
       </div>

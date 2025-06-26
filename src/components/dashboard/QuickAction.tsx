@@ -66,7 +66,7 @@ export default function QuickAction() {
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
 
         <ColorFull 
-        className="text-white bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-4 text-center me-2 mb-2"
+          className="text-white bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-4 text-center me-2 mb-2"
           text="Add new order"
           textColor="text-white"
           fontSize="text-[12px]"

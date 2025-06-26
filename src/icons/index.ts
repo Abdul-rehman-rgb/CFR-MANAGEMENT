@@ -67,11 +67,14 @@ import { ReactComponent as HelpIcon } from './help.svg?react';
 import { ReactComponent as SignoutIcon } from './signout.svg?react';
 import { ReactComponent as FaExclamationCircle } from './red-exclamation.svg?react';
 import { ReactComponent as ToogleButtonIcon } from './toogleButtonIcon.svg?react';
+import { ReactComponent as AddCircleIcon } from './add_circle.svg?react';
+
 
 
 
 
 export {
+  AddCircleIcon,
   ToogleButtonIcon,
   FaExclamationCircle,
   SignoutIcon,

@@ -31,11 +31,11 @@ const BottleneckCard = ({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         {/* Left Side - Info */}
         <div className="flex flex-col gap-2">
-          <p className="text-base text-[16px] sm:text-lg font-semibold text-[#151D48] dark:text-orange-400">
+          <p className="text-base text-[16px] sm:text-lg font-semibold text-[#151D48] dark:text-orange-400 mb-3">
             {title}
           </p>
           <HeadingTwo
-            className="text-[24px] sm:text-2xl font-bold text-red-700"
+            className="text-[24px] sm:text-2xl text-red-700 mb-2"
             text={issue}
           />
         </div>
@@ -52,6 +52,8 @@ const BottleneckCard = ({
             text={orderCount + " Orders"}
             colorClass="text-[#151D48]"
             fontSize="text-[32px]"
+            className="font-bold text-[#151D48] mb-6"
+            fontWeight="700"
           />
           <p className="text-[16px] text-[#AE0003]">{status}</p>
         </div>

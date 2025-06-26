@@ -12,6 +12,8 @@ import { useModal } from "../../hooks/useModal";
 import Button from "../ui/button/Button";
 import CreateTarget from "../dashboard/CreateTargetModal/CreateTarget";
 import TargetReport from "../dashboard/CreateTargetModal/TargetReport";
+import { AddCircleIcon} from "../../../src/icons";
+
 
 type TargetCardProps = {
   achieved: number;
@@ -52,21 +54,22 @@ const TargetCard: React.FC<TargetCardProps> = ({
     "",
   ];
   return (
-    <div className="bg-white dark:bg-[#0D0D0D] rounded-xl pl-2 w-full py-1">
+    <div className="bg-white dark:bg-[#0D0D0D] rounded-xl pl-2 w-full py-2 px-2">
       {/* Header */}
       <div className="flex flex-row justify-between items-start mb-1 gap-2 lg:flex-row">
         <HeadingTwo text="Target" />
-        <div className="flex flex-col items-start sm:items-end space-y-1">
+        <div className="flex flex-col items-start sm:items-end space-y-1 mb-0">
           <OutlineBtn
             BtnName="Create Target"
-            icon={FiPlus}
+            // icon={FiPlus}
+            icon={AddCircleIcon}
             // onClick={onCreateClick}
             className="rounded-[6px] text-[9px]"
             onClick={() => handleOpenModal("target")}
           />
           <button
             onClick={onReportClick}
-            className="text-[9px] text-[#5D5FEF] underline"
+            className="text-[9px] text-[#5D5FEF]"
           >
             View target report
           </button>
@@ -74,8 +77,8 @@ const TargetCard: React.FC<TargetCardProps> = ({
       </div>
 
       {/* Progress */}
-      <div className="flex justify-center items-center mb-1">
-        <div className="w-20 h-20 max-sm:w-28 max-sm:h-28">
+      <div className="flex justify-center items-center mb-1 relative">
+        <div className="w-20 h-20 max-sm:w-28 max-sm:h-28 font-bold mb-1">
           <CircularProgressbar
             value={percentage}
             text={`${percentage}%`}
@@ -83,11 +86,12 @@ const TargetCard: React.FC<TargetCardProps> = ({
               textColor: "#22c55e",
               pathColor: "#6366f1",
               trailColor: "#e5e7eb",
-              textSize: "26px",
+              textSize: "24px",
               strokeLinecap: "round",
+              fontWeight: "font-bold",
             })}
           />
-          {/* <div className="text-center mt-1 text-gray-500 text-xs sm:text-sm">Achieved</div> */}
+          <div className="text-center text-gray-500 text-[10px] sm:text-[10px] absolute bottom-[20px] font-normal left-[auto] ml-4">Achieved</div>
         </div>
       </div>
 
@@ -97,6 +101,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
           <HeadingOne
             text={`$${(achieved / 1000).toFixed(0)}k`}
             className="text-[#0CB91D] text-[20px]"
+            colorClass= {"#0CB91D"}
           />
           <SubHeading text="Achieved Revenue" />
         </div>
@@ -104,6 +109,7 @@ const TargetCard: React.FC<TargetCardProps> = ({
           <HeadingOne
             text={`$${(target / 1000).toFixed(0)}k`}
             className="text-[#5D5FEF] text-[20px]"
+            colorClass= {"#5D5FEF"}
           />
           <SubHeading text="Target Revenue" />
         </div>

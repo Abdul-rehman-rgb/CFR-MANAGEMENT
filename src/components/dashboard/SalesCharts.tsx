@@ -40,7 +40,7 @@ const SalesTrendChart = ({
   return (
     <div
       className="grid  bg-white rounded-2xl shadow p-8 flex flex-col md:flex-row w-full"
-      style={{ minWidth: 670, width, height }}
+      // style={{ minWidth: 670, width, height }}
     >
       {/* Left side: Title, value, legend */}
       <div className='grid'>

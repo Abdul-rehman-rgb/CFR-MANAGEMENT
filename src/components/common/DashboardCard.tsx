@@ -46,7 +46,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
       {/* Right Dropdown + Chart */}
       <div className="flex flex-col items-end justify-between sm:h-full sm:items-end gap-2 sm:gap-0 space-y-10">
         {/* Dropdown */}
-        <div className="text-primary font-medium text-sm flex items-center gap-1 cursor-pointer">
+        <div className="text-[#5D5FEFCC] font-medium text-[10px] flex items-center gap-1 cursor-pointer md:mt-[-5px] ">
           {timeRange}
           <div className="relative inline-block">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
