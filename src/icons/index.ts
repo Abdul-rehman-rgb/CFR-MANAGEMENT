@@ -68,12 +68,26 @@ import { ReactComponent as SignoutIcon } from './signout.svg?react';
 import { ReactComponent as FaExclamationCircle } from './red-exclamation.svg?react';
 import { ReactComponent as ToogleButtonIcon } from './toogleButtonIcon.svg?react';
 import { ReactComponent as AddCircleIcon } from './add_circle.svg?react';
+import { ReactComponent as ExportIcon } from './export.svg?react';
+import { ReactComponent as SolarCalendarIcon } from './solar_calendar-outline.svg?react';
+import { ReactComponent as SolarRefreshIcon } from './solar_restart-bold.svg?react';
+import { ReactComponent as CustomisehIcon } from './customise.svg?react';
+import { ReactComponent as InvoiceOutlineIcon } from './invoice-outline.svg?react';
+import { ReactComponent as InventoryOutlineIcon } from './inventory-outline.svg?react';
+
+
 
 
 
 
 
 export {
+  InventoryOutlineIcon,
+  InvoiceOutlineIcon,
+  CustomisehIcon,
+  SolarRefreshIcon,
+  SolarCalendarIcon,
+  ExportIcon,
   AddCircleIcon,
   ToogleButtonIcon,
   FaExclamationCircle,

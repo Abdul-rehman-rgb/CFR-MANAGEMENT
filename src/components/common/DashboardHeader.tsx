@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-import {
-  FiDownload,
-  FiRefreshCw,
-  FiSettings,
-  FiCalendar,
-} from "react-icons/fi";
 import { DateRangePicker } from "react-date-range";
 import { Range, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css";
@@ -14,6 +8,7 @@ import ColorFull from "../ui/button/ColorFull";
 import OutlineBtn from "../ui/button/OutLine";
 import Export from "../ui/button/Export";
 import HeadingFour from "../ui/heading/HeadingFour";
+import { CustomisehIcon, ExportIcon, SolarCalendarIcon, SolarRefreshIcon } from "../../icons";
 
 type DashboardHeaderProps = {
   onExport?: () => void;
@@ -49,8 +44,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         {showExport && (
           <Export
             BtnName="Export"
-            icon={FiDownload}
+            icon={ExportIcon}
             onClick={() => console.log("Export triggered")}
+            className="rounded-xl"
           />
         )}
 
@@ -59,7 +55,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             <ColorFull
               onClick={() => setShowPicker((prev) => !prev)}
               text="Select Date Range"
-              icon={FiCalendar}
+              icon={SolarCalendarIcon}
+            className="rounded-xl"
+
             />
 
             {showPicker && (
@@ -71,6 +69,8 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                     setShowPicker(false); // Auto-close
                   }}
                   inputRanges={[]}
+            className="rounded-xl"
+
                 />
               </div>
             )}
@@ -80,9 +80,10 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         {showRefresh && (
           <OutlineBtn
             BtnName="Refresh"
-            icon={FiRefreshCw}
+            icon={SolarRefreshIcon}
             onClick={onRefresh}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto text-lg"
+            
           />
         )}
 
@@ -90,9 +91,11 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           <ColorFull
             onClick={onCustomize}
             text="Customize Dashboard"
-            icon={FiSettings}
+            icon={CustomisehIcon}
             bgColor="bg-[#5D5FEF]"
             textColor="text-white"
+            className="rounded-xl"
+            
           />
         )}
       </div>

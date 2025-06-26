@@ -40,7 +40,7 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({
         <HeadingFour text="Order Management" />
       <div className="flex flex-col max-sm:flex-row sm:items-center md:flex-row md:flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
         {showExport && (
-          <Export BtnName="Export" icon={FiDownload} onClick={onExport} />
+          <Export BtnName="Export" icon={FiDownload} onClick={onExport} className="py-6"/>
         )}
 
         {showDateRange && (
@@ -49,6 +49,7 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({
               onClick={() => setShowPicker((prev) => !prev)}
               text="Select Date Range"
               icon={FiCalendar}
+              className="py-3"
             />
             {showPicker && (
               <div className="absolute right-0 z-50 mt-2 shadow-lg">

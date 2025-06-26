@@ -22,9 +22,9 @@ const OutlineBtn: React.FC<OutlineBtnProps> = ({
         w-full sm:w-auto px-3 py-2 transition-all ${className}`}
     >
       {Icon && (
-        <Icon className="w-[14px] h-[14px] max-sm:w-[12px] max-sm:h-[12px]" />
+        <Icon className="w-[20px] h-[20px] max-sm:w-[12px] max-sm:h-[12px]" />
       )}
-      <span className="whitespace-nowrap text-[10px]">{BtnName}</span>
+      <span className="whitespace-nowrap text-[14px]">{BtnName}</span>
     </button>
   );
 };

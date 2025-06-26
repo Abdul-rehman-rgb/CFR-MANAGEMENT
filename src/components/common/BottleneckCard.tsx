@@ -42,7 +42,7 @@ const BottleneckCard = ({
 
         {/* Right Side - Icon */}
         {icon && (
-          <div className="text-4xl sm:text-5xl text-red-600">{icon}</div>
+          <div className="text-5xl sm:text-5xl text-red-600">{icon}</div>
         )}
       </div>
 

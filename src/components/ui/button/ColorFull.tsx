@@ -25,9 +25,9 @@ const ColorFull: React.FC<ColorFullProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`font-medium border-[1px] ${textColor} ${bgColor} ${fontSize} ${className} w-full sm:w-auto px-3 py-6 border-[#5D5FE1]/10 hover:border-[#5D5FEF] hover:border-[1px] hover:shadow-md hover:shadow-[#5D5FEF]/30 dark:bg-[#7476F1]/10 dark:text-[#7476F1] dark:hover:border-[#5D5FEF]/30 dark:hover:shadow-md dark:hover:shadow-[#fff]/30 flex h-9 items-center gap-2 rounded-md px-4 sm:h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden`}
+      className={`font-medium border-[1px] ${textColor} ${bgColor} ${fontSize} ${className} w-full sm:w-auto px-3 py-5 border-[#5D5FE1]/10 hover:border-[#5D5FEF] hover:border-[1px] hover:shadow-md hover:shadow-[#5D5FEF]/30 dark:bg-[#7476F1]/10 dark:text-[#7476F1] dark:hover:border-[#5D5FEF]/30 dark:hover:shadow-md dark:hover:shadow-[#fff]/30 flex h-9 items-center gap-2  px-4 sm:h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden`}
     >
-      <Icon className="w-[14px] h-[14px] max-sm:w-[12px] max-sm:h-[12px] flex-shrink-0" {...iconProps} />
+      <Icon className="w-[20px] h-[20px] max-sm:w-[12px] max-sm:h-[12px] flex-shrink-0" {...iconProps} />
       <span className="truncate flex-shrink-0" title={text}>
         {text}
       </span>
