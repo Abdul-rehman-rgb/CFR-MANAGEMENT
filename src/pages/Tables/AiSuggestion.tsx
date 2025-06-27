@@ -1,90 +1,84 @@
 import React, { useState } from "react";
 
 const data = [
-    {
-        id: "#456456545",
-        name: "Electronics",
-        stock: "100",
-        quantity: "10",
-        status: "Delivered",
-    },
-    {
-        id: "#456454645",
-        name: "Electronics",
-        stock: "100",
-        quantity: "10",
-        status: "Delivered",
-    },
-    {
-        id: "#456456425",
-        name: "Electronics",
-        stock: "100",
-        quantity: "10",
-        status: "Pending",
-    },
-    {
-        id: "#456415645",
-        name: "Electronics",
-        stock: "100",
-        quantity: "10",
-        status: "Pending",
-    },
+  {
+    id: "#456456545",
+    name: "Electronics",
+    stock: "100",
+    quantity: "10",
+    status: "Delivered",
+  },
+  {
+    id: "#456454645",
+    name: "Electronics",
+    stock: "100",
+    quantity: "10",
+    status: "Delivered",
+  },
+  {
+    id: "#456456425",
+    name: "Electronics",
+    stock: "100",
+    quantity: "10",
+    status: "Pending",
+  },
+  {
+    id: "#456415645",
+    name: "Electronics",
+    stock: "100",
+    quantity: "10",
+    status: "Pending",
+  },
 ];
 
 const PAGE_SIZE = 3;
 
 const AiSuggestion = () => {
-    const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
-    const totalPages = Math.ceil(data.length / PAGE_SIZE);
+  const totalPages = Math.ceil(data.length / PAGE_SIZE);
 
-    const paginatedData = data.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const paginatedData = data.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
-    return (
-        <div className="w-full overflow-x-auto">
-            <table className="min-w-[345px] h-[250px] w-full text-left text-sm">
-                <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
-                    <tr>
-                        <th
-                            scope="col"
-                            className="px-1 py-1"
-                        >
-                            Product
-                        </th>
-                        <th
-                            scope="col"
-                            className="px-1 py-1"
-                        >
-                            Current Stock
-                        </th>
-                        <th
-                            scope="col"
-                            className="px-1 py-1"
-                        >
-                            Suggested Quantity
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {paginatedData.map((item) => (
-                        <tr
-                            key={item.id}
-                            className={`text-[14px] text-[#666666] dark:text-[#F2F2FE] hover:bg-gray-50 hover:dark:bg-gray-800`}
-                        >
-                            <th
-                                scope="row"
-                                className="text[14px] font-medium px-1 py-1 whitespace-nowrap text-[#666666]"
-                            >
-                                {item.name}
-                            </th>
-                            <td className="px-1 py-1">{item.stock}</td>
-                            <td className="px-1 py-1">{item.quantity}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+  return (
+    <div className="w-full overflow-x-auto">
+      <table className="min-w-[345px] h-[250px] w-full text-left text-sm">
+        <thead className="table-head dark:text-[#8E8E9C]">
+          <tr>
+            <th scope="col" className="px-1 py-1">
+              Product
+            </th>
+            <th scope="col" className="px-1 py-1">
+              Current Stock
+            </th>
+            <th scope="col" className="px-1 py-1">
+              Suggested Quantity
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {paginatedData.map((item) => (
+            <tr
+              key={item.id}
+              className={`text-[14px] text-[#666666] dark:text-[#F2F2FE] hover:bg-gray-50 hover:dark:bg-gray-800`}
+            >
+              <th
+                scope="row"
+                className="text[14px] font-medium px-1 py-1 whitespace-nowrap text-[#666666]"
+              >
+                {item.name}
+              </th>
+              <td className="px-1 py-1">{item.stock}</td>
+              <td className="px-1 py-1">{item.quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-            {/* Pagination Controls */}
+      {/* Pagination Controls */}
       <div className="mt-4 flex items-center justify-center space-x-3">
         <button
           onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
@@ -184,8 +178,8 @@ const AiSuggestion = () => {
           </svg>
         </button>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AiSuggestion;

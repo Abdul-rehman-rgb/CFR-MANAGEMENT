@@ -1,6 +1,6 @@
 import React from "react";
-import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 import HoverDropdown from "../../../components/ui/button/HoverDropdown";
+import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
 
 // Example data
 const data = [
@@ -43,13 +43,13 @@ const ReorderSuggestionChart: React.FC = () => {
   return (
     <div className="rounded-2xl p-6 min-h-[340px] relative">
       <div className="flex items-center justify-between mb-1">
-        <HeadingOne text={"Reorder Suggestion"} />
+        <HeadingTwo text={"Reorder Suggestion"} />
         <HoverDropdown DropdownName={"This Year"} />
       </div>
       {/* Legend */}
       <div className="flex items-center gap-7 mb-3 mt-2">
         {legendOrder.map((urgency) => (
-          <div key={urgency} className="flex items-center gap-1 mb-5">
+          <div key={urgency} className="flex items-center gap-1 mb-5 text-[8px] text-[#737791] font-medium">
             <span className={`w-3 h-3 rounded-full ${urgencyDotColor[urgency]}`}></span>
             <span className="text-xs font-medium text-gray-500">{urgencyLabel[urgency]}</span>
           </div>
@@ -57,9 +57,9 @@ const ReorderSuggestionChart: React.FC = () => {
       </div>
       {/* Chart */}
       <div className="flex items-end gap-2 mt-4 min-h-[180px] w-full justify-between">
-        {data.map((d, idx) => (
+        {data.map((d) => (
           <div key={d.label} className="flex flex-col items-center flex-1 min-w-[60px]">
-            <div className="relative flex items-end justify-center h-[180px] w-full">
+            <div className="relative flex items-end justify-center h-[190px] w-full">
               {/* Bar */}
               <div
                 className={`
@@ -77,18 +77,18 @@ const ReorderSuggestionChart: React.FC = () => {
               </span> */}
             </div>
             {/* Category Label */}
-            <span className="mt-2 text-sm font-medium text-gray-700 text-center">{d.label}</span>
+            <span className="mt-2 text-[8px] font-semibold text-[#737791] text-center">{d.label}</span>
           </div>
         ))}
       </div>
       {/* Y-axis labels (optional for visual hint) */}
-      <div className="absolute left-0 top-[85px] flex flex-col items-end gap-7 h-[180px] pointer-events-none select-none">
-        <span className="text-xs text-gray-400">100%</span>
-        <span className="text-xs text-gray-300">80%</span>
-        <span className="text-xs text-gray-300">60%</span>
-        <span className="text-xs text-gray-300">40%</span>
-        <span className="text-xs text-gray-300">20%</span>
-        <span className="text-xs text-gray-300">0%</span>
+      <div className="absolute left-0 top-[100px] flex flex-col items-end gap-7 h-[180px] pointer-events-none select-none">
+        <span className="text-[8px] text-[#737791] font-semibold">100%</span>
+        <span className="text-[8px] text-[#737791] font-semibold">80%</span>
+        <span className="text-[8px] text-[#737791] font-semibold">60%</span>
+        <span className="text-[8px] text-[#737791] font-semibold">40%</span>
+        <span className="text-[8px] text-[#737791] font-semibold">20%</span>
+        <span className="text-[8px] text-[#737791] font-semibold">0%</span>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import HeadingThree from "../../../components/ui/heading/HeadingThree";
 
 const Suggestion = () => {
   return (
-    <div className="h-[345px] rounded-lg  flex flex-col dark:text-white dark:bg-[#0D0D0D]">
+    <div className="h-[345px] rounded-[12px] bg-white p-6 flex flex-col dark:text-white dark:bg-[#0D0D0D]">
        <div className="flex flex-col max-sm:flex-row justify-between sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <div className="flex items-center gap-2">
           <svg

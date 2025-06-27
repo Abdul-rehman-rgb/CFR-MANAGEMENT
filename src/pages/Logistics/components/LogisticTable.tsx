@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import OutlineBtn from "../../../components/ui/button/OutLine";
+import ViewDetails from "../../../components/ui/button/ViewDetails";
 
 const data = [
   {
@@ -76,7 +77,7 @@ const LogisticTable = ({ BtnText }) => {
   return (
     <div className="w-full overflow-x-auto">
       <table className="min-w-[768px] w-full text-left text-sm">
-        <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
+        <thead className="table-head dark:text-[#8E8E9C]">
           <tr>
             <th scope="col" className="p-4">
               <div className="flex items-center">
@@ -155,14 +156,11 @@ const LogisticTable = ({ BtnText }) => {
               </td>
               <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
-                  <button
-                                onClick={() => navigate("logistic-detail")}
-                                    className="font-medium flex bg-[#7476F1] rounded px-4 py-2 text-[11px] text-white transition-colors hover:bg-blue-700"
-                                >
-                                    <FiEdit />
-                                    {BtnText}
-                                    
-                                </button>
+                                <ViewDetails
+                  BtnName="View Details"
+                  icon={FiEdit}
+                  onClick={() => navigate("logistic-detail")}
+                />
                 </div>
               </td>
             </tr>

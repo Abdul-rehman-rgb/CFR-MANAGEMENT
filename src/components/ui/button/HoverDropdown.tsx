@@ -12,7 +12,7 @@ const HoverDropdown: React.FC<HoverDropdownProps> = ({
   DropdownName = "Dropdown",
   className = "",
   color = "text-[#5D5FEF] border-[#5D5FEF]",
-  bgColor = "bg-[#5D5FEF] border-2 border-[#5D5FEF] text-white hover:border-2 hover:border-[#5D5FEF] hover:text-[#5D5FEF]",
+  bgColor = "bg-[#5D5FEF] border-1 border-[#5D5FEF] text-white hover:border-1 hover:border-[#5D5FEF] hover:text-[#5D5FEF] hover:bg-white",
   variant = "outlined",
 }) => {
   const isOutlined = variant === "outlined";
@@ -41,7 +41,7 @@ const HoverDropdown: React.FC<HoverDropdownProps> = ({
       </button>
 
       {/* Dropdown Menu */}
-      <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 absolute right-0 z-10 mt-2 w-44 origin-top-right rounded-md bg-white dark:bg-[#1A1A1A] shadow-lg ring-1 ring-black ring-opacity-5">
+      <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 absolute right-0 z-10 mt-2 w-44 origin-top-right rounded-md bg-white dark:bg-[#1A1A1A] ring-1 ring-black ring-opacity-5">
         <div className="py-1">
           <button className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
             Action 1

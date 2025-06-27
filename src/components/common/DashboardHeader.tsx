@@ -46,7 +46,6 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             BtnName="Export"
             icon={ExportIcon}
             onClick={() => console.log("Export triggered")}
-            className="rounded-xl"
           />
         )}
 
@@ -56,7 +55,6 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
               onClick={() => setShowPicker((prev) => !prev)}
               text="Select Date Range"
               icon={SolarCalendarIcon}
-            className="rounded-xl"
 
             />
 
@@ -69,7 +67,6 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                     setShowPicker(false); // Auto-close
                   }}
                   inputRanges={[]}
-            className="rounded-xl"
 
                 />
               </div>
@@ -94,7 +91,6 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             icon={CustomisehIcon}
             bgColor="bg-[#5D5FEF]"
             textColor="text-white"
-            className="rounded-xl"
             
           />
         )}

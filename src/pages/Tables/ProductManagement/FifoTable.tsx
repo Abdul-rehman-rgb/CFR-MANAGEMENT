@@ -60,7 +60,7 @@ const FifoTable = () => {
   return (
     <div className="w-full overflow-x-auto">
       <table className="min-w-[768px] w-full text-left text-sm">
-        <thead className="font-medium text-[12px] text-[#333333]/50 dark:text-[#8E8E9C]">
+        <thead className="table-head dark:text-[#8E8E9C]">
           <tr>
             <th scope="col" className="p-4">
               <div className="flex items-center">
@@ -124,7 +124,7 @@ const FifoTable = () => {
 
               <th
                 scope="row"
-                className="text[14px] poppins-medium px-6 py-4 whitespace-nowrap text-[#666666]"
+                className="text[14px] font-medium px-6 py-4 whitespace-nowrap text-[#666666]"
               >
                 {item.name}
               </th>

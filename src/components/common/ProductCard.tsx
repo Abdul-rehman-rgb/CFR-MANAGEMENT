@@ -34,10 +34,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* Content */}
       <div className="flex flex-row justify-between">
         <div className="space-y-4">
-          <p className="text-sm text-black/40 dark:text-white font-medium">
+          <p className="text-[12px] text-black/40 dark:text-white font-medium">
             {title}
           </p>
-          <HeadingOne fontSize="text-[24px]" text={amount} />
+          <HeadingOne text={amount} />
           <div className="flex flex-row justify-between gap-10 items-center">
             <div>
               <p className="text-[10px] font-regular text-black/40 dark:text-white">

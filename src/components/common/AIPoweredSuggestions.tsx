@@ -42,7 +42,7 @@ const Tabs = () => {
       : activities.filter((a) => a.type === activeTab);
 
   return (
-    <div className="h-[380px] overflow-y-auto rounded-lg p-4 sm:p-6 bg-white dark:bg-[#0D0D0D]">
+    <div className="h-[380px] mt-5 overflow-y-auto rounded-lg p-4 sm:p-6 bg-white dark:bg-[#0D0D0D]">
       {/* Header */}
       <div className="flex flex-col max-sm:flex-row justify-between sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <div className="flex items-center gap-2">

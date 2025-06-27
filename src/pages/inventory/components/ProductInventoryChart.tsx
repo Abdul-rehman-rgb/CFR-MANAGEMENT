@@ -1,4 +1,7 @@
 import React from "react";
+import HoverDropdown from "../../../components/ui/button/HoverDropdown";
+import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
+import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 
 const ProductInventoryChart: React.FC = () => {
   // Example data
@@ -16,29 +19,30 @@ const ProductInventoryChart: React.FC = () => {
   const outOfStockDash = (outOfStockPercent / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 flex items-center min-h-[340px] relative">
+    <div className="bg-white rounded-2xl dark:bg-[#0D0D0D] p-6 flex items-center min-h-[340px] relative dark:text-white">
       {/* Title */}
       <div className="absolute left-6 top-4">
-        <span className="font-bold text-lg text-[#1a2343]">Product Inventory</span>
+        <HeadingTwo
+          text="Product Inventory"
+          className="text-[#1a2343] dark:text-white"
+        />
       </div>
       {/* Filter */}
       <div className="absolute right-6 top-4">
-        <button className="bg-[#4f46e5] text-white rounded-lg px-4 py-1 text-sm focus:outline-none flex items-center gap-1 shadow">
-          This Year
-          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
+        <HoverDropdown
+          DropdownName="This Year"
+          className="bg-gradient-to-r from-[#5D5FEF] to-[#353689] text-white dark:text-[#A9A9CD]"
+        />
       </div>
       {/* Donut Chart */}
-      <div className="mx-auto mt-6 relative w-[260px] h-[260px] flex">
+      <div className="mx-auto mt-6 relative shadow-md rounded-[200px] justify-center w-[260px] h-[260px] flex">
         <svg width={size} height={size}>
           <circle
             cx={size / 2}
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke="#f3f3f3"
+            stroke="#22C55E"
             strokeWidth={strokeWidth}
           />
           {/* Available */}
@@ -49,7 +53,9 @@ const ProductInventoryChart: React.FC = () => {
             fill="none"
             stroke="#22c55e"
             strokeWidth={strokeWidth}
-            strokeDasharray={`${availableDash} ${circumference - availableDash}`}
+            strokeDasharray={`${availableDash} ${
+              circumference - availableDash
+            }`}
             strokeDashoffset={0}
             strokeLinecap="round"
             style={{ transition: "stroke-dasharray 0.5s" }}
@@ -60,9 +66,11 @@ const ProductInventoryChart: React.FC = () => {
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke="#ff695b"
+            stroke="#FF695B"
             strokeWidth={strokeWidth}
-            strokeDasharray={`${outOfStockDash} ${circumference - outOfStockDash}`}
+            strokeDasharray={`${outOfStockDash} ${
+              circumference - outOfStockDash
+            }`}
             strokeDashoffset={-availableDash}
             strokeLinecap="round"
             style={{ transition: "stroke-dasharray 0.5s" }}
@@ -73,20 +81,35 @@ const ProductInventoryChart: React.FC = () => {
           className="absolute left-0 bottom-10 flex flex-col items-start"
           style={{ transform: "translateX(-40%)" }}
         >
-          <span className="font-bold text-[1.4rem] text-[#21b573] leading-none">
-            {availablePercent}%
-          </span>
-          <span className="text-gray-800 font-medium text-[1rem] leading-tight">Available</span>
+          <HeadingOne
+            text={`${availablePercent} %`}
+            fontSize="text-[30px]"
+            fontWeight="font-bold"
+            colorClass="text-[#22C55E]"
+            className="dark:text-white"
+          />
+          <HeadingTwo
+            text="Available"
+            className="text-[#1a2343] font-medium dark:text-white"
+          />
         </div>
         {/* Out of stock Label */}
         <div
           className="absolute right-0 top-8 flex flex-col items-end"
           style={{ transform: "translateX(40%)" }}
         >
-          <span className="font-bold text-[1.4rem] text-[#ff6e5d] leading-none">
-            {outOfStockPercent}%
-          </span>
-          <span className="text-gray-800 font-medium text-[1rem] leading-tight">Out of Stock</span>
+          <HeadingOne
+            text={`${outOfStockPercent} %`}
+            fontSize="text-[30px]"
+            fontWeight="font-bold"
+            colorClass="text-[#22C55E]"
+            className="dark:text-white"
+          />
+
+          <HeadingTwo
+            text="Out of Stock"
+            className="text-[#1a2343] font-medium dark:text-white"
+          />
         </div>
       </div>
     </div>

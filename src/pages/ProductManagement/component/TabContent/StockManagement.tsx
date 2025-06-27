@@ -19,6 +19,7 @@ import PricingModal from "../modals/PricingModal";
 import ProductDetailModal from "../modals/ProductDetailModal";
 import DimensionModal from "../modals/DimensionModal";
 import ModalWithTabs from "../../../../components/common/ModalWithTabs";
+import HeadingTwo from "../../../../components/ui/heading/HeadingTwo";
 
 const StepButtons = ({ onNext, onBack }) => (
   <div className="flex flex-col gap-2 sm:flex-row sm:justify-between mt-4">
@@ -49,7 +50,7 @@ const StockManagement = () => {
       <div className="grid grid-cols-1 gap-4 rounded-sm bg-white p-6 dark:bg-[#0D0D0D]">
         <div className="mb-3 flex flex-col gap-2 max-sm:flex-col md:flex-row md:items-center md:justify-between">
           <div>
-            <HeadingOne text="Stock Management" />
+            <HeadingTwo text="Stock Management" className="text-[#333333]" />
             <Paragragh para="Real-time data on product and manage products." />
           </div>
           <div className="flex items-center gap-2 max-sm:flex-col">
@@ -85,7 +86,7 @@ const StockManagement = () => {
       >
         {currentStep === 1 && (
           <div className="pt-4">
-            <div className="flex justify-between gap-10 mb-4 border-b border-gray-200 font-medium">
+            <div className="flex justify-between gap-10 mb-4 border-b text-[14px] border-gray-200 font-medium">
               <button
                 onClick={() => setActiveTab("Tab1")}
                 className={`px-4 py-2 ${
@@ -111,7 +112,7 @@ const StockManagement = () => {
             {activeTab === "Tab1" && (
               <Form className="space-y-5" onSubmit={() => {}}>
                 <div className="flex justify-between items-start">
-                  <HeadingOne fontSize="text-[20px]" text="Update Inventory" />
+                  <HeadingTwo text="Update Inventory" />
                   <div className="flex flex-col gap-2 sm:flex-row">
                     <OutlineBtn
                       className="border-[1px] border-[#555555] text-[#555555] hover:bg-[#5D5FEF] hover:text-black"
@@ -146,7 +147,7 @@ const StockManagement = () => {
 
         {currentStep === 2 && (
           <>
-            <HeadingOne text="Assign Customer & Pricing" />
+            <HeadingTwo className="mb-5" text="Assign Customer & Pricing" />
             <PricingModal />
             <StepButtons onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} />
           </>
@@ -154,7 +155,7 @@ const StockManagement = () => {
 
         {currentStep === 3 && (
           <>
-            <HeadingOne text="Logistic Detail" />
+            <HeadingTwo className="mb-5" text="Logistic Detail" />
             <LogisticModal />
             <StepButtons onNext={() => setCurrentStep(4)} onBack={() => setCurrentStep(2)} />
           </>
@@ -162,7 +163,7 @@ const StockManagement = () => {
 
         {currentStep === 4 && (
           <>
-            <HeadingOne text="Barcodes" />
+            <HeadingTwo className="mb-5" text="Barcodes" />
             <BarcodeModal />
             <StepButtons onNext={() => setCurrentStep(5)} onBack={() => setCurrentStep(3)} />
           </>
@@ -170,7 +171,7 @@ const StockManagement = () => {
 
         {currentStep === 5 && (
           <>
-            <HeadingOne text="Dimensions & Weight" />
+            <HeadingTwo className="mb-5" text="Dimensions & Weight" />
             <DimensionModal />
             <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
               <Button

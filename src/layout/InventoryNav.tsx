@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router";
 
 const inventoryTabs = [
-  { name: "Stock Overview", path: "/inventoryManagement/stock-overview" },
+  { name: "Stock Overview", path: "/inventoryManagement" },
   { name: "Reorder Suggestion", path: "/inventoryManagement/reorder-suggestion" },
   { name: "Stock Transfer", path: "/inventoryManagement/stock-transfer" },
   { name: "Audit Logs", path: "/inventoryManagement/audit-log" },

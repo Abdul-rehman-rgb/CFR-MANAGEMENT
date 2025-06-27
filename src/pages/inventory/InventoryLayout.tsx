@@ -3,7 +3,6 @@ import React from "react";
 import InventoryNav from "../../layout/InventoryNav";
 import { Outlet } from "react-router";
 import Inventory from "./Inventory";
-import DoublePieChart from "../../components/charts/pie/PieChart";
 
 const InventoryLayout = () => {
   return (

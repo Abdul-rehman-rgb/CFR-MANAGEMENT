@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import ProductHeader from "../../../components/common/ProductHeader";
 import LogisticCard from "../components/LogisticCard";
-import LowStockTable from "../../Tables/ProductManagement/LowStockTable";
 import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 import Paragragh from "../../../components/ui/Paragrapg";
 import SearchInput from "../../../components/form/SearchInput";
 import Export from "../../../components/ui/button/Export";
-import { FiDownload, FiFilter } from "react-icons/fi";
+import { FiCloud, FiDownload, FiFilter } from "react-icons/fi";
 import Icon from "../../../icons/producticon1.svg";
 import TransitIcon from "../../../icons/transit.svg";
 import DelayIcon from "../../../icons/delay.svg";
 import SuccessIcon from "../../../icons/success.svg";
 import LogisticTable from "../components/LogisticTable";
+import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
 
 const LogisticMain = () => {
   const [dateRange, setDateRange] = useState({
@@ -77,15 +77,15 @@ const LogisticMain = () => {
       <div className="col-span-1 md:col-span-4 space-y-6 bg-white p-4 sm:p-6 dark:bg-[#0D0D0D] rounded-xl">
         <div className="mb-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <HeadingOne text="Low Stock Products" />
+            <HeadingTwo text="Delivery Details" />
             <Paragragh para="Real-time data on product and manage products." />
           </div>
 
           <div className="flex flex-col sm:flex-row max-sm:flex-col sm:items-center gap-3">
             <SearchInput />
             <div className="flex gap-2 justify-start sm:justify-end">
-              <Export BtnName="Filter" icon={FiDownload} />
-              <Export BtnName="Export" icon={FiFilter} />
+              <Export BtnName="Filter" icon={FiFilter} />
+              <Export BtnName="Export" icon={FiCloud} />
             </div>
           </div>
         </div>

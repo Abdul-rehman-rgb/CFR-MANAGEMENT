@@ -7,7 +7,7 @@ const LogisticCard = ({ para, value, progress, Icon, showProgress = true, custom
     <div className='flex flex-col justify-center bg-white p-4 space-y-2 rounded w-full dark:bg-[#0D0D0D]'>
       <div className='flex flex-row justify-between items-center'>
         <div>
-          <Paragragh para={para} color='text-black/40' className='text-[12px]' />
+          <Paragragh para={para} color='text-black/40' className='text-[12px] mb-4' />
           <HeadingOne text={value} />
         </div>
         <div>
@@ -19,7 +19,7 @@ const LogisticCard = ({ para, value, progress, Icon, showProgress = true, custom
       <div className="mt-2">
         {showProgress ? (
           <>
-            <p className="text-xs text-gray-600">{progress}% Delivered</p>
+            <p className="text-[8px] text-[#A9A9CD]">{progress}% Delivered</p>
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
                 className="bg-[#5D5FEF] h-2 rounded-full transition-all duration-300"
@@ -28,7 +28,7 @@ const LogisticCard = ({ para, value, progress, Icon, showProgress = true, custom
             </div>
           </>
         ) : (
-          <p className="text-[10px] font-regular text-black/40"><span className='text-green-600'>{green}</span>{customText}</p>
+          <p className="text-[8px] font-regular text-[#A9A9CD]"><span className='text-green-600'>{green}</span>{customText}</p>
         )}
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import OutlineBtn from "../../../components/ui/button/OutLine";
+import ViewDetails from "../../../components/ui/button/ViewDetails";
 
 const data = [
   {
@@ -93,9 +94,6 @@ const StockTable = ({ BtnTextTwo }) => {
             <th scope="col" className="px-6 py-3">
               Status
             </th>
-            {/* <th scope="col" className="px-6 py-3">
-              Location
-            </th> */}
           </tr>
         </thead>
         <tbody>
@@ -135,24 +133,17 @@ const StockTable = ({ BtnTextTwo }) => {
                   In Stock
                 </div>
               </td>
-              {/* <td className="px-6 py-4">
+               <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
-                  <OutlineBtn
-                    className="flex items-center gap-2 font-medium rounded px-4 py-2 text-[11px] text-[#5D5FEF] transition-colors hover:bg-red-600"
-                    BtnName={BtnTextTwo}
-                    icon={FiEdit}
-                  />
-
-                  <button
-                    onClick={() => navigate("/orders/details")}
-                    className="flex items-center gap-2 font-medium bg-red-500 rounded px-4 py-2 text-[11px] text-white transition-colors hover:bg-red-600"
-                  >
-                    <FiDelete className="w-4 h-4" />
-                    {BtnTextTwo}
-                  </button>
-                  
+                <OutlineBtn
+                  className="bg-white border-[#5D5FEF] text-[#5D5FEF]"
+                  BtnName={BtnTextTwo}
+                  icon={FiEdit}
+                  onClick={() => navigate("/product-management/edit-product")}
+                />
+                  <ViewDetails icon={FiDelete} className="bg-[#EF4444] border-[#EF4444] hover:bg-[#fff] hover:text-[#EF4444] hover:border-[#EF4444]" BtnName="Delete" />
                 </div>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>

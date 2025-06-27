@@ -3,7 +3,7 @@ import HeadingOne from "../ui/heading/HeadinhOne";
 
 const AuditCard = ({ icon, title, value }) => {
     return (
-        <div className="flex w-full flex-col items-center gap-4 rounded-[12px] bg-white px-6 py-7 sm:flex-row sm:items-start dark:bg-[#0D0D0D] dark:text-white">
+        <div className="flex w-full flex-col items-center gap-8 rounded-[12px] bg-white px-6 py-7 sm:flex-row sm:items-start dark:bg-[#0D0D0D] dark:text-white">
             <div className="flex-shrink-0">
                 <img
                     src={icon}
@@ -11,7 +11,7 @@ const AuditCard = ({ icon, title, value }) => {
                     className="h-14 w-14 object-contain"
                 />
             </div>
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left space-y-6">
                 <Paragragh
                     color="#737791"
                     className="font-medium"

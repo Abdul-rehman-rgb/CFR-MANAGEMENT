@@ -7,7 +7,7 @@ const Dropdown = ({
   ...props
 }) => {
   const baseStyles =
-    "w-full rounded-lg border border-[#737791]/25 bg-white px-4 py-3 text-[#737791] font-regular text-sm focus:border-[#EA7D00] focus:ring-[#EA7D00] dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:placeholder:text-[#A9A9CD] dark:border-[#737791]/75";
+    "w-full rounded-lg border border-[#737791]/25 bg-white px-4 py-2.5 text-[#737791] font-regular text-sm focus:border-[#EA7D00] focus:ring-[#EA7D00] dark:bg-[#0D0D0D] dark:text-[#A9A9CD] dark:placeholder:text-[#A9A9CD] dark:border-[#737791]/75";
 
   return (
     <select className={twMerge(baseStyles, className)} {...props}>
