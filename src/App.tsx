@@ -47,6 +47,8 @@ import AccountMain from "./pages/accounts/innerpage/AccountMain";
 import Settings from "./pages/Settings";
 import HelpCenter from "./pages/HelpCenter";
 import Feedback from "./pages/Feedback";
+import TaskLayout from "./pages/Task/TaskLayout";
+import MyTask from "./pages/Task/innerpage/MyTask";
 
 export default function App() {
   return (
@@ -102,6 +104,11 @@ export default function App() {
             {/* Account Routes */}
             <Route path="/account" element={<AccountLayout />}>
               <Route index element={<AccountMain />} />
+            </Route>
+
+            {/* Task Routes */}
+            <Route path="/task" element={<TaskLayout />}>
+              <Route index element={<MyTask />} />
             </Route>
 
             <Route path="/settings" element={<Settings />}></Route>
