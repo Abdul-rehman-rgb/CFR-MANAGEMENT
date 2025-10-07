@@ -1,6 +1,6 @@
 import PageMeta from "../../components/common/PageMeta";
 import AuthLayout from "./AuthPageLayout";
-import NewPassword from "../../components/auth/newPassword";
+import NewPassword from "../../components/auth/NewPassword";
 
 export default function NewPasswordForm() {
   return (
