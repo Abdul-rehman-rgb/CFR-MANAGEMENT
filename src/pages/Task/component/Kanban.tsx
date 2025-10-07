@@ -1,10 +1,22 @@
 import { useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 import { MessageCircle, Plus } from "lucide-react";
 import user from "../../../../public/images/user/user-38.png";
 import star from "../../../../public/images/task/star.png";
 
-const initialData = {
+type Task = {
+  id: string;
+  text: string;
+  priority: string;
+};
+
+type TasksState = {
+  todo: Task[];
+  inprogress: Task[];
+  completed: Task[];
+};
+
+const initialData: TasksState = {
   todo: [
     { id: "1", text: "Doing research on new logo design", priority: "High" },
     {
@@ -29,12 +41,17 @@ export default function Kanban() {
   const [activeTab, setActiveTab] = useState("My Tasks");
   const [tasks, setTasks] = useState(initialData);
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) return;
 
-    const sourceCol = source.droppableId;
-    const destCol = destination.droppableId;
+    const sourceCol = source.droppableId as keyof TasksState;
+    const destCol = destination.droppableId as keyof TasksState;
+
+    console.log(`Dragging from ${sourceCol} to ${destCol}`);
+
+    // Prevent dragging completed tasks to any other column
+    if (sourceCol === "completed") return;
 
     const sourceItems = [...tasks[sourceCol]];
     const [removed] = sourceItems.splice(source.index, 1);
@@ -61,7 +78,7 @@ export default function Kanban() {
   ];
 
   return (
-    <div className="p-4 bg-white min-h-screen">
+    <div className="p-4 bg-white dark:bg-[#0D0D0D] min-h-screen">
       {/* Tabs */}
       <div className="flex items-center gap-2">
         {tabs.map((tab) => (
@@ -71,7 +88,7 @@ export default function Kanban() {
             className={`flex items-center gap-2 px-4 py-2 text-[14px] rounded-t-[16px] ${
               activeTab === tab
                 ? "bg-[#5D5FEF] text-white"
-                : "bg-[#F2F2FE] text-[#131330] font-medium"
+                : "bg-[#F2F2FE] dark:bg-[#1a1a1a] text-[#131330] dark:text-white font-medium"
             }`}
           >
             <img src={user} alt="Logo" className="w-6 h-6 rounded-full" />
@@ -94,19 +111,19 @@ export default function Kanban() {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className="bg-white p-4 rounded-lg"
+                  className="bg-white dark:bg-[#0D0D0D] p-4 rounded-lg"
                 >
-                  <h2 className="font-semibold mb-3 flex items-center gap-2">
+                  <h2 className="font-semibold mb-3 flex items-center gap-2 text-[#131330] dark:text-white">
                     <img src={star} alt="star" />
                     {col.title}
-                    <span className="text-[#737791] text-[20px] font-medium">
-                      {tasks[col.id].length}
+                    <span className="text-[#737791] dark:text-[#a0a0a0] text-[20px] font-medium">
+                      {tasks[col.id as keyof TasksState].length}
                     </span>
                   </h2>
 
                   {/* Scrollable Tasks */}
                   <div className="max-h-[300px] overflow-y-auto pr-1">
-                    {tasks[col.id].map((task, index) => (
+                    {tasks[col.id as keyof TasksState].map((task: Task, index: number) => (
                       <Draggable
                         key={task.id}
                         draggableId={task.id}
@@ -117,9 +134,9 @@ export default function Kanban() {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="bg-[#f2f4fa] p-3 mb-3 rounded-lg"
+                            className="bg-[#f2f4fa] dark:bg-[#2a2a2a] p-3 mb-3 rounded-lg"
                           >
-                            <p className="text-[#131330] text-[12px] font-medium mb-2">
+                            <p className="text-[#131330] dark:text-white text-[12px] font-medium mb-2">
                               {task.text}
                             </p>
 
@@ -131,9 +148,9 @@ export default function Kanban() {
                               <div className="flex items-center gap-2">
                                 <MessageCircle
                                   size={12}
-                                  className="text-[#969895]"
+                                  className="text-[#969895] dark:text-[#a0a0a0]"
                                 />
-                                <span className="text-[#969895] text-[12px]">
+                                <span className="text-[#969895] dark:text-[#a0a0a0] text-[12px]">
                                   2
                                 </span>
                                 <img
