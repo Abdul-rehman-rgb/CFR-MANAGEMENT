@@ -12,7 +12,7 @@ const Board = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] p-6 mt-5 rounded-lg">
+      <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] p-4 sm:p-6 mt-5 rounded-lg">
         <div className="mb-3 flex flex-col gap-2 max-sm:flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <HeadingTwo text="My Tasks" className="text-[#333333]" />

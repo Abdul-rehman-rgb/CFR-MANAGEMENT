@@ -78,9 +78,9 @@ export default function Kanban() {
   ];
 
   return (
-    <div className="p-4 bg-white dark:bg-[#0D0D0D] min-h-screen">
+    <div className="p-2 sm:p-4 bg-white dark:bg-[#0D0D0D] min-h-screen">
       {/* Tabs */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -104,14 +104,14 @@ export default function Kanban() {
       </div>
 
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-3 gap-4 border-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border-1">
           {columns.map((col) => (
             <Droppable key={col.id} droppableId={col.id}>
               {(provided) => (
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className="bg-white dark:bg-[#0D0D0D] p-4 rounded-lg"
+                  className="bg-white dark:bg-[#0D0D0D] p-2 sm:p-4 rounded-lg"
                 >
                   <h2 className="font-semibold mb-3 flex items-center gap-2 text-[#131330] dark:text-white">
                     <img src={star} alt="star" />
@@ -134,7 +134,7 @@ export default function Kanban() {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="bg-[#f2f4fa] dark:bg-[#2a2a2a] p-3 mb-3 rounded-lg"
+                            className="bg-[#f2f4fa] dark:bg-[#2a2a2a] p-2 sm:p-3 mb-3 rounded-lg"
                           >
                             <p className="text-[#131330] dark:text-white text-[12px] font-medium mb-2">
                               {task.text}
