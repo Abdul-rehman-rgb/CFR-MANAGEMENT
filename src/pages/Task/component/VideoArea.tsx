@@ -14,15 +14,18 @@ const bgColors: { [key: string]: string } = {
   PDF: "bg-[#F1F5F9]",
 };
 
-
 const VideoArea = ({ data }: { data: TrainingData }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className={`${bgColors[data.status] || 'bg-[#F1F5F9]'} rounded-2xl p-4 w-full transition relative overflow-hidden ${data.status === "Completed" ? 'opacity-75' : ''}`}>
-      {/* Thumbnail Section */}
+    <div
+      className={`${
+        bgColors[data.status] || "bg-[#F1F5F9]"
+      } rounded-2xl p-4 w-full transition relative overflow-hidden ${
+        data.status === "Completed" ? "opacity-75" : ""
+      }`}
+    >
       <div className="relative rounded-xl overflow-hidden">
-        {/* Thumbnail or Video */}
         {isPlaying && data.type === "video" ? (
           <iframe
             src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -41,10 +44,13 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
               className="w-full h-full object-cover"
             />
 
-            {/* Overlay for videos */}
             {data.type === "video" && (
               <div className="absolute inset-0 flex items-center justify-center bg-[#5A5FEF]/20">
-                <div className={`absolute top-3 left-3 ${statusColors[data.status] || 'bg-[#5A5FEF]'} text-white text-[11px] font-semibold px-3 py-1 rounded-[6px]`}>
+                <div
+                  className={`absolute top-3 left-3 ${
+                    statusColors[data.status] || "bg-[#5A5FEF]"
+                  } text-white text-[11px] font-semibold px-3 py-1 rounded-[6px]`}
+                >
                   {data.status}
                 </div>
                 <div className="bg-white/80 p-3 rounded-full backdrop-blur-sm">
@@ -53,7 +59,6 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
               </div>
             )}
 
-            {/* For PDFs */}
             {data.type === "pdf" && (
               <div className="absolute inset-0 flex items-center justify-center bg-white">
                 <img
@@ -67,12 +72,9 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
         )}
       </div>
 
-      {/* Content Section */}
       <div className="mt-4 flex flex-col space-y-2">
         <div className="flex justify-between items-center">
-          <h3 className="text-sm font-semibold text-gray-800">
-            {data.title}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-800">{data.title}</h3>
           <span className="text-xs text-[#5A5FEF] font-semibold bg-[#E8E9FF] px-2 py-1 rounded-lg">
             {data.duration}
           </span>

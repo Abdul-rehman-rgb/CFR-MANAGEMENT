@@ -50,7 +50,6 @@ export default function Kanban() {
 
     console.log(`Dragging from ${sourceCol} to ${destCol}`);
 
-    // Prevent dragging completed tasks to any other column
     if (sourceCol === "completed") return;
 
     const sourceItems = [...tasks[sourceCol]];
@@ -78,8 +77,7 @@ export default function Kanban() {
   ];
 
   return (
-    <div className="p-2 sm:p-4 bg-white dark:bg-[#0D0D0D] min-h-screen">
-      {/* Tabs */}
+    <div className="p-2 sm:p-4 bg-white dark:bg-[#0D0D0D]">
       <div className="flex items-center gap-2 overflow-x-auto">
         {tabs.map((tab) => (
           <button

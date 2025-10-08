@@ -17,7 +17,7 @@ const Board = () => {
     assignee: [],
   });
   const [isBreakTimerActive, setIsBreakTimerActive] = useState(false);
-  const [breakTimeRemaining, setBreakTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
+  const [breakTimeRemaining, setBreakTimeRemaining] = useState(30 * 60);
 
   useEffect(() => {
     let interval = null;
@@ -58,12 +58,9 @@ const Board = () => {
     <>
       <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] p-4 sm:p-6 mt-5 rounded-lg">
         
-        {/* Header Section */}
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          {/* Heading */}
           <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
-          {/* Right Controls */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="w-full sm:w-auto">
               <SearchInput />
@@ -84,7 +81,6 @@ const Board = () => {
                 onClick={() => setIsDrawerOpen(true)}
               />
 
-              {/* Break Buttons Group */}
               <div className="flex flex-col sm:flex-row">
                 <button
                   onClick={handleStartBreak}
@@ -108,12 +104,10 @@ const Board = () => {
           </div>
         </div>
 
-        {/* Kanban Section */}
         <div className="mt-4">
           <Kanban />
         </div>
 
-        {/* Modals */}
         {isDrawerOpen && <TaskDrawer onClose={() => setIsDrawerOpen(false)} />}
         <FilterModal
           isOpen={isFilterModalOpen}
