@@ -70,6 +70,14 @@ export default function Kanban() {
     setActiveTab(newTab);
   };
 
+  const closeTab = (tabToClose: string) => {
+    const newTabs = tabs.filter(tab => tab !== tabToClose);
+    setTabs(newTabs);
+    if (activeTab === tabToClose) {
+      setActiveTab(newTabs[0] || "");
+    }
+  };
+
   const columns = [
     { id: "todo", title: "To Do" },
     { id: "inprogress", title: "In Progress" },
@@ -80,18 +88,28 @@ export default function Kanban() {
     <div className="p-2 sm:p-4 bg-white dark:bg-[#0D0D0D]">
       <div className="flex items-center gap-2 overflow-x-auto">
         {tabs.map((tab) => (
-          <button
+          <div
             key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`flex items-center gap-2 px-4 py-2 text-[14px] rounded-t-[16px] ${
+            className={`flex items-center gap-2 px-4 py-2 text-[14px] rounded-t-[16px] relative ${
               activeTab === tab
                 ? "bg-[#5D5FEF] text-white"
                 : "bg-[#F2F2FE] dark:bg-[#1a1a1a] text-[#131330] dark:text-white font-medium"
             }`}
           >
-            <img src={user} alt="Logo" className="w-6 h-6 rounded-full" />
-            <span>{tab}</span>
-          </button>
+            <button
+              onClick={() => setActiveTab(tab)}
+              className="flex items-center gap-2 flex-1"
+            >
+              <img src={user} alt="Logo" className="w-6 h-6 rounded-full" />
+              <span>{tab}</span>
+            </button>
+            <button
+              onClick={() => closeTab(tab)}
+              className="text-white hover:text-black ml-2"
+            >
+              ×
+            </button>
+          </div>
         ))}
         <button
           onClick={addTab}

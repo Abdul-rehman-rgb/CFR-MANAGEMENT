@@ -9,7 +9,7 @@ const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handl
       <button
         onClick={() => !isBreakTimerActive && setIsDropdownOpen(!isDropdownOpen)}
         disabled={isBreakTimerActive}
-        className={`w-full text-[14px] font-medium py-2.5 px-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 ${
+        className={`w-full text-[14px] font-medium px-4 h-9 rounded-xl transition-all duration-300 hover:-translate-y-0.5 ${
           isBreakTimerActive
             ? "bg-gray-400 cursor-not-allowed text-white"
             : "bg-[#27C840] hover:bg-white hover:text-[#27C840] text-white"

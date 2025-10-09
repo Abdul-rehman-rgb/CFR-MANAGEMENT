@@ -22,7 +22,7 @@ const Board = () => {
   const [breakTimeRemaining, setBreakTimeRemaining] = useState(30 * 60);
   const [isExtraBreakModalOpen, setIsExtraBreakModalOpen] = useState(false);
   const [extraBreakTime, setExtraBreakTime] = useState(5 * 60);
-  const [extraBreakReason, setExtraBreakReason] = useState('');
+  const [extraBreakReason, setExtraBreakReason] = useState("");
 
   useEffect(() => {
     let interval = null;
@@ -58,18 +58,13 @@ const Board = () => {
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
-
   return (
     <>
       <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] p-4 sm:p-6 mt-5 rounded-lg">
-        
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            {/* <div className="w-full sm:w-auto">
-            </div> */}
-
             <div className="flex flex-row justify-center sm:justify-end gap-2">
               <SearchInput />
 
@@ -84,7 +79,6 @@ const Board = () => {
                 icon={FiPlus}
                 bgColor="bg-[#5D5FEF]"
                 textColor="text-white"
-                className="py-5"
                 onClick={() => setIsDrawerOpen(true)}
               />
 
@@ -98,7 +92,6 @@ const Board = () => {
             </div>
           </div>
         </div>
-
         <div className="mt-4">
           <Kanban />
         </div>
@@ -109,7 +102,6 @@ const Board = () => {
           onClose={() => setIsFilterModalOpen(false)}
           onApplyFilters={handleApplyFilters}
         />
-
         <ExtraBreakModal
           isOpen={isExtraBreakModalOpen}
           onClose={() => setIsExtraBreakModalOpen(false)}
