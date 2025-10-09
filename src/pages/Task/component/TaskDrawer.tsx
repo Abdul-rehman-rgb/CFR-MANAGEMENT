@@ -37,7 +37,6 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
 
   return (
     <div className="fixed right-0 top-0 w-full md:w-[400px] h-screen bg-white dark:bg-[#0D0D0D] shadow-lg flex flex-col p-4 border-l border-gray-200 dark:border-gray-700 z-[100000]">
-      {/* Header */}
       <div className="flex items-center justify-between mb-4 border-b border-[#CCCCCC] dark:border-gray-600">
         <button className="flex items-center gap-2 px-3 py-1 border rounded-lg text-[14px] font-medium text-[#333333] dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
           ✓ Mark Complete
@@ -45,7 +44,6 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
         <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
           <Link size={18} className="cursor-pointer" />
           <Paperclip size={18} className="cursor-pointer" />
-          {/* <img src={Icon1} alt="user" className="w-4 h-4 rounded-full" /> */}
           <GitBranch size={18} className="cursor-pointer" />
           <X size={18} className="cursor-pointer" onClick={onClose} />
         </div>
@@ -133,7 +131,6 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
         ))}
       </div>
 
-      {/* Add Comment */}
       <div className="mt-4 flex items-center gap-2">
         <img src={user} alt="user" className="w-8 h-8 rounded-full" />
         <input

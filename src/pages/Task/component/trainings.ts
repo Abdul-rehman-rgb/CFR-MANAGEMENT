@@ -11,7 +11,6 @@ export interface TrainingData {
 import pdfIcon from '../../../../public/images/task/pdf.png'
 
 export const trainings: TrainingData[] = [
-  // Basic - 5 Completed, 3 In Progress
   {
     id: 1,
     title: "Training Name",

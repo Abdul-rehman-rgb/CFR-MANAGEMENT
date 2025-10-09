@@ -67,8 +67,6 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
     <Modal isOpen={isOpen} onClose={onClose} className="max-w-md p-6">
       <div className="space-y-6">
         <HeadingTwo text="Filters" className="text-center" />
-
-        {/* Status Filter */}
         <div>
           <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Status</h3>
           <div className="space-y-2">
@@ -86,7 +84,6 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
           </div>
         </div>
 
-        {/* Priority Filter */}
         <div>
           <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Priority</h3>
           <div className="space-y-2">
@@ -104,7 +101,6 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
           </div>
         </div>
 
-        {/* Assignee Filter */}
         <div>
           <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Assignee</h3>
           <div className="space-y-2">
@@ -122,7 +118,6 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
           </div>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex justify-between gap-3 pt-4">
           <Button
             variant="outline"

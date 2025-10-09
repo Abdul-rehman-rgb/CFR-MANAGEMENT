@@ -4,14 +4,12 @@ import { Play, FileText, FileSpreadsheet, File } from "lucide-react";
 const VideoCard = () => {
   return (
     <div className="bg-[#F1F5F9] rounded-2xl p-4 w-[250px] shadow-sm">
-      {/* Thumbnail Section */}
       <div className="relative rounded-xl overflow-hidden">
         <img
           src="https://via.placeholder.com/400x250?text=Training+Preview"
           alt="Training Preview"
           className="w-full h-[150px] object-cover"
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-[#5A5FEF]/20 flex items-center justify-center">
           <div className="bg-[#5A5FEF] text-white text-xs px-3 py-1 rounded-full absolute top-3 left-3">
             In Progress
@@ -22,7 +20,6 @@ const VideoCard = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="mt-4 flex flex-col space-y-2">
         <div className="flex justify-between items-center">
           <h3 className="text-sm font-semibold text-gray-800">

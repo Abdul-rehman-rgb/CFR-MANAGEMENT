@@ -6,9 +6,11 @@ import VideoArea from "../component/VideoArea";
 import { trainings } from "../component/trainings";
 import ColorFull from "../../../components/ui/button/ColorFull";
 import { FiPlus } from "react-icons/fi";
+import AddTrainingModal from "../component/AddTrainingModal";
 
 const Training = () => {
   const [activeTab, setActiveTab] = useState("basic");
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const tabs = [
     { id: "basic", label: "Basic" },
@@ -31,6 +33,7 @@ const Training = () => {
             icon={FiPlus}
             bgColor="bg-[#5D5FEF]"
             textColor="text-white"
+            onClick={() => setIsAddModalOpen(true)}
           />
         </div>
       </div>
@@ -56,6 +59,11 @@ const Training = () => {
           </div>
         )}
       </div>
+
+      <AddTrainingModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+      />
     </div>
   );
 };
