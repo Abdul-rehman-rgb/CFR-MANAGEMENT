@@ -62,7 +62,7 @@ export default function ColorfullNotes() {
       </div>
 
 
-      <div className="relative top-[-40px] left-[-230px] w-full sm:min-h-[0px] z-1">
+      <div className="relative top-[-40px] left-[-230px] w-full sm:min-h-[0px] z-10">
         {notes.map((note, index) => (
           <div
             key={note.id}

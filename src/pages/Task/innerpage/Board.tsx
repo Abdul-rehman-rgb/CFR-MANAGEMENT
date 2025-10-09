@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import SearchInput from "../../../components/form/SearchInput";
-import Export from "../../../components/ui/button/Export";
+import SearchInput from "../component/SearchInput";
+import Export from "../component/Export";
 import { FiPlus, FiFilter } from "react-icons/fi";
-import ColorFull from "../../../components/ui/button/ColorFull";
-import HeadingTwo from "../../../components/ui/heading/HeadingTwo";
+import ColorFull from "../component/ColorFull";
+import HeadingTwo from "../component/HeadingTwo";
 import Kanban from "../component/Kanban";
 import TaskDrawer from "../component/TaskDrawer";
 import FilterModal from "../component/FilterModal";
+import BreakButton from "../component/BreakButton";
+import ExtraBreakModal from "../component/ExtraBreakModal";
 
 const Board = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -18,6 +20,9 @@ const Board = () => {
   });
   const [isBreakTimerActive, setIsBreakTimerActive] = useState(false);
   const [breakTimeRemaining, setBreakTimeRemaining] = useState(30 * 60);
+  const [isExtraBreakModalOpen, setIsExtraBreakModalOpen] = useState(false);
+  const [extraBreakTime, setExtraBreakTime] = useState(5 * 60);
+  const [extraBreakReason, setExtraBreakReason] = useState('');
 
   useEffect(() => {
     let interval = null;
@@ -38,9 +43,9 @@ const Board = () => {
     return () => interval && clearInterval(interval);
   }, [isBreakTimerActive, breakTimeRemaining]);
 
-  const handleStartBreak = () => {
+  const handleStartBreak = (time) => {
     setIsBreakTimerActive(true);
-    setBreakTimeRemaining(30 * 60);
+    setBreakTimeRemaining(time);
   };
 
   const handleApplyFilters = (filters) => {
@@ -62,11 +67,12 @@ const Board = () => {
           <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <div className="w-full sm:w-auto">
-              <SearchInput />
-            </div>
+            {/* <div className="w-full sm:w-auto">
+            </div> */}
 
-            <div className="flex flex-wrap justify-center sm:justify-end gap-2">
+            <div className="flex flex-row justify-center sm:justify-end gap-2">
+              <SearchInput />
+
               <Export
                 BtnName="Filters"
                 icon={FiFilter}
@@ -78,28 +84,17 @@ const Board = () => {
                 icon={FiPlus}
                 bgColor="bg-[#5D5FEF]"
                 textColor="text-white"
+                className="py-5"
                 onClick={() => setIsDrawerOpen(true)}
               />
 
-              <div className="flex flex-col sm:flex-row">
-                <button
-                  onClick={handleStartBreak}
-                  disabled={isBreakTimerActive}
-                  className={`text-[14px] font-medium py-2.5 px-4 rounded-tl-xl rounded-bl-xl transition-all duration-300 hover:-translate-y-0.5 ${
-                    isBreakTimerActive
-                      ? "bg-gray-400 cursor-not-allowed text-white"
-                      : "bg-[#27C840] hover:bg-white hover:text-[#27C840] text-white"
-                  }`}
-                >
-                  {isBreakTimerActive
-                    ? `Break: ${formatTime(breakTimeRemaining)}`
-                    : "Take Break for 30 mins"}
-                </button>
-
-                <button className="bg-[#27C84033] hover:bg-[#27C840] text-[#27C840] hover:text-white font-medium py-2.5 px-4 rounded-tr-xl rounded-br-xl transition-all duration-300 hover:-translate-y-0.5">
-                  Take a Short Break
-                </button>
-              </div>
+              <BreakButton
+                isBreakTimerActive={isBreakTimerActive}
+                breakTimeRemaining={breakTimeRemaining}
+                formatTime={formatTime}
+                handleStartBreak={handleStartBreak}
+                onExtraBreak={() => setIsExtraBreakModalOpen(true)}
+              />
             </div>
           </div>
         </div>
@@ -113,6 +108,16 @@ const Board = () => {
           isOpen={isFilterModalOpen}
           onClose={() => setIsFilterModalOpen(false)}
           onApplyFilters={handleApplyFilters}
+        />
+
+        <ExtraBreakModal
+          isOpen={isExtraBreakModalOpen}
+          onClose={() => setIsExtraBreakModalOpen(false)}
+          extraBreakTime={extraBreakTime}
+          setExtraBreakTime={setExtraBreakTime}
+          extraBreakReason={extraBreakReason}
+          setExtraBreakReason={setExtraBreakReason}
+          onStartBreak={handleStartBreak}
         />
       </div>
     </>

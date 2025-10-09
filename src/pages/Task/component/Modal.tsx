@@ -5,8 +5,8 @@ interface ModalProps {
   onClose: () => void;
   className?: string;
   children: React.ReactNode;
-  showCloseButton?: boolean;
-  isFullscreen?: boolean; 
+  showCloseButton?: boolean; // New prop to control close button visibility
+  isFullscreen?: boolean; // Default to false for backwards compatibility
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -14,7 +14,7 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   children,
   className,
-  showCloseButton = true,
+  showCloseButton = true, // Default to true for backwards compatibility
   isFullscreen = false,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
