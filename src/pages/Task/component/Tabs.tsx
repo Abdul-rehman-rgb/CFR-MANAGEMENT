@@ -63,15 +63,25 @@ const Tabs = () => {
 
           <div className="flex flex-row sm:justify-end sm:flex-row items-center gap-3 w-full sm:w-auto">
             <Export BtnName="Add Notes" icon={FiPlusCircle} />
-            <div className="flex flex-wrap justify-center">
-              {colors.map((color, index) => (
-                <div
-                  key={index}
-                  className={`${color.class} w-8 h-8 sm:w-10 sm:h-10 rounded-md cursor-pointer transition-all duration-300 hover:scale-110`}
-                  onClick={() => addNote(color.class)}
-                ></div>
-              ))}
+            <div className="flex justify-start items-center w-[120px] relative">
+              {colors.map((color, index) => {
+                const size = 24 + index * 6;
+                return (
+                  <div
+                    key={index}
+                    className={`${color.class} rounded-md absolute cursor-pointer transition-all duration-300 hover:scale-110`}
+                    style={{
+                      width: `${size}px`,
+                      height: `${size}px`,
+                      left: `${index * 20}px`,
+                      zIndex: index,
+                    }}
+                    onClick={() => addNote(color.class)}
+                  ></div>
+                );
+              })}
             </div>
+
             <div className="flex justify-center sm:justify-end w-full sm:w-auto">
               <img
                 src={pdfIcon}

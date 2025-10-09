@@ -20,7 +20,7 @@ const SearchInput = () => {
       <input
         type="text"
         placeholder="Search orders, tasks, inventory, and more..."
-        className="font-regular dark:bg-[#161616] dark:text-[#A9A9CD] py-2 bg-[#F9FAFB] h-auto w-full max-w-[383px] rounded-[15px] border-none pr-3 pl-10 focus:outline-none"
+        className="font-regular dark:bg-[#161616] dark:text-[#A9A9CD] py-2 bg-[#F9FAFB] h-auto w-full max-w-[383px] sm:max-w-[300px] md:max-w-[383px] rounded-[15px] border-none pr-3 pl-10 focus:outline-none"
       />
     </div>
   );

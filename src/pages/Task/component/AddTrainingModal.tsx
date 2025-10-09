@@ -46,7 +46,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Title
+              Training Name
             </label>
             <input
               type="text"
@@ -55,13 +55,13 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
               onChange={handleInputChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-              placeholder="Enter training title"
+              placeholder="Enter training name"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Level
+              Training Type
             </label>
             <select
               name="label"
@@ -77,7 +77,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
 
           <div>
             <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Duration (HH:MM:SS)
+              Training Time
             </label>
             <input
               type="text"
@@ -93,7 +93,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
 
           <div>
             <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Type
+              Training Asset Type
             </label>
             <select
               name="type"
@@ -106,31 +106,20 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
             </select>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Thumbnail
-            </label>
-            <input
-              type="file"
-              name="thumbnail"
-              onChange={handleFileChange}
-              accept="image/*"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-              Avatar (Optional)
-            </label>
-            <input
-              type="file"
-              name="avatar"
-              onChange={handleFileChange}
-              accept="image/*"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
-            />
-          </div>
+          {formData.type === 'video' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                Upload Video
+              </label>
+              <input
+                type="file"
+                name="thumbnail"
+                onChange={handleFileChange}
+                accept="video/*"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+          )}
 
           <div className="flex justify-end gap-3 pt-4">
             <Button
