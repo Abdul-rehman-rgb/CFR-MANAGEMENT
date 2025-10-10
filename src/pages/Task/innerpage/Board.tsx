@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SearchInput from "../component/SearchInput";
 import Export from "../component/Export";
-import { FiPlus, FiFilter } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
 import ColorFull from "../component/ColorFull";
 import HeadingTwo from "../component/HeadingTwo";
 import Kanban from "../component/Kanban";
@@ -9,6 +9,8 @@ import TaskDrawer from "../component/TaskDrawer";
 import FilterModal from "../component/FilterModal";
 import BreakButton from "../component/BreakButton";
 import ExtraBreakModal from "../component/ExtraBreakModal";
+import { IoFilterOutline } from "react-icons/io5";
+
 
 const Board = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -70,13 +72,13 @@ const Board = () => {
 
               <Export
                 BtnName="Filters"
-                icon={FiFilter}
+                icon={IoFilterOutline}
                 onClick={() => setIsFilterModalOpen(true)}
               />
 
               <ColorFull
                 text="Add Task"
-                icon={FiPlus}
+                icon={FiPlusCircle}
                 bgColor="bg-[#5D5FEF]"
                 textColor="text-white"
                 onClick={() => setIsDrawerOpen(true)}

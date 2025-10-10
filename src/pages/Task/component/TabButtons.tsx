@@ -23,7 +23,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({
         <button
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
-          className={`px-3 sm:px-5 py-1 sm:py-2 font-medium text-[12px] sm:text-[15px] whitespace-nowrap transition-all duration-300 rounded-full ${
+          className={`px-4 sm:px-10 py-1 sm:py-2 font-medium text-[12px] sm:text-[15px] whitespace-nowrap transition-all duration-300 rounded-full ${
             activeTab === tab.id
               ? "bg-[#5D5FEF] text-white shadow-md"
               : "text-[#2B2B2B] dark:text-white hover:text-[#5D5FEF]"

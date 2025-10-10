@@ -8,10 +8,10 @@ import pdfIcon from "../../../../public/images/task/pdf.png";
 import ColorfullNotes from "./ColorfullNotes";
 
 const colors = [
-  { name: "yellow", class: "bg-yellow-200 dark:bg-yellow-800" },
-  { name: "pink", class: "bg-pink-200 dark:bg-pink-800" },
-  { name: "green", class: "bg-green-200 dark:bg-green-800" },
-  { name: "blue", class: "bg-blue-400 dark:bg-blue-800" },
+  { name: "yellow", class: "bg-yellow-200 dark:bg-yellow-800", hoverClass: "hover:bg-yellow-400 dark:hover:bg-yellow-600" },
+  { name: "pink", class: "bg-pink-200 dark:bg-pink-800", hoverClass: "hover:bg-pink-400 dark:hover:bg-pink-600" },
+  { name: "green", class: "bg-green-200 dark:bg-green-800", hoverClass: "hover:bg-green-400 dark:hover:bg-green-600" },
+  { name: "blue", class: "bg-blue-400 dark:bg-blue-800", hoverClass: "hover:bg-blue-600 dark:hover:bg-blue-900" },
 ];
 
 const Tabs = () => {
@@ -60,7 +60,6 @@ const Tabs = () => {
           <div className="flex justify-center sm:justify-start w-full sm:w-auto">
             <TabButtons activeTab={activeTab} onTabChange={setActiveTab} />
           </div>
-
           <div className="flex flex-row sm:justify-end sm:flex-row items-center gap-3 w-full sm:w-auto">
             <Export BtnName="Add Notes" icon={FiPlusCircle} />
             <div className="flex justify-start items-center w-[120px] relative">
@@ -69,7 +68,7 @@ const Tabs = () => {
                 return (
                   <div
                     key={index}
-                    className={`${color.class} rounded-md absolute cursor-pointer transition-all duration-300 hover:scale-110`}
+                    className={`${color.class} ${color.hoverClass} rounded-md absolute cursor-pointer transition-all duration-300 hover:scale-110`}
                     style={{
                       width: `${size}px`,
                       height: `${size}px`,
