@@ -68,14 +68,16 @@ export default function Kanban({
     const sourceCol = source.droppableId as keyof TasksState;
     const destCol = destination.droppableId as keyof TasksState;
     if (sourceCol === "completed") return;
-    const sourceItems = [...tasks[sourceCol]];
-    const [removed] = sourceItems.splice(source.index, 1);
-    const destItems = [...tasks[destCol]];
-    destItems.splice(destination.index, 0, removed);
-    setTasks({
-      ...tasks,
-      [sourceCol]: sourceItems,
-      [destCol]: destItems,
+    if (source.droppableId === destination.droppableId && source.index === destination.index) return;
+    setTasks(prev => {
+      const newTasks = { ...prev };
+      const sourceItems = [...newTasks[sourceCol]];
+      const [removed] = sourceItems.splice(source.index, 1);
+      newTasks[sourceCol] = sourceItems;
+      const destItems = [...newTasks[destCol]];
+      destItems.splice(destination.index, 0, removed);
+      newTasks[destCol] = destItems;
+      return newTasks;
     });
   };
 
@@ -178,7 +180,7 @@ export default function Kanban({
       </div>
 
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-3 md:gap-1 border-1 border-[#5D5FEF]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-3 md:gap-1 border-1 border-[#5D5FEF] overflow-visible">
           {columns.map((col) => (
             <Droppable key={col.id} droppableId={col.id}>
               {(provided) => (
@@ -199,11 +201,15 @@ export default function Kanban({
                     {tasks[col.id as keyof TasksState].map(
                       (task: Task, index: number) => (
                         <Draggable key={task.id} draggableId={task.id} index={index}>
-                          {(provided) => (
+                          {(provided, snapshot) => (
                             <div
                               ref={provided.innerRef}
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
+                              style={{
+                                ...provided.draggableProps.style,
+                                zIndex: snapshot.isDragging ? 1000 : 'auto',
+                              }}
                               className="bg-gradient-to-r from-[#5D60EF]/10 to-[#BAFF86]/10 dark:bg-[#0D0D0D] p-3 sm:p-3 md:p-4 mb-3 sm:mb-3 md:mb-4 rounded-lg relative"
                             >
                               <div className="flex justify-between items-start mb-2 sm:mb-3">
