@@ -11,6 +11,37 @@ import BreakButton from "../component/BreakButton";
 import ExtraBreakModal from "../component/ExtraBreakModal";
 import { IoFilterOutline } from "react-icons/io5";
 
+type Task = {
+  id: string;
+  text: string;
+  priority: string;
+};
+
+type TasksState = {
+  todo: Task[];
+  inprogress: Task[];
+  completed: Task[];
+};
+
+const initialData: TasksState = {
+  todo: [
+    { id: "1", text: "Doing research on new logo design", priority: "High" },
+    {
+      id: "2",
+      text: "Working on new logo design first draft",
+      priority: "High",
+    },
+    { id: "3", text: "Shariq Sr. Designer", priority: "High" },
+  ],
+  inprogress: [
+    { id: "4", text: "Task Name", priority: "High" },
+    { id: "5", text: "Task Name", priority: "High" },
+  ],
+  completed: [
+    { id: "6", text: "Task Name", priority: "High" },
+    { id: "7", text: "Task Name", priority: "High" },
+  ],
+};
 
 const Board = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -25,6 +56,19 @@ const Board = () => {
   const [isExtraBreakModalOpen, setIsExtraBreakModalOpen] = useState(false);
   const [extraBreakTime, setExtraBreakTime] = useState(5 * 60);
   const [extraBreakReason, setExtraBreakReason] = useState("");
+  const [tasks, setTasks] = useState(initialData);
+
+  const addTask = (column: keyof TasksState) => {
+    const newTask: Task = {
+      id: Date.now().toString(),
+      text: "Break Task",
+      priority: "High",
+    };
+    setTasks(prev => ({
+      ...prev,
+      [column]: [...prev[column], newTask],
+    }));
+  };
 
   useEffect(() => {
     let interval = null;
@@ -48,6 +92,7 @@ const Board = () => {
   const handleStartBreak = (time) => {
     setIsBreakTimerActive(true);
     setBreakTimeRemaining(time);
+    addTask('inprogress');
   };
 
   const handleApplyFilters = (filters) => {
@@ -95,7 +140,7 @@ const Board = () => {
           </div>
         </div>
         <div className="mt-4">
-          <Kanban />
+          <Kanban tasks={tasks} setTasks={setTasks} />
         </div>
 
         {isDrawerOpen && <TaskDrawer onClose={() => setIsDrawerOpen(false)} />}
