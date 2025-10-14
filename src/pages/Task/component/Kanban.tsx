@@ -149,34 +149,35 @@ export default function Kanban({
           </button>
         </div>
 
-        {isDropdownOpen && (
-          <div
-            ref={dropdownRef}
-            className="absolute left-0 top-full mt-2 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-[9999] w-64 max-w-[90vw] sm:w-64"
-          >
-            <div className="p-2">
-              <input
-                type="text"
-                placeholder="Search users..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-[#0D0D0D] text-black dark:text-white"
-              />
-            </div>
-            <div className="max-h-48 overflow-y-auto">
-              {filteredUsers.map((user) => (
-                <div
-                  key={user.name}
-                  onClick={() => addTab(user.name)}
-                  className="flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2a2a2a] cursor-pointer"
-                >
-                  <img src={user.image} alt={user.name} className="w-8 h-8 rounded-full" />
-                  <span className="text-sm text-black dark:text-white">{user.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+       {isDropdownOpen && (
+  <div
+    ref={dropdownRef}
+    className="absolute left-1/2 -translate-x-1/2 sm:left-[350px] sm:translate-x-0 top-full mt-2 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-[9999] w-[90vw] max-sm:w-40 sm:w-65 max-w-[95vw]"
+  >
+    <div className="p-2">
+      <input
+        type="text"
+        placeholder="Search users..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-[#0D0D0D] text-black dark:text-white text-sm sm:text-base"
+      />
+    </div>
+    <div className="max-h-48 overflow-y-auto">
+      {filteredUsers.map((user) => (
+        <div
+          key={user.name}
+          onClick={() => addTab(user.name)}
+          className="flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2a2a2a] cursor-pointer"
+        >
+          <img src={user.image} alt={user.name} className="w-8 h-8 rounded-full" />
+          <span className="text-sm text-black dark:text-white">{user.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
       </div>
 
       <DragDropContext onDragEnd={onDragEnd}>

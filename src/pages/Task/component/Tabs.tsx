@@ -60,9 +60,9 @@ const Tabs = () => {
           <div className="flex justify-center sm:justify-start w-full sm:w-auto">
             <TabButtons activeTab={activeTab} onTabChange={setActiveTab} />
           </div>
-          <div className="flex flex-row sm:justify-end sm:flex-row items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-row sm:justify-end sm:flex-row items-center gap-3 w-full sm:w-auto ">
             <Export BtnName="Add Notes" icon={FiPlusCircle} />
-            <div className="flex justify-start items-center w-[120px] relative">
+            <div className="flex justify-start items-center w-[120px] relative max-sm:w-[700px]">
               {colors.map((color, index) => {
                 const size = 24 + index * 6;
                 return (

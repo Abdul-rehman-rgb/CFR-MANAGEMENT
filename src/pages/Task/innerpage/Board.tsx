@@ -112,7 +112,7 @@ const Board = () => {
           <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <div className="flex flex-row justify-center sm:justify-end gap-2">
+            <div className="flex flex-row justify-center sm:justify-end gap-2 max-sm:flex-col gap-5">
               <SearchInput />
 
               <Export

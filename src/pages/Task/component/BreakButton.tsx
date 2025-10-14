@@ -5,7 +5,7 @@ const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handl
   const breakOptions = [30, 25, 20, 15, 10, 5];
 
   return (
-    <div className="relative inline-block w-full max-w-[200px] sm:max-w-[180px]">
+    <div className="relative inline-block w-full max-w-[200px] sm:max-w-[180px] max-sm:w-full">
       <button
         onClick={() => !isBreakTimerActive && setIsDropdownOpen(!isDropdownOpen)}
         disabled={isBreakTimerActive}
