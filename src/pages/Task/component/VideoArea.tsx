@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Play, FileText, FileSpreadsheet, File } from "lucide-react";
 import { TrainingData } from "./trainings";
+import videoFallback from "../../../../public/images/task/video.jpg";
 
 const statusColors: { [key: string]: string } = {
   Completed: "bg-[#27C840]",
@@ -32,6 +33,7 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
             className="w-full h-[150px] rounded-xl"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            onError={() => setIsPlaying(false)}
           />
         ) : (
           <div
@@ -42,6 +44,9 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
               src={data.thumbnail}
               alt="thumb"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = videoFallback;
+              }}
             />
 
             {data.type === "video" && (
@@ -65,6 +70,9 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
                   src={data.thumbnail}
                   alt="pdf icon"
                   className="w-12 h-12 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = videoFallback;
+                  }}
                 />
               </div>
             )}
@@ -74,8 +82,8 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
 
       <div className="mt-4 flex flex-col space-y-2">
         <div className="flex justify-between items-center">
-          <h3 className="text-sm font-semibold text-gray-800">{data.title}</h3>
-          <span className="text-xs text-[#5A5FEF] font-semibold bg-[#E8E9FF] px-2 py-1 rounded-lg">
+          <h3 className="text-[16px] font-semibold text-[#0D0D0D]">{data.title}</h3>
+          <span className="text-xs text-[#000] font-semibold bg-[#E8E9FF] px-2 py-1 rounded-lg">
             {data.duration}
           </span>
         </div>
@@ -84,17 +92,19 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
           <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-0.5 rounded-lg">
             {data.label}
           </span>
-          <div className="flex gap-2">
-            <div className="bg-red-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
-              <FileText className="w-4 h-4 text-red-500" />
+          {data.status !== "Completed" && (
+            <div className="flex gap-2">
+              <div className="bg-red-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
+                <FileText className="w-4 h-4 text-red-500" />
+              </div>
+              <div className="bg-green-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
+                <FileSpreadsheet className="w-4 h-4 text-green-500" />
+              </div>
+              <div className="bg-blue-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
+                <File className="w-4 h-4 text-blue-500" />
+              </div>
             </div>
-            <div className="bg-green-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
-              <FileSpreadsheet className="w-4 h-4 text-green-500" />
-            </div>
-            <div className="bg-blue-100 p-1.5 rounded-md cursor-pointer hover:scale-105 transition">
-              <File className="w-4 h-4 text-blue-500" />
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
