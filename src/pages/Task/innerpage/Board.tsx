@@ -112,32 +112,34 @@ const Board = () => {
           <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <div className="flex flex-row justify-center sm:justify-end gap-2 max-sm:flex-col gap-5">
-              <SearchInput />
+  <div className="grid grid-flow-col justify-center sm:justify-end gap-5 max-sm:grid-rows-2">
+    <SearchInput />
 
-              <Export
-                BtnName="Filters"
-                icon={IoFilterOutline}
-                onClick={() => setIsFilterModalOpen(true)}
-              />
+    <Export
+      BtnName="Filters"
+      icon={IoFilterOutline}
+      onClick={() => setIsFilterModalOpen(true)}
+    />
 
-              <ColorFull
-                text="Add Task"
-                icon={FiPlusCircle}
-                bgColor="bg-[#5D5FEF]"
-                textColor="text-white"
-                onClick={() => setIsDrawerOpen(true)}
-              />
+    <ColorFull
+      text="Add Task"
+      icon={FiPlusCircle}
+      className="text-center"
+      bgColor="bg-[#5D5FEF]"
+      textColor="text-white"
+      onClick={() => setIsDrawerOpen(true)}
+    />
 
-              <BreakButton
-                isBreakTimerActive={isBreakTimerActive}
-                breakTimeRemaining={breakTimeRemaining}
-                formatTime={formatTime}
-                handleStartBreak={handleStartBreak}
-                onExtraBreak={() => setIsExtraBreakModalOpen(true)}
-              />
-            </div>
-          </div>
+    <BreakButton
+      isBreakTimerActive={isBreakTimerActive}
+      breakTimeRemaining={breakTimeRemaining}
+      formatTime={formatTime}
+      handleStartBreak={handleStartBreak}
+      onExtraBreak={() => setIsExtraBreakModalOpen(true)}
+    />
+  </div>
+</div>
+
         </div>
         <div className="mt-4">
           <Kanban tasks={tasks} setTasks={setTasks} />

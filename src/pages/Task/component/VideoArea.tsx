@@ -82,7 +82,7 @@ const VideoArea = ({ data }: { data: TrainingData }) => {
 
       <div className="mt-4 flex flex-col space-y-2">
         <div className="flex justify-between items-center">
-          <h3 className="text-[16px] font-semibold text-[#0D0D0D]">{data.title}</h3>
+          <h3 className="text-[16px] font-semibold text-[#0D0D0D] dark:text-white">{data.title}</h3>
           <span className="text-xs text-[#000] font-semibold bg-[#E8E9FF] px-2 py-1 rounded-lg">
             {data.duration}
           </span>
