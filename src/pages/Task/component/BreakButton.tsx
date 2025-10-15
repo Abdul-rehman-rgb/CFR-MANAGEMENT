@@ -27,9 +27,9 @@ const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handl
                 handleStartBreak(min * 60);
                 setIsDropdownOpen(false);
               }}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"
+              className="px-2 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"
             >
-              {min} Minutes
+              {min} Min
             </li>
           ))}
           <li
@@ -37,7 +37,7 @@ const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handl
               onExtraBreak();
               setIsDropdownOpen(false);
             }}
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"
+            className="px-2 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"
           >
             Extra Break
           </li>
