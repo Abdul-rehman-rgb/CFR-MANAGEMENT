@@ -56,11 +56,9 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
 
-            {/* Inventory Routes */}
             <Route path="/inventoryManagement" element={<InventoryLayout />}>
               <Route index element={<StockOverview />} /> {/* Default route */}
               <Route path="stock-overview" element={<StockOverview />} />
@@ -72,7 +70,6 @@ export default function App() {
               <Route path="audit-log" element={<AuditLog />} />
             </Route>
 
-            {/* Product Management Routes */}
             <Route
               path="/productManagement"
               element={<ProductManagementLayout />}
@@ -83,30 +80,25 @@ export default function App() {
               <Route path="near-expiry" element={<Expiry />} />
             </Route>
 
-            {/* Logistic Routes */}
             <Route path="/logistics" element={<LogisticLayout />}>
               <Route index element={<LogisticMain />} />
               <Route path="logistic-detail" element={<LogisticDetail />} />
             </Route>
 
-            {/* Order Management Routes */}
             <Route path="/orderManagement" element={<OrderLayout />}>
               <Route index element={<OrderMain />} />
               <Route path="order-detail" element={<OrderDetails />} />
             </Route>
 
-            {/* Report Routes */}
             <Route path="/reporting" element={<ReportLayout />}>
               <Route index element={<ReportMain />} />
               <Route path="report-detail" element={<ReportDetail />} />
             </Route>
 
-            {/* Account Routes */}
             <Route path="/account" element={<AccountLayout />}>
               <Route index element={<AccountMain />} />
             </Route>
 
-            {/* Task Routes */}
             <Route path="/task" element={<TaskLayout />}>
               <Route index element={<MyTask />} />
             </Route>
@@ -117,18 +109,14 @@ export default function App() {
 
             <Route path="/Feedback" element={<Feedback />}></Route>
 
-            {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/blank" element={<Blank />} />
 
-            {/* Forms */}
             <Route path="/form-elements" element={<FormElements />} />
 
-            {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />
 
-            {/* Ui Elements */}
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/avatars" element={<Avatars />} />
             <Route path="/badge" element={<Badges />} />
@@ -136,19 +124,16 @@ export default function App() {
             <Route path="/images" element={<Images />} />
             <Route path="/videos" element={<Videos />} />
 
-            {/* Charts */}
             <Route path="/line-chart" element={<LineChart />} />
             <Route path="/bar-chart" element={<BarChart />} />
           </Route>
 
-          {/* Auth Layout */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/verifyAccount" element={<VerifyAccount />} />
           <Route path="/resetCode" element={<ResetCode />} />
           <Route path="/newPassword" element={<NewPassword />} />
 
-          {/* Chat Layout */}
           <Route
             path="/Chat"
             element={
@@ -162,7 +147,6 @@ export default function App() {
             }
           />
 
-          {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

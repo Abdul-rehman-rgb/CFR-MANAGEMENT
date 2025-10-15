@@ -58,16 +58,6 @@ export default function GenerateInvoiceSixthStep() {
               </svg>
           </div> */}
         </div>
-        {/* <form className="flex flex-col">
-          <div className="custom-scrollbar h-[50px] px-2 pb-3">
-            <div className="col-span-2">
-                  <p className="text-[#737791] font-normal text-[20px] leading-[24px] tracking-[0%] text-center px-4">
-                    Your DN #74365734 has been created successfully, you can check it in order management now!
-                  </p>
-                </div>
-            
-          </div>
-        </form> */}
       </div>
     </>
   );

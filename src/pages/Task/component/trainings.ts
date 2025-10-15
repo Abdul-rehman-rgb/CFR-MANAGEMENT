@@ -84,7 +84,6 @@ export const trainings: TrainingData[] = [
     type: "video",
     thumbnail: "/images/thumbnail2.jpg",
   },
-  // Intermediate - 4 Completed, 2 In Progress
   {
     id: 9,
     title: "Intermediate Training Video 1",
@@ -139,7 +138,6 @@ export const trainings: TrainingData[] = [
     type: "video",
     thumbnail: "/images/thumbnail2.jpg",
   },
-  // Advance - 3 Completed, 1 In Progress, 1 PDF
   {
     id: 15,
     title: "Advance Training Video 1",

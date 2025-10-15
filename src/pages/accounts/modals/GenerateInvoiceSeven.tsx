@@ -5,7 +5,6 @@ import Label from "../../../components/form/input/Label";
 import HeadingOne from "../../../components/ui/heading/HeadinhOne";
 import DatePicker from "../../../components/form/date-picker";
 
-// Dummy options for dropdown
 const PRODUCT_OPTIONS = [
   { value: "", label: "Select Product" },
   { value: "product1", label: "Product 1" },
@@ -13,7 +12,6 @@ const PRODUCT_OPTIONS = [
   { value: "product3", label: "Product 3" },
 ];
 
-// Define the type for a product entry
 type ProductEntry = {
   id: string;
   customerName: string;
@@ -87,7 +85,6 @@ export default function GenerateInvoiceSeven() {
                   id="date-picker"
                   placeholder="Select a date"
                   onChange={(dates, currentDateString) => {
-                    // Handle your logic
                     console.log({ dates, currentDateString });
                   }}
                 />

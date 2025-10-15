@@ -49,7 +49,6 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
         </div>
       </div>
 
-      {/* 👇 Add this line here */}
       <hr className="border-t border-[#CCCCCC] dark:border-gray-600 mb-4" />
 
       <h2 className="text-[20px] font-medium text-[#131330] dark:text-white mb-4">

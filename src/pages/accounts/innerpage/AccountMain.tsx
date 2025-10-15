@@ -40,7 +40,6 @@ const AccountMain = () => {
   return (
     <>
       <div className="space-y-6">
-        {/* Header Section */}
         <div className="col-span-1 md:col-span-4 space-y-6">
           <OrderManagementHeader
             headerTitle="Accounts"
@@ -52,7 +51,6 @@ const AccountMain = () => {
               setIsModalOpen(true);
             }}
           />
-          {/* Modal for New Order */}
           <Modal
             isOpen={isModalOpen}
             onClose={handleCloseModal}

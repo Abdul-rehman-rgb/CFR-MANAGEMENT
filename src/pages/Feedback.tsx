@@ -14,7 +14,6 @@ import Label from "../components/form/input/Label";
 import TextArea from "../components/form/input/TextArea";
 import Button from "../components/ui/button/Button";
 
-// Dummy feedback data for demonstration
 const feedbackData = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   date: "12/01/2025",
@@ -34,7 +33,6 @@ const FeedbackTablePage: React.FC = () => {
     feedbackData.map((f) => f.id)
   );
 
-  // Pagination (static for now)
   const [page, setPage] = useState(1);
 
   const toggleRow = (id: number) => {
@@ -74,7 +72,6 @@ const FeedbackTablePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal for New Order */}
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
@@ -114,7 +111,6 @@ const FeedbackTablePage: React.FC = () => {
         </div>
       </Modal>
 
-      {/* Table and Filters */}
       <div className="col-span-1 md:col-span-4 space-y-6 bg-white p-4 sm:p-6 dark:bg-[#0D0D0D] rounded-xl">
         <div className="mb-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>

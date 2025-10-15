@@ -46,8 +46,8 @@ const questionsAndAnswers = [
 ];
 
 const HelpCenter: React.FC = () => {
-  const [activeCategory] = useState(0); // Only "Login Issues" active in mock
-  const [expanded, setExpanded] = useState(0); // First question expanded by default
+  const [activeCategory] = useState(0);
+  const [expanded, setExpanded] = useState(0);
 
   return (
     <>
@@ -61,7 +61,6 @@ const HelpCenter: React.FC = () => {
           className="mb-5"
         />
         <div className="flex gap-6 w-full">
-          {/* Sidebar */}
           <aside className="w-64 bg-white dark:bg-[#0D0D0D] dark:text-white rounded-2xl p-6 flex flex-col gap-3">
             {categories.map((cat, idx) => (
               <button
@@ -92,7 +91,6 @@ const HelpCenter: React.FC = () => {
               </button>
             ))}
           </aside>
-          {/* Main content */}
           <main className="flex-1 bg-white dark:bg-[#0D0D0D] dark:text-white rounded-2xl p-6">
             {questionsAndAnswers.map((qa, idx) => (
               <div

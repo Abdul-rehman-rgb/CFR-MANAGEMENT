@@ -29,9 +29,7 @@ const SystemPreferences: React.FC = () => {
       <HeadingFour text="Setting" />
 
       <div className="dark:bg-[#0D0D0D] mt-4">
-        {/* Tabs and Buttons */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          {/* Tabs */}
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
             <UnderlineButton
               Children="System Preferences"
@@ -62,7 +60,6 @@ const SystemPreferences: React.FC = () => {
             />
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
             <Button size="md" variant="outline" className="w-full sm:w-[138px] h-[45px]">
               Cancel
@@ -73,10 +70,8 @@ const SystemPreferences: React.FC = () => {
           </div>
         </div>
 
-        {/* Preferences Tab */}
         {activeTab === "preferences" && (
           <div className="space-y-6">
-            {/* Notification Section */}
             <div className="bg-white rounded-2xl dark:bg-[#000] p-4">
               <HeadingTwo text="Notification" className="text-[20px] font-semibold" />
               <Paragragh para="Customize How You Stay Informed and Connected" className="text-[#23235F] mb-4" />
@@ -105,7 +100,6 @@ const SystemPreferences: React.FC = () => {
               )}
             </div>
 
-            {/* Theme Section */}
             <div className="bg-white rounded-2xl p-4 dark:bg-[#000]">
               <HeadingTwo text="Theme" className="text-[20px] font-semibold" />
               <Paragragh para="Customize how the system looks and feels." className="text-[#23235F] mb-4" />
@@ -123,7 +117,6 @@ const SystemPreferences: React.FC = () => {
               ))}
             </div>
 
-            {/* Language & Currency Section */}
             <div className="bg-white rounded-2xl p-4 dark:bg-[#000]">
               <HeadingTwo text="Language & Currency" className="text-[20px] font-semibold" />
               <Paragragh para="Set your preferred language & Currency." className="text-[#23235F] mb-4" />
@@ -159,7 +152,6 @@ const SystemPreferences: React.FC = () => {
           </div>
         )}
 
-        {/* Roles Tab */}
         {activeTab === "roles" && (
           <div className="space-y-6 bg-white p-4 sm:p-6 dark:bg-[#0D0D0D] rounded-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -180,7 +172,6 @@ const SystemPreferences: React.FC = () => {
           </div>
         )}
 
-        {/* Workflow Tab */}
         {activeTab === "workflow" && (
           <div className="bg-white dark:bg-[#000] p-6 rounded-xl">
             <HeadingTwo text="Workflow Configuration" className="text-[20px] font-semibold" />

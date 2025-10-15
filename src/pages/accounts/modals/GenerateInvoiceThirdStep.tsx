@@ -14,12 +14,10 @@ const PRODUCT_OPTIONS = [
 ];
 
 const GenerateInvoiceThirdStep = () => {
-  // Dummy function to avoid error from handleChange
   const handleChange = (idx: number, field: string, value: string) => {
     console.log(`Index: ${idx}, Field: ${field}, Value: ${value}`);
   };
 
-  const idx = 0; // Add this to simulate a single form section
 
   return (
     <Form onSubmit={onclick}>

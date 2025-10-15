@@ -32,7 +32,7 @@ const TabsMain = () => {
 
   useEffect(() => {
     setCurrentStep(0);
-    setStepSalesInvoice(0); // reset sales invoice when tab changes
+    setStepSalesInvoice(0);
   }, [activeTab]);
 
   const showSalesInvoice =
@@ -51,7 +51,6 @@ const TabsMain = () => {
         )}
 
         <div className="flex flex-col">
-          {/* Tabs */}
           {!showSalesInvoice && (
             <div className="flex gap-1 mb-1">
               {Object.entries(Tabs).map(([key, label]) => (
@@ -71,7 +70,6 @@ const TabsMain = () => {
             </div>
           )}
 
-          {/* Manual Tab Steps */}
           {activeTab === "manual" && (
             <>
               {stepManual === 0 && <GenerateManuallyFirstStep />}
@@ -82,7 +80,6 @@ const TabsMain = () => {
             </>
           )}
 
-          {/* Upload Tab Steps */}
           {activeTab === "upload" && !showSalesInvoice && (
             <>
               {stepUpload === 0 && <FileUploadDropZone />}
@@ -91,7 +88,6 @@ const TabsMain = () => {
           )}
         </div>
 
-        {/* Navigation Buttons */}
         {!showSalesInvoice && (
           <div className="flex items-center gap-3 px-2 mt-0 mb-4 lg:justify-end">
             {currentStep > 0 && (
@@ -122,7 +118,6 @@ const TabsMain = () => {
         )}
       </div>
 
-      {/* SalesInvoice Step for Manual or Upload */}
       {showSalesInvoice && (
         <div className="SalesInvoice">
           

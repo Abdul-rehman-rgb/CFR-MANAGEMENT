@@ -42,13 +42,11 @@ const GenerateInvoiceFifthStep = () => {
 
   return (
     <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-white dark:bg-[#0D0D0D] dark:text-[#A9A9CD] py-6 px-4">
-      {/* Company Logo */}
       <HeadingTwo text="Sales Invoice" />
       <div className="flex justify-center mb-4">
         <img className="w-60 h-20" src={Logo} alt="Company Logo" />
       </div>
 
-      {/* Invoice Header */}
       <div className="flex flex-row justify-between items-center mb-4">
         <HeadingOne text="Sales Invoice: $1,555" />
         <span>
@@ -56,7 +54,6 @@ const GenerateInvoiceFifthStep = () => {
         </span>
       </div>
 
-      {/* Company and Invoice Details */}
       <div className="flex flex-row justify-between mb-6">
         <div>
           <Paragragh para={companyInfo.name} />
@@ -81,7 +78,6 @@ const GenerateInvoiceFifthStep = () => {
         </div>
       </div>
 
-      {/* Invoice Table Header */}
       <table className="w-full table-auto border-collapse border border-gray-300 mb-4">
         <thead>
           <tr>
@@ -93,7 +89,6 @@ const GenerateInvoiceFifthStep = () => {
             <th className="border p-3">Net</th>
           </tr>
         </thead>
-        {/* Optional: Static Example Rows */}
         <tbody>
           <tr>
             <td className="border p-3">Milk 5 Ch 6x20</td>

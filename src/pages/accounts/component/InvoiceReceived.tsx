@@ -43,7 +43,6 @@ const InvoiceReceived = () => {
           </div>
         </div>
       </div>
-      {/* Table */}
       <div>
         <InvoiceReceivedTable />
       </div>

@@ -22,7 +22,7 @@ const GenerateInvoiceFourthStep = () => {
     <Form onSubmit={handleSubmit}>
       <div className="no-scrollbar relative w-full max-w-[725px] overflow-y-auto rounded-3xl bg-[#F2F2FE]/60 dark:bg-[#0D0D0D] px-4">
         <div className="flex flex-col p-4 space-y-6">
-          {/* Notes and Ledger */}
+
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <Label htmlFor="notes" children="Notes" />
@@ -34,7 +34,6 @@ const GenerateInvoiceFourthStep = () => {
             </div>
           </div>
 
-          {/* Qty/Hrs and Value */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-2 flex-1">
               <Label children="Qty/Hrs" />
@@ -45,7 +44,6 @@ const GenerateInvoiceFourthStep = () => {
             </div>
           </div>
 
-          {/* Financial Summary */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-3">
               <Label children="Discount" />
