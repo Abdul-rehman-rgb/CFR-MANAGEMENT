@@ -26,7 +26,6 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files && files[0]) {
-      // In a real app, you'd upload the file and get a URL
       const url = URL.createObjectURL(files[0]);
       setFormData(prev => ({ ...prev, [name]: url }));
     }
@@ -34,18 +33,17 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Just close the modal for UI demo
     onClose();
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className="max-w-lg p-6">
       <div className="space-y-6">
-        <HeadingTwo text="Add New Training" className="text-center" />
+        <HeadingTwo text="Add New Training" />
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-[#737791] dark:text-white mb-2">
               Training Name
             </label>
             <input
@@ -60,7 +58,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-[#737791] dark:text-white mb-2">
               Training Type
             </label>
             <select
@@ -76,7 +74,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-[#737791] dark:text-white mb-2">
               Training Time
             </label>
             <input
@@ -86,13 +84,13 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
               onChange={handleInputChange}
               required
               pattern="^\d{2}:\d{2}:\d{2}$"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+              className="w-full px-3 py-2 border bg-[#73779140]/25 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] dark:bg-gray-800 dark:border-gray-600 dark:text-white"
               placeholder="00:00:00"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-[#737791] dark:text-white mb-2">
               Training Asset Type
             </label>
             <select
@@ -108,7 +106,7 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
 
           {formData.type === 'video' && (
             <div>
-              <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+              <label className="block text-sm font-medium text-[#737791] dark:text-white mb-2">
                 Upload Video
               </label>
               <input
@@ -123,13 +121,14 @@ const AddTrainingModal: React.FC<AddTrainingModalProps> = ({ isOpen, onClose }) 
 
           <div className="flex justify-end gap-3 pt-4">
             <Button
+            className='w-[50%]'
               variant="outline"
               onClick={onClose}
             >
               Cancel
             </Button>
             <Button
-              className="bg-[#5D5FEF] hover:bg-[#4a4cd1] text-white"
+              className="bg-[#5D5FEF] hover:bg-[#4a4cd1] text-white w-[50%]"
             >
               Add Training
             </Button>

@@ -109,7 +109,7 @@ const Board = () => {
     <>
       <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] p-4 sm:p-6 mt-5 rounded-lg">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <HeadingTwo text="My Tdddddasks" className="text-[#333333]" />
+          <HeadingTwo text="My Tasks" className="text-[#333333]" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="flex flex-row justify-center sm:justify-end gap-2 max-sm:flex-col gap-5">
