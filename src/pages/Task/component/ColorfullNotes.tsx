@@ -1,5 +1,5 @@
 import { FiEdit2 } from "react-icons/fi";
-import { FaRegStar } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 interface Note {
   id: number;
@@ -17,15 +17,18 @@ interface ColorfullNotesProps {
 export default function ColorfullNotes({ notes, updateNoteText, removeNote }: ColorfullNotesProps) {
 
   return (
-    <div className="p-4">
+    <div className="">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {notes.map((note) => (
           <div
             key={note.id}
             className={`${note.color} w-full min-h-[180px] sm:min-h-[220px] p-2 sm:p-4 rounded-xl shadow-lg text-black dark:text-white transition-all duration-300 hover:scale-105 relative`}
           >
-            <button className="absolute top-1 right-1 bg-white dark:bg-gray-700 rounded-full p-2 hover:scale-110 transition z-1">
-              <FaRegStar className="text-black dark:text-white w-4 h-4" />
+            <button
+              onClick={() => removeNote(note.id)}
+              className="absolute top-1 right-1 bg-white dark:bg-gray-700 rounded-full p-2 hover:scale-110 transition z-1"
+            >
+              <IoClose className="text-black dark:text-white w-4 h-4" />
             </button>
 
             <textarea
