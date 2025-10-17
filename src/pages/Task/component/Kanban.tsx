@@ -13,6 +13,8 @@ type Task = {
   id: string;
   text: string;
   priority: string;
+  isTimerActive?: boolean;
+  remainingTime?: number;
 };
 
 type TasksState = {
@@ -41,12 +43,12 @@ const users: User[] = [
 
 export default function Kanban({
   tasks,
-  setTasks,
+  onDragEnd,
 }: {
   tasks: TasksState;
-  setTasks: React.Dispatch<React.SetStateAction<TasksState>>;
+  onDragEnd: (result: DropResult) => void;
 }) {
-  const [tabs, setTabs] = useState(["My Tasks", "John Doe"]);
+  const [tabs, setTabs] = useState(["My Tasks"]);
   const [activeTab, setActiveTab] = useState("My Tasks");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -62,24 +64,6 @@ export default function Kanban({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const onDragEnd = (result: DropResult) => {
-    const { source, destination } = result;
-    if (!destination) return;
-    const sourceCol = source.droppableId as keyof TasksState;
-    const destCol = destination.droppableId as keyof TasksState;
-    if (sourceCol === "completed") return;
-    if (source.droppableId === destination.droppableId && source.index === destination.index) return;
-    setTasks(prev => {
-      const newTasks = { ...prev };
-      const sourceItems = [...newTasks[sourceCol]];
-      const [removed] = sourceItems.splice(source.index, 1);
-      newTasks[sourceCol] = sourceItems;
-      const destItems = [...newTasks[destCol]];
-      destItems.splice(destination.index, 0, removed);
-      newTasks[destCol] = destItems;
-      return newTasks;
-    });
-  };
 
   const addTab = (userName?: string) => {
     const newTab = userName || `New Tab ${tabs.length + 1}`;
@@ -107,6 +91,12 @@ export default function Kanban({
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
   return (
     <div className="bg-white dark:bg-[#0D0D0D] w-full">
       <div className="relative z-[50]">
@@ -133,12 +123,18 @@ export default function Kanban({
                   {tab}
                 </span>
               </button>
-              <button
-                onClick={() => closeTab(tab)}
-                className="text-white hover:text-red-300 ml-1 sm:ml-2 text-sm sm:text-base"
-              >
-                ×
-              </button>
+              {tab !== "My Tasks" && (
+                <button
+                  onClick={() => closeTab(tab)}
+                  className={`ml-1 sm:ml-2 text-sm sm:text-base ${
+                    activeTab === tab
+                      ? "text-white hover:text-red-300"
+                      : "text-[#131330] dark:text-white hover:text-red-300"
+                  }`}
+                >
+                  ×
+                </button>
+              )}
             </div>
           ))}
           <button
@@ -219,7 +215,7 @@ export default function Kanban({
                                 </p>
                                 <div className="py-1 px-2 bg-[#5D5FEF26] rounded-md flex items-center justify-center">
                                   <span className="text-[#5D5FEF] font-medium text-xs sm:text-sm">
-                                    00:00
+                                    {task.remainingTime ? formatTime(task.remainingTime) : "00:00"}
                                   </span>
                                 </div>
                               </div>

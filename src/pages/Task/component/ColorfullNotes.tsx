@@ -1,4 +1,3 @@
-import { FiEdit2 } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
 interface Note {
@@ -39,12 +38,12 @@ export default function ColorfullNotes({ notes, updateNoteText, removeNote }: Co
             ></textarea>
             <div className="mt-2 sm:mt-4 flex justify-between items-center text-xs text-black dark:text-white">
               <span className="font-medium">{note.date}</span>
-              <button
+              {/* <button
                 onClick={() => removeNote(note.id)}
                 className="bg-white dark:bg-gray-700 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition"
               >
                 <FiEdit2 className="text-black dark:text-white w-4 h-4" />
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

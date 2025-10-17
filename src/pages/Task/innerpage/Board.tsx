@@ -10,11 +10,14 @@ import FilterModal from "../component/FilterModal";
 import BreakButton from "../component/BreakButton";
 import ExtraBreakModal from "../component/ExtraBreakModal";
 import { IoFilterOutline } from "react-icons/io5";
+import { DropResult } from "@hello-pangea/dnd";
 
 type Task = {
   id: string;
   text: string;
   priority: string;
+  isTimerActive?: boolean;
+  remainingTime?: number;
 };
 
 type TasksState = {
@@ -63,6 +66,8 @@ const Board = () => {
       id: Date.now().toString(),
       text: "Break Task",
       priority: "High",
+      isTimerActive: false,
+      remainingTime: 0,
     };
     setTasks((prev) => ({
       ...prev,
@@ -89,10 +94,69 @@ const Board = () => {
     return () => interval && clearInterval(interval);
   }, [isBreakTimerActive, breakTimeRemaining]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTasks((prev) => {
+        const newTasks = { ...prev };
+        let hasChanges = false;
+
+        Object.keys(newTasks).forEach((col) => {
+          newTasks[col as keyof TasksState] = newTasks[col as keyof TasksState].map((task) => {
+            if (task.isTimerActive && task.remainingTime && task.remainingTime > 0) {
+              hasChanges = true;
+              return { ...task, remainingTime: task.remainingTime - 1 };
+            }
+            return task;
+          });
+        });
+
+        return hasChanges ? newTasks : prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleStartBreak = (time) => {
     setIsBreakTimerActive(true);
     setBreakTimeRemaining(time);
     addTask("inprogress");
+  };
+
+  const handleDragEnd = (result: DropResult) => {
+    const { source, destination, draggableId } = result;
+    if (!destination) return;
+    const sourceCol = source.droppableId as keyof TasksState;
+    const destCol = destination.droppableId as keyof TasksState;
+    if (sourceCol === destCol && source.index === destination.index) return;
+
+    setTasks((prev) => {
+      const newTasks = { ...prev };
+      const sourceItems = [...newTasks[sourceCol]];
+      const [removed] = sourceItems.splice(source.index, 1);
+      newTasks[sourceCol] = sourceItems;
+      const destItems = [...newTasks[destCol]];
+      destItems.splice(destination.index, 0, removed);
+      newTasks[destCol] = destItems;
+
+      if (destCol === "inprogress") {
+        const updatedTask = {
+          ...removed,
+          isTimerActive: true,
+          remainingTime: removed.remainingTime || 5 * 60
+        };
+        const taskIndex = destItems.findIndex(task => task.id === draggableId);
+        destItems[taskIndex] = updatedTask;
+      }
+
+      if (sourceCol === "inprogress" && destCol === "completed") {
+        const updatedTask = { ...removed, isTimerActive: false };
+        const taskIndex = destItems.findIndex(task => task.id === draggableId);
+        destItems[taskIndex] = updatedTask;
+      }
+
+      return newTasks;
+    });
   };
 
   const handleApplyFilters = (filters) => {
@@ -109,7 +173,7 @@ const Board = () => {
     <>
       <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] rounded-lg">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <HeadingTwo text="My Tassssssks" className="text-[#333333]" />
+          <HeadingTwo text="My Tasks" className="text-[#333333]" />
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="grid grid-flow-col justify-center sm:justify-end gap-5 max-sm:grid-rows-2">
               <SearchInput />
@@ -139,10 +203,18 @@ const Board = () => {
           </div>
         </div>
         <div className="mt-4">
-          <Kanban tasks={tasks} setTasks={setTasks} />
+          <Kanban tasks={tasks} onDragEnd={handleDragEnd} />
         </div>
 
-        {isDrawerOpen && <TaskDrawer onClose={() => setIsDrawerOpen(false)} />}
+        {isDrawerOpen && (
+          <>
+            <div
+              className="fixed inset-0 bg-black/20 bg-opacity-30 z-40"
+              onClick={() => setIsDrawerOpen(false)}
+            />
+            <TaskDrawer onClose={() => setIsDrawerOpen(false)} />
+          </>
+        )}
         <FilterModal
           isOpen={isFilterModalOpen}
           onClose={() => setIsFilterModalOpen(false)}
