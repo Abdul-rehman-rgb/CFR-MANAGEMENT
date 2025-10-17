@@ -109,12 +109,10 @@ const Board = () => {
     <>
       <div className="grid grid-cols-1 gap-4 bg-white dark:bg-[#0D0D0D] rounded-lg">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <HeadingTwo text="My Tasks" className="text-[#333333]" />
-
+          <HeadingTwo text="My Tassssssks" className="text-[#333333]" />
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="grid grid-flow-col justify-center sm:justify-end gap-5 max-sm:grid-rows-2">
               <SearchInput />
-
               <Export
                 BtnName="Filters"
                 icon={IoFilterOutline}
