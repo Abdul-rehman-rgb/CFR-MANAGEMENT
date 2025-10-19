@@ -102,9 +102,9 @@ const Board = () => {
 
         Object.keys(newTasks).forEach((col) => {
           newTasks[col as keyof TasksState] = newTasks[col as keyof TasksState].map((task) => {
-            if (task.isTimerActive && task.remainingTime && task.remainingTime > 0) {
+            if (task.isTimerActive) {
               hasChanges = true;
-              return { ...task, remainingTime: task.remainingTime - 1 };
+              return { ...task, remainingTime: (task.remainingTime || 0) + 1 };
             }
             return task;
           });
@@ -143,7 +143,7 @@ const Board = () => {
         const updatedTask = {
           ...removed,
           isTimerActive: true,
-          remainingTime: removed.remainingTime || 5 * 60
+          remainingTime: removed.remainingTime || 0
         };
         const taskIndex = destItems.findIndex(task => task.id === draggableId);
         destItems[taskIndex] = updatedTask;

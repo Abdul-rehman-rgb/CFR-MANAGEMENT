@@ -53,6 +53,7 @@ export default function Kanban({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -98,7 +99,7 @@ export default function Kanban({
   };
 
   return (
-    <div className="bg-white dark:bg-[#0D0D0D] w-full">
+    <div className="bg-white dark:bg-[#0D0D0D] w-full relative">
       <div className="relative z-[50]">
         <div className="flex flex-nowrap items-center gap-1 sm:gap-2 overflow-x-auto">
           {tabs.map((tab) => (
@@ -137,47 +138,51 @@ export default function Kanban({
               )}
             </div>
           ))}
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full text-[#737791] border border-[#737791] hover:text-white hover:bg-[#4a4cd1] ml-1 sm:ml-2 flex-shrink-0"
-          >
-            <Plus size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-          </button>
+          <div className="relative ml-1 sm:ml-2 flex-shrink-0">
+            <button
+              ref={buttonRef}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full text-[#737791] border border-[#737791] hover:text-white hover:bg-[#4a4cd1]"
+            >
+              <Plus size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+            </button>
+            {isDropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="fixed bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-[99999] w-[90vw] max-sm:w-40 sm:w-65 max-w-[95vw] transition-all duration-300 ease-in-out"
+                style={{
+                  top: buttonRef.current ? buttonRef.current.getBoundingClientRect().bottom + window.scrollY + 8 : 'auto',
+                  left: buttonRef.current ? buttonRef.current.getBoundingClientRect().left + window.scrollX : 'auto',
+                }}
+              >
+                <div className="p-2">
+                  <input
+                    type="text"
+                    placeholder="Search users..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-[#0D0D0D] text-black dark:text-white text-sm sm:text-base"
+                  />
+                </div>
+                <div className="max-h-48 overflow-y-auto">
+                  {filteredUsers.map((user) => (
+                    <div
+                      key={user.name}
+                      onClick={() => addTab(user.name)}
+                      className="flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2a2a2a] cursor-pointer"
+                    >
+                      <img src={user.image} alt={user.name} className="w-8 h-8 rounded-full" />
+                      <span className="text-sm text-black dark:text-white">{user.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
-       {isDropdownOpen && (
-  <div
-    ref={dropdownRef}
-    className="absolute left-1/2 -translate-x-1/2 sm:left-[350px] sm:translate-x-0 top-full mt-2 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-[9999] w-[90vw] max-sm:w-40 sm:w-65 max-w-[95vw]"
-  >
-    <div className="p-2">
-      <input
-        type="text"
-        placeholder="Search users..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-[#0D0D0D] text-black dark:text-white text-sm sm:text-base"
-      />
-    </div>
-    <div className="max-h-48 overflow-y-auto">
-      {filteredUsers.map((user) => (
-        <div
-          key={user.name}
-          onClick={() => addTab(user.name)}
-          className="flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2a2a2a] cursor-pointer"
-        >
-          <img src={user.image} alt={user.name} className="w-8 h-8 rounded-full" />
-          <span className="text-sm text-black dark:text-white">{user.name}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-)}
-
-      </div>
-
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-3 md:gap-1 border-1 border-[#5D5FEF] overflow-visible">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 sm:gap-3 md:gap-1 border-1 border-[#5D5FEF] overflow-visible relative z-[10]">
           {columns.map((col) => (
             <Droppable key={col.id} droppableId={col.id}>
               {(provided) => (
@@ -250,8 +255,9 @@ export default function Kanban({
               )}
             </Droppable>
           ))}
-        </div>
-      </DragDropContext>
+          </div>
+        </DragDropContext>
+      </div>
     </div>
   );
 }
