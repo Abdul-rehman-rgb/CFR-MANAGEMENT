@@ -38,12 +38,15 @@ export const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "0px"; // Prevent layout shift
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
     }
 
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
     };
   }, [isOpen]);
 
@@ -54,7 +57,7 @@ export const Modal: React.FC<ModalProps> = ({
     : "relative w-full rounded-3xl bg-white dark:bg-[#0D0D0D]";
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center overflow-y-auto modal z-99999">
+    <div className="fixed inset-0 flex items-center justify-center overflow-y-auto modal z-99999" style={{ position: 'fixed', width: '100vw', height: '100vh' }}>
       {!isFullscreen && (
         <div
           className="fixed inset-0 h-full w-full bg-[#121212]/50 backdrop-blur-[0px]"

@@ -99,7 +99,7 @@ export default function Kanban({
   };
 
   return (
-    <div className="bg-white dark:bg-[#0D0D0D] w-full relative">
+    <div className="bg-white dark:bg-[#0D0D0D] w-full relative z-0">
       <div className="relative z-[50]">
         <div className="flex flex-nowrap items-center gap-1 sm:gap-2 overflow-x-auto">
           {tabs.map((tab) => (

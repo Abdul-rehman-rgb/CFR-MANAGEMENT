@@ -139,21 +139,24 @@ const Board = () => {
       destItems.splice(destination.index, 0, removed);
       newTasks[destCol] = destItems;
 
-      if (destCol === "inprogress") {
-        const updatedTask = {
-          ...removed,
-          isTimerActive: true,
-          remainingTime: removed.remainingTime || 0
-        };
-        const taskIndex = destItems.findIndex(task => task.id === draggableId);
-        destItems[taskIndex] = updatedTask;
+      const taskIndex = destItems.findIndex(task => task.id === draggableId);
+      const updatedTask = { ...removed };
+
+      if (sourceCol === 'todo' && destCol === 'inprogress') {
+        updatedTask.isTimerActive = true;
+      } else if (sourceCol === 'inprogress' && destCol === 'completed') {
+        updatedTask.isTimerActive = false;
+      } else if (sourceCol === 'inprogress' && destCol === 'todo') {
+        updatedTask.isTimerActive = false;
+      } else if (sourceCol === 'completed' && destCol === 'todo') {
+        updatedTask.isTimerActive = false;
+      } else if (sourceCol === 'completed' && destCol === 'inprogress') {
+        updatedTask.isTimerActive = true;
+      } else if (sourceCol === 'todo' && destCol === 'completed') {
+        updatedTask.isTimerActive = false;
       }
 
-      if (sourceCol === "inprogress" && destCol === "completed") {
-        const updatedTask = { ...removed, isTimerActive: false };
-        const taskIndex = destItems.findIndex(task => task.id === draggableId);
-        destItems[taskIndex] = updatedTask;
-      }
+      destItems[taskIndex] = updatedTask;
 
       return newTasks;
     });

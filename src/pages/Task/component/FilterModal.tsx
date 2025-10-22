@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Modal } from '../../../components/ui/modal';
 import Button from '../../../components/ui/button/Button';
 import HeadingTwo from '../../../components/ui/heading/HeadingTwo';
+import { Calendar } from 'lucide-react';
 
 interface Filters {
   status: string[];
   priority: string[];
   assignee: string[];
+  date?: string;
 }
 
 interface FilterModalProps {
@@ -19,6 +21,8 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
   const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
   const [selectedPriority, setSelectedPriority] = useState<string[]>([]);
   const [selectedAssignee, setSelectedAssignee] = useState<string[]>([]);
+  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const statusOptions = ['To Do', 'In Progress', 'Completed'];
   const priorityOptions = ['High', 'Medium', 'Low'];
@@ -52,7 +56,8 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
     onApplyFilters({
       status: selectedStatus,
       priority: selectedPriority,
-      assignee: selectedAssignee
+      assignee: selectedAssignee,
+      date: selectedDate
     });
     onClose();
   };
@@ -61,6 +66,7 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
     setSelectedStatus([]);
     setSelectedPriority([]);
     setSelectedAssignee([]);
+    setSelectedDate('');
   };
 
   return (
@@ -115,6 +121,18 @@ const FilterModal: React.FC<FilterModalProps> = ({ isOpen, onClose, onApplyFilte
                 <span className="text-sm text-gray-700 dark:text-gray-300">{assignee}</span>
               </label>
             ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Date</h3>
+          <div className="relative">
+            <input
+              type="date"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#5D5FEF]"
+            />
           </div>
         </div>
 
