@@ -15,10 +15,14 @@ import { DropResult } from "@hello-pangea/dnd";
 
 type Task = {
   id: string;
-  text: string;
+  name: string;
+  assignee: string;
   priority: string;
+  status: string;
+  createdAt: Date;
   isTimerActive?: boolean;
   remainingTime?: number;
+  description?: string;
 };
 
 type TasksState = {
@@ -29,21 +33,24 @@ type TasksState = {
 
 const initialData: TasksState = {
   todo: [
-    { id: "1", text: "Doing research on new logo design", priority: "High" },
+    { id: "1", name: "Doing research on new logo design", assignee: "John Doe", priority: "High", status: "todo", createdAt: new Date() },
     {
       id: "2",
-      text: "Working on new logo design first draft",
+      name: "Working on new logo design first draft",
+      assignee: "Jane Smith",
       priority: "High",
+      status: "todo",
+      createdAt: new Date(),
     },
-    { id: "3", text: "Shariq Sr. Designer", priority: "High" },
+    { id: "3", name: "Shariq Sr. Designer", assignee: "Alice Johnson", priority: "High", status: "todo", createdAt: new Date() },
   ],
   inprogress: [
-    { id: "4", text: "Task Name", priority: "High" },
-    { id: "5", text: "Task Name", priority: "High" },
+    { id: "4", name: "Task Name", assignee: "Bob Brown", priority: "High", status: "inprogress", createdAt: new Date() },
+    { id: "5", name: "Task Name", assignee: "Charlie Wilson", priority: "High", status: "inprogress", createdAt: new Date() },
   ],
   completed: [
-    { id: "6", text: "Task Name", priority: "High" },
-    { id: "7", text: "Task Name", priority: "High" },
+    { id: "6", name: "Task Name", assignee: "Diana Lee", priority: "High", status: "completed", createdAt: new Date() },
+    { id: "7", name: "Task Name", assignee: "Eve Davis", priority: "High", status: "completed", createdAt: new Date() },
   ],
 };
 
@@ -63,12 +70,16 @@ const Board = () => {
   const [isBreakTimerModalOpen, setIsBreakTimerModalOpen] = useState(false);
   const [breakDuration, setBreakDuration] = useState(10 * 60); // Default 10 minutes
   const [tasks, setTasks] = useState(initialData);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const addTask = (column: keyof TasksState) => {
     const newTask: Task = {
       id: Date.now().toString(),
-      text: "Break Task",
+      name: "Break Task",
+      assignee: "John Doe",
       priority: "High",
+      status: column,
+      createdAt: new Date(),
       isTimerActive: false,
       remainingTime: 0,
     };
@@ -180,6 +191,15 @@ const Board = () => {
     console.log("Applied filters:", filters);
   };
 
+  const handleCreateTask = (newTask: Task) => {
+    setTasks((prev) => ({
+      ...prev,
+      todo: [...prev.todo, newTask],
+    }));
+    setSuccessMessage("Task created successfully");
+    setTimeout(() => setSuccessMessage(""), 3000);
+  };
+
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -219,6 +239,11 @@ const Board = () => {
           </div>
         </div>
         <div className="mt-4">
+          {successMessage && (
+            <div className="mb-4 p-3 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-md text-sm">
+              {successMessage}
+            </div>
+          )}
           <Kanban tasks={tasks} onDragEnd={handleDragEnd} />
         </div>
 
@@ -228,7 +253,7 @@ const Board = () => {
               className="fixed inset-0 bg-black/20 bg-opacity-30 z-40"
               onClick={() => setIsDrawerOpen(false)}
             />
-            <TaskDrawer onClose={() => setIsDrawerOpen(false)} />
+            <TaskDrawer onClose={() => setIsDrawerOpen(false)} onCreateTask={handleCreateTask} />
           </>
         )}
         <FilterModal

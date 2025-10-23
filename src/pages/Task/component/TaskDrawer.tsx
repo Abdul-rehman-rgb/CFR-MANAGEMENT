@@ -53,9 +53,20 @@ const priorities = ["High", "Medium", "Low"];
 
 interface TaskDrawerProps {
   onClose?: () => void;
+  onCreateTask?: (task: Task) => void;
 }
 
-export default function TaskDrawer({ onClose }: TaskDrawerProps) {
+interface Task {
+  id: string;
+  name: string;
+  assignee: string;
+  priority: string;
+  status: string;
+  createdAt: Date;
+  description?: string;
+}
+
+export default function TaskDrawer({ onClose, onCreateTask }: TaskDrawerProps) {
   const [activeTab, setActiveTab] = useState("comments");
   const [taskName, setTaskName] = useState("Task name will go here");
   const [isEditingTaskName, setIsEditingTaskName] = useState(false);
@@ -64,6 +75,9 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
   const [selectedPriority, setSelectedPriority] = useState("High");
   const [isPriorityDropdownOpen, setIsPriorityDropdownOpen] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [description, setDescription] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const assigneeRef = useRef<HTMLDivElement>(null);
   const priorityRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -102,11 +116,47 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
     fileInputRef.current?.click();
   };
 
+  const handleCreateTask = () => {
+    if (!taskName.trim()) {
+      setValidationError("Task name is required");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setValidationError("");
+
+    const newTask: Task = {
+      id: Date.now().toString(),
+      name: taskName,
+      assignee: selectedAssignee,
+      priority: selectedPriority,
+      status: "todo",
+      createdAt: new Date(),
+      description: description.trim() || undefined,
+    };
+
+    onCreateTask?.(newTask);
+
+    // Reset form
+    setTaskName("Task name will go here");
+    setSelectedAssignee("John Doe");
+    setSelectedPriority("High");
+    setDescription("");
+    setSelectedFiles([]);
+    setIsSubmitting(false);
+
+    onClose?.();
+  };
+
   return (
     <div className="fixed right-0 top-0 w-full md:w-[560px] h-screen bg-white dark:bg-[#0D0D0D] shadow-lg flex flex-col p-4 border-l border-gray-200 dark:border-gray-700 z-[100000]">
       <div className="flex items-center justify-between mb-4">
-        <button className="font-medium border bg-[#5D5FEF] text-white text-center py-3 rounded-sm border-[#5D5FE1]/10 hover:border-[#5D5FEF] hover:shadow-md hover:shadow-[#5D5FEF]/30 dark:bg-[#7476F1]/10 dark:text-[#7476F1] dark:hover:border-[#5D5FEF]/30 dark:hover:shadow-md dark:hover:shadow-[#fff]/30 flex items-center gap-2 px-4 h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden w-auto">
-          Create Task
+        <button
+          onClick={handleCreateTask}
+          disabled={isSubmitting}
+          className="font-medium border bg-[#5D5FEF] text-white text-center py-3 rounded-sm border-[#5D5FE1]/10 hover:border-[#5D5FEF] hover:shadow-md hover:shadow-[#5D5FEF]/30 dark:bg-[#7476F1]/10 dark:text-[#7476F1] dark:hover:border-[#5D5FEF]/30 dark:hover:shadow-md dark:hover:shadow-[#fff]/30 flex items-center gap-2 px-4 h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? "Creating..." : "Create Task"}
         </button>
 
         <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
@@ -149,6 +199,12 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
         >
           {taskName}
         </h2>
+      )}
+
+      {validationError && (
+        <div className="mb-4 p-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-md text-sm">
+          {validationError}
+        </div>
       )}
 
       <div className="mb-2 flex flex-row justify-between">
@@ -238,6 +294,8 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
           Description
         </p>
         <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           className="w-full mt-1 p-2 border border-[#73779140] dark:border-gray-600 rounded-[8px] text-[14px] font-medium text-[#8C8C8C] dark:text-gray-300 bg-white dark:bg-[#1a1a1a] focus:outline-none focus:ring-1 focus:ring-[#5D5FEF]"
           placeholder="What is the task about"
           rows={3}

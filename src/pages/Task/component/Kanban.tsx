@@ -11,10 +11,14 @@ import star from "../../../../public/images/task/star.png";
 
 type Task = {
   id: string;
-  text: string;
+  name: string;
+  assignee: string;
   priority: string;
+  status: string;
+  createdAt: Date;
   isTimerActive?: boolean;
   remainingTime?: number;
+  description?: string;
 };
 
 type TasksState = {
@@ -220,7 +224,7 @@ export default function Kanban({
                             >
                               <div className="flex justify-between items-start mb-2 sm:mb-3">
                                 <p className="text-[#131330] dark:text-white text-[11px] sm:text-[12px] md:text-[13px] font-medium leading-snug line-clamp-2 max-w-[75%]">
-                                  {task.text}
+                                  {task.name}
                                 </p>
                                 <div className="py-1 px-2 bg-[#5D5FEF26] rounded-md flex items-center justify-center">
                                   <span className="text-[#5D5FEF] font-medium text-xs sm:text-sm">
@@ -242,8 +246,8 @@ export default function Kanban({
                                     2
                                   </span>
                                   <img
-                                    src={user}
-                                    alt="Logo"
+                                    src={users.find(u => u.name === task.assignee)?.image || user}
+                                    alt="Assignee"
                                     className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full"
                                   />
                                 </div>
