@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handleStartBreak, onExtraBreak }) => {
+const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, onOpenModal, onExtraBreak }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const breakOptions = [30, 25, 20, 15, 10, 5];
+  const breakOptions = [30, 2];
 
   return (
     <div className="relative inline-block w-full max-w-[200px] sm:max-w-[180px] max-sm:w-full">
@@ -24,7 +24,7 @@ const BreakButton = ({ isBreakTimerActive, breakTimeRemaining, formatTime, handl
             <li
               key={min}
               onClick={() => {
-                handleStartBreak(min * 60);
+                onOpenModal(min * 60);
                 setIsDropdownOpen(false);
               }}
               className="px-2 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"

@@ -21,9 +21,8 @@ const ExtraBreakModal = ({
             onChange={(e) => setExtraBreakTime(parseInt(e.target.value) * 60)}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded bg-white/30 dark:bg-gray-800/30 text-black dark:text-white placeholder:text-gray-700 dark:placeholder:text-gray-300"
           >
-            <option value={5}>5 Min</option>
-            <option value={10}>10 Min</option>
-            <option value={15}>15 Min</option>
+            <option value={2}>2 Min</option>
+            <option value={30}>30 Min</option>
           </select>
         </div>
 

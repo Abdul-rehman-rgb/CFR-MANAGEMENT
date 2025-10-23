@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import Board from "../innerpage/Board";
 import Training from "../innerpage/Training";
 import TabButtons from "./TabButtons";
-import Export from "../../../components/ui/button/Export";
-import { FiPlusCircle } from "react-icons/fi";
-// import pdfIcon from "../../../../public/images/task/pdf.png";
-import ColorfullNotes from "./ColorfullNotes";
-import ColorImagePicker from "./ColorImagePicker";
+import TakeANote from "./TakeANote";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Board");
@@ -23,29 +19,6 @@ const Tabs = () => {
     }
   };
 
-  const addNote = (color) => {
-    setNotes([
-      ...notes,
-      {
-        id: Date.now(),
-        color,
-        text: "",
-        date: new Date().toLocaleDateString("en-GB", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-        }),
-      },
-    ]);
-  };
-
-  const updateNoteText = (id, text) => {
-    setNotes(notes.map((note) => (note.id === id ? { ...note, text } : note)));
-  };
-
-  const removeNote = (id) => {
-    setNotes(notes.filter((note) => note.id !== id));
-  };
 
   return (
     <div className="w-full">
@@ -55,23 +28,10 @@ const Tabs = () => {
             <TabButtons activeTab={activeTab} onTabChange={setActiveTab} />
           </div>
           <div className="flex flex-row sm:justify-end sm:flex-row items-center gap-3 w-full sm:w-auto ">
-            <Export BtnName="Add Notes" icon={FiPlusCircle} />
-            <ColorImagePicker onAddNote={addNote} />
-
-            {/* <div className="flex justify-center sm:justify-end w-full sm:w-auto">
-              <img
-                src={pdfIcon}
-                alt="PDF Icon"
-                className="w-[102px] h-12 sm:w-14 sm:h-14 object-contain cursor-pointer hover:scale-110 transition-transform"
-              />
-            </div> */}
+            <TakeANote />
           </div>
         </div>
-        <ColorfullNotes
-          notes={notes}
-          updateNoteText={updateNoteText}
-          removeNote={removeNote}
-        />
+
         <div>{renderContent()}</div>
       </div>
     </div>

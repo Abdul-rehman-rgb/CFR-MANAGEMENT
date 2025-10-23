@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { X, Link, Paperclip, GitBranch, ChevronDown } from "lucide-react";
+import { X, Paperclip, ChevronDown } from "lucide-react";
 import user from "../../../../public/images/user/user-38.png";
 import mgsIcon from "../../../../public/images/task/msg.png";
-import Checked from "../../../../public/images/task/checked.png";
 
 const comments = [
   {
@@ -31,14 +30,23 @@ const comments = [
 const users = [
   { name: "John Doe", image: "../../../../public/images/user/user-01.jpg" },
   { name: "Jane Smith", image: "../../../../public/images/user/user-02.jpg" },
-  { name: "Alice Johnson", image: "../../../../public/images/user/user-03.jpg" },
+  {
+    name: "Alice Johnson",
+    image: "../../../../public/images/user/user-03.jpg",
+  },
   { name: "Bob Brown", image: "../../../../public/images/user/user-04.jpg" },
-  { name: "Charlie Wilson", image: "../../../../public/images/user/user-05.jpg" },
+  {
+    name: "Charlie Wilson",
+    image: "../../../../public/images/user/user-05.jpg",
+  },
   { name: "Diana Lee", image: "../../../../public/images/user/user-06.jpg" },
   { name: "Eve Davis", image: "../../../../public/images/user/user-07.jpg" },
   { name: "Frank Miller", image: "../../../../public/images/user/user-08.jpg" },
   { name: "Grace Garcia", image: "../../../../public/images/user/user-09.jpg" },
-  { name: "Henry Martinez", image: "../../../../public/images/user/user-10.jpg" },
+  {
+    name: "Henry Martinez",
+    image: "../../../../public/images/user/user-10.jpg",
+  },
 ];
 
 const priorities = ["High", "Medium", "Low"];
@@ -62,10 +70,16 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (assigneeRef.current && !assigneeRef.current.contains(event.target as Node)) {
+      if (
+        assigneeRef.current &&
+        !assigneeRef.current.contains(event.target as Node)
+      ) {
         setIsAssigneeDropdownOpen(false);
       }
-      if (priorityRef.current && !priorityRef.current.contains(event.target as Node)) {
+      if (
+        priorityRef.current &&
+        !priorityRef.current.contains(event.target as Node)
+      ) {
         setIsPriorityDropdownOpen(false);
       }
     };
@@ -78,7 +92,7 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
     if (files) {
       const fileArray = Array.from(files);
       setSelectedFiles(fileArray);
-      fileArray.forEach(file => {
+      fileArray.forEach((file) => {
         console.log("Selected file:", file.name);
       });
     }
@@ -91,12 +105,16 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
   return (
     <div className="fixed right-0 top-0 w-full md:w-[560px] h-screen bg-white dark:bg-[#0D0D0D] shadow-lg flex flex-col p-4 border-l border-gray-200 dark:border-gray-700 z-[100000]">
       <div className="flex items-center justify-between mb-4">
-        <button className="flex items-center gap-2 px-3 py-1 border rounded-lg text-[14px] font-medium text-[#333333] dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700">
-          <img src={Checked} alt="check icon" /> Mark Complete
+        <button className="font-medium border bg-[#5D5FEF] text-white text-center py-3 rounded-sm border-[#5D5FE1]/10 hover:border-[#5D5FEF] hover:shadow-md hover:shadow-[#5D5FEF]/30 dark:bg-[#7476F1]/10 dark:text-[#7476F1] dark:hover:border-[#5D5FEF]/30 dark:hover:shadow-md dark:hover:shadow-[#fff]/30 flex items-center gap-2 px-4 h-9 min-w-[120px] sm:min-w-[140px] transition-all overflow-hidden w-auto">
+          Create Task
         </button>
+
         <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-          <Link size={18} className="cursor-pointer" />
-          <Paperclip size={18} className="cursor-pointer" onClick={handlePaperclipClick} />
+          <Paperclip
+            size={18}
+            className="cursor-pointer"
+            onClick={handlePaperclipClick}
+          />
           <X size={18} className="cursor-pointer" onClick={onClose} />
           <input
             type="file"
@@ -159,8 +177,14 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
                   }}
                   className="flex items-center gap-3 p-3 hover:bg-gray-100 dark:hover:bg-[#2a2a2a] cursor-pointer"
                 >
-                  <img src={userItem.image} alt={userItem.name} className="w-8 h-8 rounded-full" />
-                  <span className="text-sm text-black dark:text-white">{userItem.name}</span>
+                  <img
+                    src={userItem.image}
+                    alt={userItem.name}
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-sm text-black dark:text-white">
+                    {userItem.name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -177,11 +201,15 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
             className="flex items-center gap-1 cursor-pointer"
             onClick={() => setIsPriorityDropdownOpen(!isPriorityDropdownOpen)}
           >
-            <span className={`text-[11px] font-semibold px-2 py-1 rounded ${
-              selectedPriority === "High" ? "bg-[#FF695B26] text-[#FF695B]" :
-              selectedPriority === "Medium" ? "bg-[#FFA50026] text-[#FFA500]" :
-              "bg-[#00800026] text-[#008000]"
-            }`}>
+            <span
+              className={`text-[11px] font-semibold px-2 py-1 rounded ${
+                selectedPriority === "High"
+                  ? "bg-[#FF695B26] text-[#FF695B]"
+                  : selectedPriority === "Medium"
+                  ? "bg-[#FFA50026] text-[#FFA500]"
+                  : "bg-[#00800026] text-[#008000]"
+              }`}
+            >
               {selectedPriority}
             </span>
             <ChevronDown size={14} className="text-[#131330] dark:text-white" />
@@ -223,9 +251,17 @@ export default function TaskDrawer({ onClose }: TaskDrawerProps) {
           </p>
           <div className="space-y-2">
             {selectedFiles.map((file, index) => (
-              <div key={index} className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-[#1a1a1a] rounded-lg">
-                <Paperclip size={14} className="text-gray-500 dark:text-gray-400" />
-                <span className="text-sm text-[#131330] dark:text-white">{file.name}</span>
+              <div
+                key={index}
+                className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-[#1a1a1a] rounded-lg"
+              >
+                <Paperclip
+                  size={14}
+                  className="text-gray-500 dark:text-gray-400"
+                />
+                <span className="text-sm text-[#131330] dark:text-white">
+                  {file.name}
+                </span>
               </div>
             ))}
           </div>

@@ -9,6 +9,7 @@ import TaskDrawer from "../component/TaskDrawer";
 import FilterModal from "../component/FilterModal";
 import BreakButton from "../component/BreakButton";
 import ExtraBreakModal from "../component/ExtraBreakModal";
+import BreakTimerModal from "../component/BreakTimerModal";
 import { IoFilterOutline } from "react-icons/io5";
 import { DropResult } from "@hello-pangea/dnd";
 
@@ -59,6 +60,8 @@ const Board = () => {
   const [isExtraBreakModalOpen, setIsExtraBreakModalOpen] = useState(false);
   const [extraBreakTime, setExtraBreakTime] = useState(5 * 60);
   const [extraBreakReason, setExtraBreakReason] = useState("");
+  const [isBreakTimerModalOpen, setIsBreakTimerModalOpen] = useState(false);
+  const [breakDuration, setBreakDuration] = useState(10 * 60); // Default 10 minutes
   const [tasks, setTasks] = useState(initialData);
 
   const addTask = (column: keyof TasksState) => {
@@ -121,6 +124,16 @@ const Board = () => {
     setIsBreakTimerActive(true);
     setBreakTimeRemaining(time);
     addTask("inprogress");
+  };
+
+  const handleOpenBreakModal = (duration) => {
+    setBreakDuration(duration);
+    setIsBreakTimerModalOpen(true);
+  };
+
+  const handleBreakEnd = () => {
+    setIsBreakTimerActive(false);
+    setBreakTimeRemaining(30 * 60);
   };
 
   const handleDragEnd = (result: DropResult) => {
@@ -199,7 +212,7 @@ const Board = () => {
                 isBreakTimerActive={isBreakTimerActive}
                 breakTimeRemaining={breakTimeRemaining}
                 formatTime={formatTime}
-                handleStartBreak={handleStartBreak}
+                onOpenModal={handleOpenBreakModal}
                 onExtraBreak={() => setIsExtraBreakModalOpen(true)}
               />
             </div>
@@ -232,6 +245,14 @@ const Board = () => {
           setExtraBreakReason={setExtraBreakReason}
           onStartBreak={handleStartBreak}
         />
+        <BreakTimerModal
+          isOpen={isBreakTimerModalOpen}
+          onClose={() => setIsBreakTimerModalOpen(false)}
+          duration={breakDuration}
+          onBreakEnd={handleBreakEnd}
+        />
+
+      
       </div>
     </>
   );

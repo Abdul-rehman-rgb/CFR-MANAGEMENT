@@ -202,7 +202,7 @@ export default function Kanban({
                   <div className="max-h-[250px] sm:max-h-[300px] md:max-h-[350px] overflow-y-auto pr-1">
                     {tasks[col.id as keyof TasksState].map(
                       (task: Task, index: number) => (
-                        <Draggable key={task.id} draggableId={task.id} index={index}>
+                        <Draggable key={task.id} draggableId={task.id} index={index} isDragDisabled={col.id === 'completed'}>
                           {(provided, snapshot) => (
                             <div
                               ref={provided.innerRef}
@@ -212,7 +212,11 @@ export default function Kanban({
                                 ...provided.draggableProps.style,
                                 zIndex: snapshot.isDragging ? 1000 : 'auto',
                               }}
-                              className="bg-gradient-to-r from-[#5D60EF]/10 to-[#BAFF86]/10 dark:bg-[#0D0D0D] p-3 sm:p-3 md:p-4 mb-3 sm:mb-3 md:mb-4 rounded-lg relative"
+                              className={`p-3 sm:p-3 md:p-4 mb-3 sm:mb-3 md:mb-4 rounded-lg relative ${
+                                col.id === 'completed'
+                                  ? 'bg-gray-100 dark:bg-gray-800 opacity-60'
+                                  : 'bg-gradient-to-r from-[#5D60EF]/10 to-[#BAFF86]/10 dark:bg-[#0D0D0D]'
+                              }`}
                             >
                               <div className="flex justify-between items-start mb-2 sm:mb-3">
                                 <p className="text-[#131330] dark:text-white text-[11px] sm:text-[12px] md:text-[13px] font-medium leading-snug line-clamp-2 max-w-[75%]">
